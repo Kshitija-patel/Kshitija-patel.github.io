@@ -30,6 +30,14 @@ includes following functionality.
 
 
 ## 3) Shubham
+  - Feature One: Learning Rooms
+  1. Add New Rooms
+  2. Edit Rooms
+  3. Listing Rooms
+  4. Deleting Rooms
+
+  - Feature Two: Tutor Apoointment
+    [CRUD on Tutor Appointments]
 
 
 
