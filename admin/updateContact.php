@@ -1,7 +1,61 @@
     <?php
+         require_once '../database/classes/connect.php';
+         require_once '../database/classes/ContactContext.php';
         $heading = $description = $emailTitle = $email = $phoneTitle = $phone = $addressTitle = $address = $latitude = $longitude = $userNameTitle = $userPhoneTitle = $userEmailTitle = $subjectTitle = $messageTitle = "";
         $headingErr = $descriptionErr = $emailTitleErr = $emailErr = $phoneTitleErr = $phoneErr = $addressTitleErr = $addressErr = $latitudeErr = $longitudeErr = $userNameTitleErr = $userPhoneTitleErr = $userEmailTitleErr = $subjectTitleErr = $messageTitleErr = "";
+
+        if(isset($_POST['updateContact'])){
+            $id = $_POST['id'];
+            $db = Database::getDb();
+
+            $c  = new Contact();
+            $contact = $c->getContactById($id,$db);
+
+            $heading = $contact->heading;
+            $description = $contact->description;
+            $emailTitle = $contact->email_title;
+            $email = $contact->email;
+            $phoneTitle =$contact->phone_title;
+            $phone = $contact->phone;
+            $addressTitle =  $contact->address_title;
+            $address = $contact->address;
+            $latitude = $contact->latitude;
+            $longitude = $contact->longitude;
+            $userNameTitle = $contact->user_name_title;
+            $userPhoneTitle = $contact->user_phone_title;
+            $userEmailTitle =  $contact->user_email_title;
+            $subjectTitle = $contact->subject_title;
+            $messageTitle = $contact->message_title;
+
+        }
         if(isset($_POST["update"])){
+            $id = $_POST['id'];
+            $heading = $_POST['heading'];
+            $description = $_POST['description'];
+            $emailTitle  = $_POST['email-title'];
+            $email = $_POST['email'];
+            $phoneTitle = $_POST['phone-title'];
+            $phone = $_POST['phone'];
+            $addressTitle = $_POST['address-title'];
+            $address = $_POST['address'];
+            $latitude = $_POST['latitude'];
+            $longitude = $_POST['longitude'];
+            $userNameTitle = $_POST['user-name-title'];
+            $userPhoneTitle = $_POST['user-phone-title'];
+            $userEmailTitle =  $_POST['user-email-title'];
+            $subjectTitle = $_POST['subject-title'];
+            $messageTitle = $_POST['message-title'];
+
+            $db = Database::getDb();
+            $c =  new Contact();
+            $count  = $c->updateContact($id, $heading, $description, $emailTitle, $email, $phoneTitle, $phone, $addressTitle, $address, $latitude, $longitude, $userNameTitle, $userPhoneTitle, $userEmailTitle, $subjectTitle, $messageTitle, $db);
+
+            if($count){
+                header('Location: showContact.php');
+            } else {
+                echo "problem";
+            }
+        
             if(empty($_POST["heading"])){
                 $headingErr = "Heading is required";
             } else {
@@ -98,7 +152,7 @@
                 $messageTitle = check_input($_POST["message-title"]);
             }
 
-            header('Location: ../addContact.php');
+           
         }
 
         function check_input($input){
@@ -119,6 +173,7 @@
                                 <span class="card-title">Update Contact Information</span>
                                 <div class="row">
                                     <form class="col s12" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                                        <input type="hidden" name="id" value="<?= $id;?>" />
                                         <div class="row margin-bottom-none">
                                             <div>
                                                 <input id="add-contact-title" name="heading" value="<?= $heading;?>" type="text"  class="add-contact-title" placeholder="Contact Heading">
@@ -216,8 +271,7 @@
                                                         </button>
                                                     </div>
                                                     <div>
-                                                        <button class="btn waves-effect waves-light contact-submit add-contact-btn" type="submit" name="cancel" value="cancel" onClick="document.location.href = 'showContact.php'">Cancel
-                                                        </button>
+                                                    <a class="waves-effect waves-light btn-small add-contact-btn" href="showContact.php">Cancel</a>
                                                     </div>
                                                 </div> 
                                             </div>

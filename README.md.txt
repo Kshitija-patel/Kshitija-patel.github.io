@@ -43,10 +43,17 @@ includes following functionality.
 
 ## 4) Kshitija
 
-  1] Feature: FAQ 
-  -Add new FAQ
-  -List all FAQ
-  -Update FAQ
-  -Delete FAQ
+
 
 ## 5) Maitri
+- Feature One : Website contact us details and the list of users who fill in the form of contact page.This feature is completed and working, which
+includes following functionality.
+  1. Add website contact details.
+  2. Update contact details.
+  3. Show contact details on user as well as on admin side. 
+  4. Add user contact details
+  5. List of all user contact details.
+  6. Delete user contact details.
+  7. Search user contact details.
+ 
+ 

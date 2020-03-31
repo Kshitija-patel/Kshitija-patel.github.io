@@ -1,11 +1,10 @@
 <?php
-        require_once '../database/connect.php';
+        require_once '../database/classes/connect.php';
         require_once '../database/classes/ContactContext.php';
         $heading = $description = $emailTitle = $email = $phoneTitle = $phone = $addressTitle = $address = $latitude = $longitude = $userNameTitle = $userPhoneTitle = $userEmailTitle = $subjectTitle = $messageTitle = "";
         $headingErr = $descriptionErr = $emailTitleErr = $emailErr = $phoneTitleErr = $phoneErr = $addressTitleErr = $addressErr = $latitudeErr = $longitudeErr = $userNameTitleErr = $userPhoneTitleErr = $userEmailTitleErr = $subjectTitleErr = $messageTitleErr = "";
 
         $errFound = false;
-
         if(isset($_POST["add"])){
             if(empty($_POST["heading"])){
                 $headingErr = "Heading is required";
@@ -116,7 +115,6 @@
             } else {
                 $messageTitle = check_input($_POST["message-title"]);
             }
-
             if(!$errFound){
                 $db = Database::getDb();
                 $c = new Contact();
@@ -128,10 +126,7 @@
                     echo "problem adding contact";
                 } 
             }
-
-           
         }
-
         function check_input($input){
             $input = trim($input);
             $input = stripslashes($input);
