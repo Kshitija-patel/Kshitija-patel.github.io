@@ -69,5 +69,16 @@ class FaqContext extends Database
         return $faqs;
 
     }
+    public function Search($faqsearchkey)
+    {
+        $sql = "SELECT * FROM faqs where LOWER(question) LIKE :faqsearchkey";
+        $pdostm = parent::getDb()->prepare($sql);
+        $faqsearchkey = '%' . strtolower($faqsearchkey) . '%';
+        $pdostm->bindParam(':faqsearchkey', $faqsearchkey);
+        $pdostm->execute();
+
+        $faqs = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        return $faqs;
+    }
 
 }

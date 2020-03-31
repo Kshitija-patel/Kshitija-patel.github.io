@@ -64,8 +64,7 @@ if(isset($_POST["update"])){
                                         <div class="input-field col s12">
                                             <button class="btn waves-effect waves-light" name="update" type="submit" >Update
 </button>
-                                            <button class="btn waves-effect waves-light" type="submit" name="clear">Clear
-                                            </button>
+<a class="btn waves-effect waves-light" href="faqList.php">Cancel</a>                                    
                                         </div>
                                 </form>
                             </div>

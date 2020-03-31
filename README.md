@@ -39,14 +39,11 @@ includes following functionality.
   - Feature Two: Tutor Apoointment
     [CRUD on Tutor Appointments]
 
-
-
 ## 4) Kshitija
-
-  1] Feature: FAQ 
-  -Add new FAQ
-  -List all FAQ
-  -Update FAQ
-  -Delete FAQ
+  - Feature One: FAQ 
+  1. Add new FAQ
+  2. List all FAQ
+  3. Update FAQ
+  4. Delete FAQ
 
 ## 5) Maitri

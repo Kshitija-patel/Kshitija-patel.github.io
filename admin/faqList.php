@@ -21,6 +21,11 @@ if (isset($_POST["delete"])) {
   }
 }
 
+if (isset($_POST["searchFaq"])) {
+  $faqsearchkey = $_POST["faqsearchkey"];
+  $f = new FaqContext();
+  $faqs = $f->Search($faqsearchkey);
+}
 
 ?>
 
@@ -32,14 +37,14 @@ if (isset($_POST["delete"])) {
         <h5 class="breadcrumbs-title">FAQs</h5>
       </div>
       <div class="row">
-        <form>
+        <form method="POST">
           <div class="input-field col s12 m12 l4">
-            <input id="first_name" type="text" class="validate search-box">
-            <label for="first_name" class="serach-label">Search faq...</label>
+            <input id="faqsearchkey" name="faqsearchkey" type="text" class="validate search-box">
+            <label for="faqsearchkey" class="serach-label">Search faq...</label>
           </div>
 
           <div class="input-field col s12 m12 l2">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Search
+            <button class="btn waves-effect waves-light" type="submit" name="searchFaq">Search
               <i class="material-icons right">search</i>
             </button>
           </div>
