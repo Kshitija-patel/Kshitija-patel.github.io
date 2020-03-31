@@ -3,37 +3,43 @@ require_once "../includes/adminHeader.php";
 
     require_once "../database/LearningRoomDb.php";
     require_once "../database/classes/models/LearningRoom.php";
-
+    // if a user get an action from post request
     if(isset($_GET['action'])){
+        //if u get an action where it is delete  and also id is set for deleting specific id
 		if($_GET['action']=="delete" && isset($_GET['id'])){
             $id = $_GET['id'];
 		}
     }
+    //empty the string value
     $noRooms ="";
     $addUpdateMsg = "";
-    $learningRoomDb = new LearningRoomDb();     //
+    // initialise the CRUD class
+    $learningRoomDb = new LearningRoomDb();
+    //calling the list method from Learning Room Db class
     $Room = $learningRoomDb->ListAll();
 
-    
+    // if a request is received from deleteRoom button
     if (isset($_POST["deleteRoom"])) {
         $roomid = $_POST["learningRoomId"];
-        // echo $_POST["learningRoomId"];
 
+        //calling learningRoomdb class for fetching and deleteing particular room id
         $learningRoomDb = new LearningRoomDb();
+        //passing room id and calling learningRoom Db class
         $numRowsAffected = $learningRoomDb->Delete($roomid);
         
-        if ($numRowsAffected) {
+        if ($numRowsAffected) { 
+                //if a room is deleted it will list method
             $learningRoomDb = new LearningRoomDb();
-            $Room = $learningRoomDb->ListAll();
+            $Room = $learningRoomDb->ListAll(); //calling the list method
         } else {
             echo "Problem in Deleting!!";
         }
     }
-       
+       //if a request received from searchroom button if go in this "if statement"
     if (isset($_POST["searchRoomBtn"])) {
-        $searchKey = $_POST["roomsearch"];
+        $searchKey = $_POST["roomsearch"];  //getting the search value and storing in $searchkey variable
         $learningRoomDb = new LearningRoomDb();
-        $Room = $learningRoomDb->Search($searchKey);
+        $Room = $learningRoomDb->Search($searchKey);    //calling search method and passing the variable
         if(!$Room){
             $noRooms = "<tr><td colspan=2>Sorry!! No rooms found!!</td></tr>";
         }
@@ -59,7 +65,7 @@ require_once "../includes/adminHeader.php";
                             </button>
                         </div>
                     </form>
-                <span><?=$addUpdateMsg;?></span>
+                <span><?=$addUpdateMsg;?></span>    
                 </div>
                 
                 <div class="row">
@@ -81,32 +87,36 @@ require_once "../includes/adminHeader.php";
                                     </thead>
                                     <tbody>
                                     <?php 
-                                    echo $noRooms;
-                                    foreach($Room as $value){?>
+                                    echo $noRooms;  // this will display if there are no rooms if a user is searching which is not in the list
+                                    foreach($Room as $value){?>     <!--a loop to display the list of all rooms-->
                                         <!-- echo " -->
                                     <tr>
-                                        <td><?=$value->room_number?></td>
+                                        <!-- calling data[specific row data] using $value-->
+                                        <td><?=$value->room_number?></td>   
                                         <td><?=$value->created_datetime?></td>
                                         <td>
+                                            <!-- a button which is a hyperlink to edit specific room, also passing that particular room id -->
                                             <a href='LearningRoomEdit.php?id=<?=$value->id?>' name='edit_room'><i class='material-icons blue-text'>create</i></a>
-
+                                            <!-- for storing specific room id in variable which can be passed to the modal popup -->
                                             <?php $roomid = "roomid".$value->id; ?> <!-- for storing rooom id for transfer to modal pop up-->
-
+                                            <!-- passing the room id with # to a pop up -->
                                             <a class='modal-trigger cursor-pointer' href='#<?=$roomid?>'>
                                                 <i class='material-icons red-text'>delete</i>
                                             </a>
                                         </td>
                                     </tr>
                                     <!--  -->
-                                    <!--- modal pop up for delete --->
+                                    <!--- modal pop up for delete that particular room--->
                                     <div id='roomid<?=$value->id?>' class='modal modal-learning-popup'>
                                         <div class='modal-content'>
                                         <h4>Are you sure?</h4>
                                         <p>Do you really want to delete this room?</p>
                                         </div>
                                         <div class='modal-footer-LearningRoom'>
+                                            <!-- a form that will redirect to the same page -->
                                             <form method="post">
                                                 <div class="modal-footer">
+                                                    <!-- a field which is hidden as we will be passing that learning room id in the form for deleting that room -->
                                                     <input type="hidden" name="learningRoomId" value="<?=$value->id;?>">
                                                     <a href="#!" class="modal-action modal-close waves-effect waves-white btn-flat">Close</a>
                                                     <button class="btn waves-effect waves-light delete-btn-learningRoom"
@@ -120,7 +130,6 @@ require_once "../includes/adminHeader.php";
                                         </div>
                                     </div>
                                 <?php }  ?>
-                                     
                                      
                                     </tbody>
                                 </table>
@@ -144,5 +153,4 @@ require_once "../includes/adminHeader.php";
         </div>
     </main>
 <?php
-         //}
  require_once "../includes/adminFooter.php" ?>

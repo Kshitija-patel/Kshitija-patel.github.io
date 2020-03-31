@@ -124,8 +124,6 @@
                                     </div>
                                     <div>
                                         <a class="waves-effect waves-light btn-small add-contact-btn" href="thankyouUser.php">Cancel</a>
-                                    </div>
-                                    <div>
                                         <button class="btn waves-effect waves-light contact-submit" type="submit" name="action">Submit
                                         </button>
                                     </div>
