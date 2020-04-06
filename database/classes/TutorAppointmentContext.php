@@ -1,5 +1,5 @@
 <?php
-
+ require_once "../includes/adminHeader.php";
 require_once "connect.php";
 include_once "../database/classes/models/TutorAppointment.php";      //CRUD operations file
 class TutorAppointmentContext extends Database
@@ -11,9 +11,12 @@ class TutorAppointmentContext extends Database
     public function getTutorSubject($subject_id)
     {
       $sql = "select TS.id AS tutor_subject_id,TS.tutor_id AS tutor_subject_tutor_id, TS.subject_id AS tutor_subject_subject_id,
-T.id AS tutors_tutor_id,T.user_id AS tutors_user_id,T.qualification AS tutors_qualification,T.experience AS tutors_experience,T.tutor_field AS tutors_tutor_field, T.hourly_rate AS tutors_hourly_rate, 
+T.id AS tutors_tutor_id,T.user_id AS tutors_user_id,T.qualification AS tutors_qualification,T.experience AS tutors_experience,T.tutor_field AS tutors_tutor_field, T.hourly_rate AS tutors_hourly_rate, S.title AS subject_title,
 U.id AS users_id, U.first_name AS users_first_name, U.last_name AS user_last_name, U.email AS user_email, U.role_id AS users_role_id
-      from tutor_subject TS inner join tutors T on TS.tutor_id = T.id inner join users U on T.user_id = U.id where TS.subject_id = :subject_id";
+      from tutor_subject TS inner join tutors T on TS.tutor_id = T.id
+                            inner join users U on T.user_id = U.id 
+                            inner join subjects S on TS.subject_id = S.id
+                            where TS.subject_id = :subject_id";
       $pdostm = parent::getDb()->prepare($sql);
       $pdostm->bindParam(':subject_id', $subject_id); 
       
@@ -21,7 +24,15 @@ U.id AS users_id, U.first_name AS users_first_name, U.last_name AS user_last_nam
       $tutor = $pdostm->fetch(PDO::FETCH_ASSOC);
       return $tutor;
     }
-
+/*
+    public function getRoleId($user_id)
+    {
+      $sql = "select * from users WHERE id = $user_id";
+      $pdostm = parent::getDb()->prepare($sql);
+      $pdostm->execute();
+      $role = $pdostm->fetchAll(PDO::FETCH_ASSOC);
+      return $role;
+    }*/
 
     public function getAllTutors()
     {
@@ -59,6 +70,25 @@ U.id AS users_id, U.first_name AS users_first_name, U.last_name AS user_last_nam
         $numRowsAffected = $pdostm->execute();
         return $numRowsAffected;
 
+    }
+    public function ListAll($userId)
+    {
+      // require_once "../includes/adminHeader.php";
+      // echo $sessionData->userId;
+        $sql = "SELECT * FROM tutor_appointment_bookings where user_id = $userId";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->execute();
+        $tutor_appointment_bookings = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        return $tutor_appointment_bookings;
+    }
+    public function Delete($id)
+    {
+        $sql = "DELETE FROM tutor_appointment_bookings WHERE id = :id";
+
+        $pst = parent::getDb()->prepare($sql);
+        $pst->bindParam(':id', $id);
+        $count = $pst->execute();
+        return $count;
     }
 
 }

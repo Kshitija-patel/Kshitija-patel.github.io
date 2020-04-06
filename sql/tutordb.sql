@@ -180,6 +180,18 @@ CREATE TABLE tutor_subject	 (
   FOREIGN KEY(subject_id) REFERENCES tutors(id)
 );
 
+CREATE TABLE job_applications	 (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  firstname	varchar(100) NOT NULL,
+  lastname	varchar(100) NOT NULL,
+  email	varchar(300) NOT NULL,
+  phone_number	varchar(300) NOT NULL,
+  resume_filename varchar(300) NOT NULL,
+  applied_on datetime,
+  job_id int NOT NULL,
+  FOREIGN KEY(job_id) REFERENCES job_post(id),
+);
+
 CREATE TABLE faqs	 (
   id int PRIMARY KEY AUTO_INCREMENT,
   question	varchar(200) NOT NULL,

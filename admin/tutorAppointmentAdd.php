@@ -1,4 +1,5 @@
 <?php
+     require_once "../includes/adminHeader.php";
     include_once "../database/classes/TutorContext.php";
     include_once "../database/classes/SubjectContext.php";
     include_once "../database/classes/TutorAppointmentContext.php";
@@ -6,7 +7,10 @@
     include_once "../database/classes/models/TutorAppointment.php";      //CRUD operations file
     
     require_once "../database/classes/models/LearningRoom.php";
+    // var_dump($_SESSION);
     // $tutor_name ="";
+    echo $sessionData->roleId;
+
     $tutor = new TutorContext();
     $tutors = $tutor->getAllTutors();
     
@@ -27,6 +31,7 @@
             $message = $_POST['appointMsg']; //message
             // echo "Users user id : ". implode(', ', $result);
             $user_id = $result['users_id'];   //user id
+            $user_id = $sessionData->userId;   //user id
             $tutor_id = $result['tutors_tutor_id'];   
             $learning_room_id = $_POST['room_no'];   
             $is_confirmed = 0;
@@ -47,9 +52,9 @@
 
            $result = $TutorAppointmentContext->Add($TutorAppointment);
            if($result){
-               echo "True";
+            //    echo "True";
            }else{
-               echo "False";
+            //    echo "False";
            }
 
     }
