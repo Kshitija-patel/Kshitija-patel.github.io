@@ -85,6 +85,7 @@ CREATE TABLE mock_questions (
   subject_id	int NOT NULL,
   question varchar(200) NOT NULL,
   marks	int  NOT NULL,
+  answer int,
   created_datetime	datetime,
   updated_datetime	datetime,
   FOREIGN KEY(tutor_id) REFERENCES tutors(id),

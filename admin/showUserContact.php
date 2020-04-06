@@ -12,11 +12,6 @@ require_once '../database/classes/UserContactContext.php';
     $db = Database::getDb();
     $noContact ="";
     $addUpdateMsg ="";
-    // $name ="";
-    // $phone = "";
-    // $email = "";
-    // $subject = "";
-    // $message = "";
     $uc = new UserContact();     //
     $contacts = $uc->getAllUserContacts($db);
 

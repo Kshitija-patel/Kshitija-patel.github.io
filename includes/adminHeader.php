@@ -48,6 +48,7 @@ else
                     <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Materials</a></li>
                     <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
                     <li><a href="../admin/jobPosts.php"><i class="material-icons">work</i>Job Openings</a></li>
+                    <li><a href="../admin/jobApplications.php"><i class="material-icons">picture_as_pdf</i>Job Applications</a></li>
                     <li><a href="#!"><i class="material-icons">help_outline</i>FAQs</a></li>
                     <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
                     <li><a href="showContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
@@ -73,6 +74,7 @@ else
         <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Places</a></li>
         <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
         <li><a href="../admin/jobPosts.php"><i class="material-icons">work</i>Job Openings</a></li>
+        <li><a href="../admin/jobApplications.php"><i class="material-icons">picture_as_pdf</i>Job Applications</a></li>
         <li><a href="faqList.php"><i class="material-icons">help_outline</i>FAQs</a></li>
         <li><a href="showContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
         <li><a href="showUserContact.php"><i class="material-icons">contacts</i> User Contacts </a></li>

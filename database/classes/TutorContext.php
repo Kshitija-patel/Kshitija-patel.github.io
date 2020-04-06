@@ -20,7 +20,7 @@ class TutorContext extends Database
 
     public function getAllTutors()
     {
-      $sql = "select * from tutors t, users u where u.id = t.user_id";
+      $sql = "select * from users u, tutors t where u.id = t.user_id";
       $pdostm = parent::getDb()->prepare($sql);
       $pdostm->execute();
       $tutors = $pdostm->fetchAll(PDO::FETCH_ASSOC);

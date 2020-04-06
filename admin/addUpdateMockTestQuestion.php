@@ -35,7 +35,7 @@ if(isset($_POST['addUpdateMockTestQuestion'])) {
               <div class="modal-content">
                 <div class="row">
                 <div class="input-field col s12 m12 l6">
-                  <select class="browser-default" name="tutor"> 
+                  <select class="browser-default" name="tutor" required> 
                   <option value='' selected>---Select Tutor---</option>
                   <?php
                     foreach ($tutors as $tutor) { 
@@ -45,7 +45,7 @@ if(isset($_POST['addUpdateMockTestQuestion'])) {
                   </select>
                 </div>
                 <div class="input-field col s12 m12 l6">
-                  <select class="browser-default" name="subject"> 
+                  <select class="browser-default" name="subject" required> 
                   <option value='' selected>---Select Subject---</option>
                   <?php
                     foreach ($subjects as $subject) { 

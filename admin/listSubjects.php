@@ -1,4 +1,42 @@
-<?php require_once "../includes/adminHeader.php" ?>
+<?php 
+    require_once "../includes/adminHeader.php";
+    require_once "../database/classes/connect.php";
+    require_once "../database/classes/SubjectContext.php";
+
+    if(isset($_GET['action'])){
+        if($_GET['action']=="delete" && isset($_GET['id'])){
+            $id = $_GET['id'];
+        }
+    }
+
+    $db = Database::getDb();
+    $noSubject = "";
+    
+    $s = new SubjectContext();
+    $subjects = $s->getAllSubjects($db);
+
+    if(isset($_POST['deleteSubject'])){
+        $id = $_POST["id"];
+
+        $s = new SubjectContext();
+        $numRowsAffected = $s->deleteSubject($id,$db);
+
+        if($numRowsAffected){
+            $subjects = $s->getAllSubjects($db);
+        } else{
+            echo "Problem in Deleting!!";
+        }
+    }
+
+    if(isset($_POST["searchContactBtn"])){
+        $searchKey = $_POST["subjectSearch"];
+        $subjects = $s->Search($searchKey,$db);
+        if(!$subjects){
+            $noSubject = "<tr><td colspan=2>Sorry!! No Subject Found!!</td></tr>";
+        }
+    }
+
+?>
     <main class="adminmain admin-mock-tests">
         <div class="section no-pad-bot" id="index-banner">
             <div class="row">
@@ -8,24 +46,32 @@
                 <div class="row">
                     <form>
                         <div class="input-field col s12 m12 l4">
-                            <input id="first_name" type="text" class="validate search-box">
-                            <label for="first_name" class="serach-label">Search subjects...</label>
+                            <input id="subjectSearch" type="text" class="validate search-box">
+                            <label for="subjectSearch" class="serach-label">Search subjects...</label>
                         </div>
                         <div class="input-field col s12 m12 l3">
                             <select class="browser-default">
                                 <option value="" disabled selected>Select Field</option>
-                                <option value="1">Science </option>
-                                <option value="2">Commerce</option>
-                                <option value="3">Arts</option>
+                                <option value="WebDevelopment">Web Development </option>
+                                <option value="WebDesign">Web Design</option>
+                                <option value="ITSolution">IT Solution</option>
+                                <option value="GameProgramming">Game Programming</option>
+                                <option value="ProjectManagement">Project Management</option>
                             </select>
                         </div>
                         <div class="input-field col s12 m12 l3">
                             <select class="browser-default">
                                 <option value="" disabled selected>Select Subject</option>
-                                <option value="1">Physics</option>
-                                <option value="2">Accounts</option>
-                                <option value="3">History</option>
-                                <option value="4">Chemistry</option>
+                                <option value="WebProgramming">Web Programming</option>
+                                <option value="XML">XML</option>
+                                <option value="SecurityAndQuality">Security And Quality</option>
+                                <option value="WebProduction">Web Production</option>
+                                <option value="OperatingSystems">Operating Systems</option>
+                                <option value="JavaProgramming">Java Programming</option>
+                                <option value="Database">Database</option>
+                                <option value="GameConcepts">Game Concepts</option>
+                                <option value="GameDesign">Game Design</option>
+                                <option value="ProjectCommunications">Project Communications</option>
                             </select>
                         </div>
                         <div class="input-field col s12 m12 l2">

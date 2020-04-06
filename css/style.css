@@ -47,6 +47,12 @@
     padding-top: 6px !important;
 }
 
+.fixed-card-height {
+    height: 213px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 
 nav .dropdown-content {
     top: 65px !important;

@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require_once "ConstantStr.php";
 
-require_once "vendor/autoload.php";
+require_once "../vendor/autoload.php";
 
 class EmailUtility
 {
@@ -53,6 +53,14 @@ class EmailUtility
     {
         $emailtemplate = "<div><b> Hi " . $firstname . ",</b></div><p> You recently requested to reset your password for your iTutor Account.Please Click the below link to reset it.</p>" .
             "<div><a href='". $link ."'>".$link."</a></div><br/><br/><div>Thanks,</div><div>The iTutor Team</div>";
+
+        return $emailtemplate;
+
+    }
+
+    public static function JobApplicationTemplate($firstname, $message)
+    {
+        $emailtemplate = "<div><b> Hi " . $firstname . ",</b></div><p>".$message."</p><br/><br/><div>Thanks,</div><div>The iTutor Team</div>";
 
         return $emailtemplate;
 

@@ -40,6 +40,16 @@ if(isset($_POST['addUpdateMockTestOption'])) {
                     <input type="text" id="mockTestOptionInput" class="validate" value="<?= ($page == 'Update') ? htmlspecialchars($option['option_value']) : ""; ?>" name="optionValue" required>
                     <label for="mockTestOptionInput" class="serach-label">Enter Option Value *</label>
                   </div>
+                  <?php if($page == 'Update') { ?>
+                    <div class="input-field col s12">
+                      <p>
+                        <label>
+                          <input type="checkbox" name="isAnswer" class="filled-in" <?= $option['isAnswer'] ? "checked='checked'" : ""; ?> />
+                          <span>This is the correct answer!</span>
+                        </label>
+                      </p>
+                    </div>
+                  <?php } ?>
                   <div class="input-field col s12">
                     <button class="btn waves-effect waves-light" type="submit" name="addUpdateMockTestOption">Submit
                     </button>

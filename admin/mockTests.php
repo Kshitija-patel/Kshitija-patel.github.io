@@ -3,14 +3,17 @@ include_once "../database/classes/MockTestQuestionContext.php";
 $mockTestQuestions = new MockTestQuestionContext();
 if(isset($_GET['deleteQuestion'])) {
   $mockTestQuestions->deleteMockTestQuestion($_GET['deleteQuestion']);
-  header('location: mockTests.php?tab=questions');
+  // header('location: mockTests.php?tab=questions');
 } else if(isset($_GET['deleteOption'])) {
   $mockTestQuestions->deleteMockTestOption($_GET['deleteOption']);
   header('location: mockTests.php?tab=questions');
 }
-
 $mockQuestions = $mockTestQuestions->getMockTestQuestions(null, (isset($_GET['searchQuestion']) && $_GET['searchQuestion'] != '') ? $_GET['searchQuestion'] : null, (isset($_GET['subjectQuestion']) && $_GET['subjectQuestion'] != '') ? $_GET['subjectQuestion'] : null, (isset($_GET['tutorQuestion']) && $_GET['tutorQuestion'] != '') ? $_GET['tutorQuestion'] : null);
 
+include_once "../database/classes/MockTestContext.php";
+$mockTestsContext = new MockTestContext();
+
+$mockTests = $mockTestsContext->getMockTests(null, (isset($_GET['searchTest']) && $_GET['searchTest'] != '') ? $_GET['searchTest'] : null, (isset($_GET['subjectTest']) && $_GET['subjectTest'] != '') ? $_GET['subjectTest'] : null, (isset($_GET['tutorTest']) && $_GET['tutorTest'] != '') ? $_GET['tutorTest'] : null);
 
 include_once "../database/classes/SubjectContext.php";
 $subject = new SubjectContext();
@@ -30,6 +33,7 @@ if(isset($_GET['tab'])) {
 <main class="adminmain admin-mock-tests">
   <div class="section no-pad-bot" id="index-banner">
     <div class="row">
+    <form action="" method="GET">
       <div class="col s12">
         <ul class="tabs">
           <li class="tab col s6 m5 l4"><a <?= ($tab == 'tests') ? "class='active'" : ""; ?> href="#MockTest">Mock Tests</a></li>
@@ -39,26 +43,26 @@ if(isset($_GET['tab'])) {
       <div id="MockTest" class="col s12">
         <div class="row">
           <div class="input-field col s12 m12 l4">
-            <input id="mock_test_search" type="text" class="validate search-box">
+            <input id="mock_test_search" type="text" class="validate search-box" name="searchTest" value="<?= isset($_GET['searchTest']) ? $_GET['searchTest'] : ""; ?>">
             <label for="mock_test_search" class="serach-label">Search Mock Test...</label>
           </div>
           <div class="input-field col s12 m12 l3">
-            <select class="browser-default">
-              <option value='' selected>---Select Tutor---</option>
+            <select class="browser-default" name="tutorTest">
+              <option value='' <?= !isset($_GET['tutorTest']) ? "selected" : ""; ?>>---Select Tutor---</option>
               <?php
                 foreach ($tutors as $tutor) { 
               ?>
-                <option value="<?= $tutor['id']; ?>"><?= $tutor['first_name'] . " " . $tutor['last_name']; ?></option>
+                <option value="<?= $tutor['id']; ?>" <?= (isset($_GET['tutorTest']) && $_GET['tutorTest'] == $tutor['id']) ? "selected" : ""; ?>><?= $tutor['first_name'] . " " . $tutor['last_name']; ?></option>
               <?php } ?>
             </select>
           </div>
           <div class="input-field col s12 m12 l3">
-            <select class="browser-default">
-            <option value='' selected>---Select Subject---</option>
+            <select class="browser-default" name="subjectTest">
+            <option value='' <?= !isset($_GET['subjectTest']) ? "selected" : ""; ?>>---Select Subject---</option>
             <?php
               foreach ($subjects as $subject) { 
             ?>
-              <option value="<?= $subject['id']; ?>"><?= $subject['title']; ?></option>
+              <option value="<?= $subject['id']; ?>" <?= (isset($_GET['subjectTest']) && $_GET['subjectTest'] == $subject['id']) ? "selected" : ""; ?>><?= $subject['title']; ?></option>
             <?php } ?>
             </select>
           </div>
@@ -67,55 +71,51 @@ if(isset($_GET['tab'])) {
               <i class="material-icons right">search</i>
             </button>
           </div>
+          </form>
         </div>
         <div class="row">
-          <div class="col s12 m6 l4">
-            <div class="card">
-              <div class="card-content">
-                <span class="card-title">Mock Test 1</span>
-                <p>Subject: <strong>Web Application Development</strong></p>
-                <p class="small-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum....</p>
+          <div class="col s12 m12 l12">
+              <div class="card">
+                  <div class="card-content">
+                      <table class="responsive-table">
+                          <thead>
+                          <tr>
+                              <th>Title</th>
+                              <th>Subject</th>
+                              <th>Marks</th>
+                              <th></th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <?php 
+                            foreach($mockTests as $mockTest) {
+                          ?>
+                          <tr>
+                              <td><a href=""><?= $mockTest['title']; ?></a></td>
+                              <td><?= $mockTest['subject']['title']; ?></td>
+                              <td><?= $mockTest['marks']; ?></td>
+                              <td>
+                                  <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
+                                  <a href=""><i class="material-icons red-text">delete</i></a>
+                              </td>
+                          </tr>
+                          <?php } ?>
+                          </tbody>
+                      </table>
+                      <!-- <ul class="pagination">
+                          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a>
+                          </li>
+                          <li class="red"><a href="#!">1</a></li>
+                          <li class="waves-effect"><a href="#!">2</a></li>
+                          <li class="waves-effect"><a href="#!">3</a></li>
+                          <li class="waves-effect"><a href="#!">4</a></li>
+                          <li class="waves-effect"><a href="#!">5</a></li>
+                          <li class="waves-effect"><a href="#!"><i
+                                          class="material-icons">chevron_right</i></a>
+                          </li>
+                      </ul> -->
+                  </div>
               </div>
-              <div class="card-action">
-                <a href="#" class="small-text">View Test</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card">
-              <div class="card-content">
-                <span class="card-title">Mock Test 2</span>
-                <p>Subject: <strong>Web Application Development</strong></p>
-                <p class="small-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum....</p>
-              </div>
-              <div class="card-action">
-                <a href="#" class="small-text">View Test</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card">
-              <div class="card-content">
-                <span class="card-title">Mock Test 3</span>
-                <p>Subject: <strong>Web Application Development</strong></p>
-                <p class="small-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum....</p>
-              </div>
-              <div class="card-action">
-                <a href="#" class="small-text">View Test</a>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card">
-              <div class="card-content">
-                <span class="card-title">Mock Test 3</span>
-                <p>Subject: <strong>Web Application Development</strong></p>
-                <p class="small-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum....</p>
-              </div>
-              <div class="card-action">
-                <a href="#" class="small-text">View Test</a>
-              </div>
-            </div>
           </div>
         </div>
         <div class="row">
@@ -131,26 +131,26 @@ if(isset($_GET['tab'])) {
         <form action="" method="GET">
           <div class="input-field col s12 m12 l4">
             <input type="hidden" value="questions" name="tab">
-            <input id="mock_test_questions_search" type="text" name="searchQuestion" class="validate search-box">
+            <input id="mock_test_questions_search" type="text" name="searchQuestion" class="validate search-box" value="<?= isset($_GET['searchQuestion']) ? $_GET['searchQuestion'] : ""; ?>">
             <label for="mock_test_questions_search" class="serach-label">Search Mock Test Questions...</label>
           </div>
           <div class="input-field col s12 m12 l3">
             <select class="browser-default" name="tutorQuestion">
-              <option value='' selected>---Select Tutor---</option>
+              <option value='' <?= !isset($_GET['tutorQuestion']) ? "selected" : ""; ?>>---Select Tutor---</option>
               <?php
                 foreach ($tutors as $tutor) { 
               ?>
-                <option value="<?= $tutor['id']; ?>"><?= $tutor['first_name'] . " " . $tutor['last_name']; ?></option>
+                <option value="<?= $tutor['id']; ?>" <?= (isset($_GET['tutorQuestion']) && $_GET['tutorQuestion'] == $tutor['id']) ? "selected" : ""; ?>><?= $tutor['first_name'] . " " . $tutor['last_name']; ?></option>
               <?php } ?>
             </select>
           </div>
           <div class="input-field col s12 m12 l3">
             <select class="browser-default" name="subjectQuestion">
-            <option value='' selected>---Select Subject---</option>
+            <option value='' <?= !isset($_GET['subjectQuestion']) ? "selected" : ""; ?>>---Select Subject---</option>
             <?php
               foreach ($subjects as $subject) { 
             ?>
-              <option value="<?= $subject['id']; ?>"><?= $subject['title']; ?></option>
+              <option value="<?= $subject['id']; ?>" <?= (isset($_GET['subjectQuestion']) && $_GET['subjectQuestion'] == $subject['id']) ? "selected" : ""; ?>><?= $subject['title']; ?></option>
               <?php } ?>
             </select>
           </div>
@@ -181,7 +181,7 @@ if(isset($_GET['tab'])) {
                 ?>
                   <tr>
                     <td><?= $index; ?></td>
-                    <td><?= $option['option_value']; ?></td>
+                    <td><?= $option['option_value']; ?> <?= $option['isAnswer'] ? "<span class='new badge' data-badge-caption='Answer'></span>" : ""; ?></td>
                     <td><a href='addUpdateMockTestOption.php?action=Update&optionID=<?= $option['id']; ?>&questionID=<?= $mockQuestion['id']; ?>'>Edit</a></td>
                     <td>
                       <a class='waves-effect waves-light modal-trigger' href="#optionDeleteModel<?= $option['id']; ?>">Delete</a>

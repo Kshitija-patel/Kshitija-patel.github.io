@@ -18,12 +18,14 @@
         <ul class="right hide-on-med-and-down">
             <li><a href="index.php">Home</a></li>
             <li><a href="addUserContact.php">Contact</a></li>
+            <li><a href="jobListing.php">Career</a></li>
             <li><a href="login.php">Login</a></li>
         </ul>
 
         <ul id="nav-mobile" class="sidenav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="addUserContact.php">Contact</a></li>
+            <li><a href="jobListing.php">Career</a></li>
             <li><a href="login.php" class="orange">Login</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
