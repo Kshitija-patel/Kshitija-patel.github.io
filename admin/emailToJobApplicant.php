@@ -41,7 +41,7 @@ if (isset($_POST['sendEmail'])) {
 
     //check if user entered the data
     if (checkValidation($emailMessage) == true) {
-        
+
         //send email to job applicant.
         $emailBody = EmailUtility::JobApplicationTemplate($jobApplication->firstname, $emailMessage);
         $isEmailSent = EmailUtility::SendEmail($jobApplication->email, $jobApplication->firstname, "iTutor - Job Application", $emailBody, true);
