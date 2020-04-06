@@ -16,12 +16,43 @@ includes following functionality.
   5. Register
   6. My Profile Page
   7. Forgot Password
+  
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | login.php | It's file for login form into system.It has link to register and forgot password | Priyanka Khadilkar |
+  | register.php | This file contains form to register into system as a student role. | Priyanka Khadilkar | 
+  | logout.php | This file contains code to logout from the system and redirect to Login page. | Priyanka Khadilkar |
+  | resetPassword.php | This file contains form to reset password. | Priyanka Khadilkar |
+  | utilities/ConstantStr.php | This file contains all the constant configuration. | Priyanka Khadilkar |
+  | utilities/EmailUtility.php | This file contains method to send emails and email template for email. | Priyanka Khadilkar |
+  | utilities/Session.php | This file contains all method to get and set session variables and values. | Priyanka Khadilkar |
+  | admin/myProfile.php | This file contains form to show the profile data of logged in user and user can change the profile data. | Priyanka Khadilkar |
+  | admin/changePassword.php | This file contains form to change password of logged in user. | Priyanka Khadilkar |
+  | database/classes/models/User.php | This file contains all the properties of user. | Priyanka Khadilkar |
+  | database/classes/models/UserRoles.php | This file contains constant variables holding roles. | Priyanka Khadilkar |
+  | database/classes/connect.php | This file contains the database connection string to be used throughout the project | Priyanka Khadilkar |
+  | database/classes/UserContext.php |That file contains all the functions to communicate to the database for user table (All CRUD Functions). | Priyanka Khadilkar |
+
  
-  - Feature Two : Job Opening.This feature is done at admin side. Need to work on public view.Which includes
-  1. Add Job Opening
-  2. Update JOb Opening
-  3. Delete Job opening
-  4. Listing Job Opening
+  - Feature Two : 
+  1. Job Post (CRUD - Admin view, Public View)
+  2. Job Applications(Public and Admin views)
+ 
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | admin/jobPostAdd.php | This file contains form to add job opening. | Priyanka Khadilkar |
+  | admin/jobPosts.php| This file contains Listing and search in list. | Priyanka Khadilakr | 
+  | admin/jobPostUpdate.php | This file contains form to update job opening. | Priyanka Khadilkar |
+  | admin/jobPostView.php | This file contains form to reset password. | Priyanka Khadilakr |
+  | jobListing.php | This file contains listing of all job list to public view | Priyanka Khadilakr |
+  | jobApply.php | This file contains form for Guest user to apply for the job  | Priyanka Khadilakr |
+  | admin/jobApplications.php | This file contains list of all job applications. | Priyanka Khadilakr |
+  | admin/emailToJobApplicant.php | This file contains form to send an email to job applicants. | Priyanka Khadilakr |
+  | database/connect.php | That file contains the database connection string to be used throughout the project | Priyanka Khadilkar |
+  | database/classes/models/JobPost.php | This file contains all the properties of JobPost. | Priyanka Khadilkar |
+  | database/classes/models/JobApplication.php | This file contains all the properties of JobApplication. | Priyanka Khadilkar |
+  | database/classes/JobApplicationContext.php | This file contains all the functions to communicate to the database for JobApplication table (All CRUD Functions). | Priyanka Khadilkar |
+  | database/classes/JobPostContext.php | This file contains all the functions to communicate to the database for Jobpost table (All CRUD Functions). | Priyanka Khadilkar |
        
 ## 2) Het
   - Feature One: Mock Test Questions Management
