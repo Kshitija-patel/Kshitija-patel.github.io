@@ -58,7 +58,7 @@ if(isset($_POST['addUpdateMockTestQuestion'])) {
                     <?php if($page == 'Update') { ?>
                       <input type="hidden" class="validate" value="<?= $mockQuestion['id']; ?>" name="questionID">
                     <?php } ?>
-                    <input type="text" class="validate" value="<?= ($page == 'Update') ? htmlspecialchars($mockQuestion['question']) : ""; ?>" name="questionValue" required>
+                    <input type="text" class="validate" value="<?= ($page == 'Update') ? htmlspecialchars($mockQuestion['question']) : ""; ?>" name="questioxnValue" required>
                     <label for="mockTestQuestionInput" class="serach-label">Enter Question *</label>
                   </div>
                   <div class="input-field col s12">

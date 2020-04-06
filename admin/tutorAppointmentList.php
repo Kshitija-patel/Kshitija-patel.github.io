@@ -31,11 +31,11 @@
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                                <!--<div class="direction-top">
-                                    <a title="Add Learning Material" href="learningRoomAdd.php" class="btn-floating btn-large green floatright">
+                                <div class="direction-top">
+                                    <a title="Add Appointment" href="tutorAppointmentAdd.php" class="btn-floating btn-large green floatright">
                                         <i class="large material-icons">add</i>
                                     </a>
-                                </div>-->
+                                </div>
                                 <table class="responsive-table">
                                     <thead>
                                     <tr>

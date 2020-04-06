@@ -79,5 +79,6 @@ else
         <li><a href="showContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
         <li><a href="showUserContact.php"><i class="material-icons">contacts</i> User Contacts </a></li>
         <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
+        <li><a href="tutorAppointmentList.php"><i class="material-icons">access_time</i>Appointments</a></li>
     </ul>
 </aside>
