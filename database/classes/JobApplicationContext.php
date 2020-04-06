@@ -79,8 +79,8 @@ class JobApplicationContext extends Database
             $pst = parent::getDb()->prepare($sql);
         }
         $pst->execute();
-        $jobopenings = $pst->fetchAll(PDO::FETCH_OBJ);
-        return $jobopenings;
+        $jobApplications = $pst->fetchAll(PDO::FETCH_OBJ);
+        return $jobApplications;
     }
 
     //Function to list all job applications

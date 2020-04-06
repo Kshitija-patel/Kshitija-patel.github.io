@@ -1,11 +1,13 @@
 <?php require_once "../includes/adminHeader.php" ?>
 <?php
-/*
-    Created by : Priyanka Khadilkar
-*/
+/* Developer : Priyanka Khadilkar
+  * This file contains form to update profile data.
+ * All Logged in user can access this form.
+  */
 require_once '../database/classes/UserContext.php';
 require_once '../database/classes/models/User.php';
 
+//Declaring variables for validation message and form input
 $fNameErr = "";
 $lNameErr = "";
 $emailErr = "";
@@ -21,8 +23,11 @@ $userExistMsg = "";
 //get session data
 $userId = $sessionData->userId;
 
+//get user data to load data on page load
 $userContext = new UserContext();
 $userData = $userContext->Get($userId);
+
+//if user data is not null then set the user data to the input
 if ($userData != null) {
     $firstname = $userData->first_name;
     $lastname = $userData->last_name;
@@ -45,6 +50,7 @@ function validateInputs($firstname, $lastname, $email, $phoneNumber, $dateOfBirt
     $isDateOfBirthValid = false;
     $phoneNumberPattern = "/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/";
 
+    //Validate firstname
     if ($firstname == "") {
         $fNameErr = "Please enter first name.";
     } else {
@@ -52,6 +58,7 @@ function validateInputs($firstname, $lastname, $email, $phoneNumber, $dateOfBirt
         $isFirstNameValid = true;
     }
 
+    //Validate lastname
     if ($lastname == "") {
         $lNameErr = "Please enter last name.";
     } else {
@@ -59,6 +66,7 @@ function validateInputs($firstname, $lastname, $email, $phoneNumber, $dateOfBirt
         $isLastNameValid = true;
     }
 
+    //Validate email
     if ($email == "") {
         $emailErr = "Please enter email.";
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -69,6 +77,7 @@ function validateInputs($firstname, $lastname, $email, $phoneNumber, $dateOfBirt
     }
 
 
+    //Validate phonenumber
     if ($phoneNumber == "") {
         $phoneNumberErr = "Please enter your contact number.";
     } else if (!preg_match($phoneNumberPattern, $phoneNumber)) {
@@ -78,6 +87,7 @@ function validateInputs($firstname, $lastname, $email, $phoneNumber, $dateOfBirt
         $isPhoneNumberValid = true;
     }
 
+    //Validate date of birth
     if ($dateOfBirth == "") {
         $dateOfBirthErr = "Please select date of birth";
     } else {
@@ -109,9 +119,11 @@ if (isset($_POST["updateProfile"])) {
 
     //If form is valid then allow user to register
     if ($isFormValid == true) {
+        //Check if user is already exist or not.If it's not exist with the same email then user can not update the email.
         $userContext = new UserContext();
         $userExist = $userContext->CheckUserExistWithEmailExceptSelf($email, $userId);
         if ($userExist == null) {
+            //Update the profile data into the database
             $user = new User($firstname, $lastname, $email, "", $phoneNumber, $dateOfBirth, "", "");
             $userContext = new UserContext();
             $userUpdated = $userContext->UpdateProfile($user, $userId);

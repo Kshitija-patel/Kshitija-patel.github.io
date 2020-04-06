@@ -1,5 +1,8 @@
 <?php
-
+/* Developer : Priyanka Khadilkar
+  * form of Email to job application.
+ * Only admin can access this  List
+  */
 require_once '../database/classes/JobApplicationContext.php';
 require_once '../utilities/EmailUtility.php';
 require_once '../utilities/ConstantStr.php';
@@ -8,13 +11,16 @@ $messageErr = "";
 $applicantId = "";
 $ErrorMsg = "";
 
+//Get the job applicant's id from the URL querystring.
 if (isset($_GET["id"])) {
     $applicantId = $_GET["id"];
 }
 
+//Get the job applicant's detail from the database
 $jobApplicationContext = new  JobApplicationContext();
 $jobApplication = $jobApplicationContext->GetById($applicantId);
 
+//Function to validate the form
 function checkValidation($emailMessage)
 {
     global $messageErr;
@@ -35,6 +41,8 @@ if (isset($_POST['sendEmail'])) {
 
     //check if user entered the data
     if (checkValidation($emailMessage) == true) {
+        
+        //send email to job applicant.
         $emailBody = EmailUtility::JobApplicationTemplate($jobApplication->firstname, $emailMessage);
         $isEmailSent = EmailUtility::SendEmail($jobApplication->email, $jobApplication->firstname, "iTutor - Job Application", $emailBody, true);
         if ($isEmailSent) {

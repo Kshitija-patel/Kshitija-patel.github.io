@@ -7,7 +7,7 @@ so when user click on view icon on the job listing page it will redirect to here
 require_once '../database/classes/JobPostContext.php';
 require_once '../database/classes/models/JobPost.php';
 
-//Variable to set the data
+//Variable to set the data to input
 $id = "";
 $jobTitle = "";
 $jobDescription = "";

@@ -1,7 +1,8 @@
 <?php
 /* Developer : Priyanka Khadilkar
   * This file list all job post applications. we can search the job application listing according to
-  * Job title
+  * Job title.
+  * Only admin can access this List.
   */
 require_once "../includes/adminHeader.php" ?>
 <?php
@@ -9,21 +10,26 @@ require_once "../includes/adminHeader.php" ?>
 require_once '../database/classes/JobApplicationContext.php';
 require_once '../database/classes/JobPostContext.php';
 
+//Declaring job Application search form variables
 $jobPostId = "";
 $searchKey = "";
+
 //Fetch all Job posts
 $jobApplicationsDb = new JobApplicationContext();
 $jobApplications = $jobApplicationsDb->ListAll();
 
+//Fetch all job post for binding into dropdown for search
 $jobPostDb = new JobPostContext();
 $jobPosts = $jobPostDb->ListAll();
 
+//If user clicks on the search button
 if(isset($_POST["searchJobApplication"])){
     $searchKey = $_POST["searchKey"];
     if(isset($_POST["jobPostId"]))
     {
         $jobPostId  = $_POST["jobPostId"];
     }
+    //Search job application according to searchkeyword or selected job post.
     $jobApplicationsDb = new JobApplicationContext();
     $jobApplications = $jobApplicationsDb->Search($jobPostId,$searchKey);
 }
@@ -44,6 +50,7 @@ if(isset($_POST["searchJobApplication"])){
                         <div class="input-field col s12 m12 l3">
                             <select name="jobPostId" class="browser-default">
                                 <option value="" disabled selected>Select Job Post
+                                    <!--Binding the job post dropdown -->
                                     <?php
                                     foreach ($jobPosts as $jobPost){
                                     ?>
@@ -76,6 +83,7 @@ if(isset($_POST["searchJobApplication"])){
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <!--Binding All job application into the table -->
                                     <?php foreach ($jobApplications as $jobApplication) { ?>
                                         <tr>
                                             <td><?= $jobApplication->firstname; ?> <?= $jobApplication->lastname; ?> </td>

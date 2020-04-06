@@ -1,12 +1,16 @@
 <?php
-
+/* Developer : Priyanka Khadilkar
+* This file contains form for adding job post.
+* Only admin can access this form
+*/
 require_once '../database/classes/JobPostContext.php';
 require_once '../database/classes/models/JobPost.php';
 
+//Variable to hold the validation Message.
 $TitleValidationMsg = "";
 $DescriptionValidationMsg = "";
 
-
+//function to Check validation of form input
 function checkValidation($jobTitle, $jobDescription)
 {
     global $TitleValidationMsg, $DescriptionValidationMsg;

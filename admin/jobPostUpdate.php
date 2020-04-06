@@ -1,22 +1,32 @@
 <?php
-
+/* Developer : Priyanka Khadilkar
+  * This file contains form to update job post.
+ * Only admin can access this  List
+  */
 require_once '../database/classes/JobPostContext.php';
 require_once '../database/classes/models/JobPost.php';
 
+//Declaring variables for validation message and form input
 $TitleValidationMsg = "";
 $DescriptionValidationMsg = "";
 $id = "";
 $jobTitle = "";
 $jobDescription = "";
 
+//Get the job detail on page load using the querystring value of job id
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+
+    //Get the the job post detail from database using job post Id
     $jobPostDb = new jobPostContext();
     $jobPost = $jobPostDb->Get($id);
+
+    //Assign the value to the input.
     $jobTitle = $jobPost->title;
     $jobDescription = $jobPost->description;
 }
 
+//function to validate form input.
 function checkValidation($jobTitle, $jobDescription)
 {
     global $TitleValidationMsg, $DescriptionValidationMsg;
@@ -40,7 +50,6 @@ if (isset($_POST['btnJobPostUpdate'])) {
     $jobDescription = $_POST['description'];
 
     //check if user entered the data
-
     if (checkValidation($jobTitle, $jobDescription) == true) {
         //Add Job Post if Job title and job description is entered.
         $jobPost = new JobPost($jobTitle, $jobDescription);

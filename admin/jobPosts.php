@@ -1,7 +1,8 @@
 <?php
 /* Developer : Priyanka Khadilkar
   * This file list all job post. we can search the job listing according to
-  * Job title
+  * Job title.
+ * Only admin can access this  List
   */
 require_once "../includes/adminHeader.php" ?>
 <?php
