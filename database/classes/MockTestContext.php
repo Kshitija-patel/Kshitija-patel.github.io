@@ -71,5 +71,34 @@ class MockTestContext extends Database
       $pdostm->execute();
       $mockQuestions = $pdostm->fetchAll(PDO::FETCH_ASSOC);
       return $mockQuestions;
-  }
+    }
+
+    public function filterMockTestQuestions($allQuestions, $mockTestQuestions) {
+        foreach($allQuestions as $allQuestionsKey => $allQuestionsValue)
+        { 
+            foreach($mockTestQuestions as $mockTestQuestionsKey => $mockTestQuestionsValue)
+            { 
+                if($mockTestQuestionsValue['id'] == $allQuestionsValue['id']) {
+                    unset($allQuestions[$allQuestionsKey]);
+                }
+            }  
+        } 
+        return $allQuestions;
+    }
+
+    public function addQuestionMockTest($questionID, $mockTestID) {
+        $sql = "INSERT INTO `mock_test_x_questions`(`mock_test_id`, `mock_question_id`) VALUES (:mock_test_id, :mock_question_id)";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':mock_test_id', $mockTestID);  
+        $pdostm->bindParam(':mock_question_id', $questionID);  
+        $pdostm->execute();
+    }
+
+    public function deleteMockTestQuestion($questionID, $mockTestID) {
+        $sql = "DELETE FROM `mock_test_x_questions` WHERE mock_test_id = :mock_test_id AND mock_question_id = :mock_question_id";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':mock_test_id', $mockTestID);  
+        $pdostm->bindParam(':mock_question_id', $questionID); 
+        $pdostm->execute();
+    }
 }

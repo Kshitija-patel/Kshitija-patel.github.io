@@ -71,6 +71,11 @@ nav .dropdown-content {
 
 
 /* Developer: Het Kansara*/
+.marks-card{
+    position:absolute;
+    right: 20px;
+    top:20px;
+}
 
 .hidden {
     display: none;

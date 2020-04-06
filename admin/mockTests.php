@@ -91,7 +91,7 @@ if(isset($_GET['tab'])) {
                             foreach($mockTests as $mockTest) {
                           ?>
                           <tr>
-                              <td><a href=""><?= $mockTest['title']; ?></a></td>
+                              <td><a href="showMockTest.php?testID=<?= $mockTest['id']; ?>"><?= $mockTest['title']; ?></a></td>
                               <td><?= $mockTest['subject']['title']; ?></td>
                               <td><?= $mockTest['marks']; ?></td>
                               <td>
