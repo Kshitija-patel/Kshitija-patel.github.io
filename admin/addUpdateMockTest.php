@@ -7,20 +7,19 @@ require_once "../database/classes/TutorContext.php";
 $tutor = new TutorContext();
 $tutors = $tutor->getAllTutors();
 
-include_once "../database/classes/MockTestQuestionContext.php";
-$mockTestQuestions = new MockTestQuestionContext();
+include_once "../database/classes/MockTestContext.php";
+$mockTestContext = new MockTestContext();
 
 $page = isset($_GET['action']) ? $_GET['action'] : "Add";
-$mockQuestion;
+$mockTest;
 if($page == 'Update') {
-  $questionID = isset($_GET['questionID']) ? $_GET['questionID'] : 0;
-  
-  $mockQuestion = $mockTestQuestions->getMockTestQuestions($questionID);
+  $testID = isset($_GET['testID']) ? $_GET['testID'] : 0;
+  $mockTest = $mockTestContext->getMockTests($testID);
 }
 
-if(isset($_POST['addUpdateMockTestQuestion'])) {
-  $mockTestQuestions->addUpdateMockTestQuestion($_POST, ($page == 'Add') ? null : $_POST['questionID']);
-  header('Location: mockTests.php?tab=questions');
+if(isset($_POST['addUpdateMockTest'])) {
+  $mockTestContext->addUpdateMockTest($_POST, ($page == 'Add') ? null : $_POST['testID']);
+  header('Location: mockTests.php?tab=tests');
 }
 ?>
 <?php require_once "../includes/adminHeader.php" ?>
@@ -30,7 +29,7 @@ if(isset($_POST['addUpdateMockTestQuestion'])) {
       <div class="col s12">
         <div class="card">
           <div class="card-content">
-            <span class="card-title"><?= $page; ?> Question</span>
+            <span class="card-title"><?= $page; ?> Test</span>
             <form method="POST" action="">
               <div class="modal-content">
                 <div class="row">
@@ -40,7 +39,7 @@ if(isset($_POST['addUpdateMockTestQuestion'])) {
                   <?php
                     foreach ($tutors as $tutor) { 
                   ?>
-                    <option value="<?= $tutor['id']; ?>" <?= ($page == 'Update' && $mockQuestion['tutor_id']==$tutor['id']) ? "selected" : ""; ?>><?= htmlspecialchars($tutor['first_name']) . " " . htmlspecialchars($tutor['last_name']); ?></option>
+                    <option value="<?= $tutor['id']; ?>" <?= ($page == 'Update' && $mockTest['tutor_id']==$tutor['id']) ? "selected" : ""; ?>><?= htmlspecialchars($tutor['first_name']) . " " . htmlspecialchars($tutor['last_name']); ?></option>
                   <?php } ?>
                   </select>
                 </div>
@@ -50,23 +49,19 @@ if(isset($_POST['addUpdateMockTestQuestion'])) {
                   <?php
                     foreach ($subjects as $subject) { 
                   ?>
-                    <option value="<?= $subject['id']; ?>" <?= ($page == 'Update' && $mockQuestion['subject_id']==$subject['id']) ? "selected" : ""; ?>><?= htmlspecialchars($subject['title']); ?></option>
+                    <option value="<?= $subject['id']; ?>" <?= ($page == 'Update' && $mockTest['subject_id']==$subject['id']) ? "selected" : ""; ?>><?= htmlspecialchars($subject['title']); ?></option>
                   <?php } ?>
                   </select>
                 </div>
                   <div class="input-field col s12">
                     <?php if($page == 'Update') { ?>
-                      <input type="hidden" class="validate" value="<?= $mockQuestion['id']; ?>" name="questionID">
+                      <input type="hidden" class="validate" value="<?= $mockTest['id']; ?>" name="testID">
                     <?php } ?>
-                    <input type="text" class="validate" value="<?= ($page == 'Update') ? htmlspecialchars($mockQuestion['question']) : ""; ?>" name="questionValue" required>
-                    <label for="mockTestQuestionInput" class="serach-label">Enter Question *</label>
+                    <input type="text" class="validate" value="<?= ($page == 'Update') ? htmlspecialchars($mockTest['title']) : ""; ?>" name="title" required>
+                    <label for="mockTestQuestionInput" class="serach-label">Enter Test Title *</label>
                   </div>
                   <div class="input-field col s12">
-                    <input id="marks" type="number" class="validate" value="<?= ($page == 'Update') ? $mockQuestion['marks'] : ""; ?>" name="marks" required>
-                    <label for="marks" class="serach-label">Marks *</label>
-                  </div>
-                  <div class="input-field col s12">
-                    <button class="btn waves-effect waves-light" type="submit" name="addUpdateMockTestQuestion">Submit
+                    <button class="btn waves-effect waves-light" type="submit" name="addUpdateMockTest">Submit
                     </button>
                   </div>
                 </div>

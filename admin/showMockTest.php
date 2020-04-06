@@ -9,7 +9,7 @@ include_once "../database/classes/MockTestQuestionContext.php";
 $mockTestQuestionContext = new MockTestQuestionContext();
 $mockTestQuestions = $mockTestQuestionContext->getMockTestQuestions();
 
-$mockTestQuestions = $mockTestsContext->filterMockTestQuestions($mockTestQuestions, $mockTest['questions']);
+$mockTestQuestions = $mockTestsContext->filterMockTestQuestions($mockTestQuestions, $mockTest['questions'], $mockTest['subject']['id']);
 
 if (isset($_POST['addQuestion'])) {
   $mockTestsContext->addQuestionMockTest($_POST['questionID'], $mockTest['id']);

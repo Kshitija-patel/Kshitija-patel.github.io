@@ -73,9 +73,13 @@ class MockTestContext extends Database
       return $mockQuestions;
     }
 
-    public function filterMockTestQuestions($allQuestions, $mockTestQuestions) {
+    public function filterMockTestQuestions($allQuestions, $mockTestQuestions, $subjectID) {
         foreach($allQuestions as $allQuestionsKey => $allQuestionsValue)
         { 
+            if($allQuestionsValue['subject']['id'] != $subjectID || $allQuestionsValue['answer'] == NULL) {
+                unset($allQuestions[$allQuestionsKey]);
+                continue;
+            }
             foreach($mockTestQuestions as $mockTestQuestionsKey => $mockTestQuestionsValue)
             { 
                 if($mockTestQuestionsValue['id'] == $allQuestionsValue['id']) {
@@ -99,6 +103,36 @@ class MockTestContext extends Database
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->bindParam(':mock_test_id', $mockTestID);  
         $pdostm->bindParam(':mock_question_id', $questionID); 
+        $pdostm->execute();
+    }
+
+    public function addUpdateMockTest($values, $testID = null) {
+        $datetime = (string) date('Y-m-d H:i:s', time());
+        $sql = "INSERT INTO mock_tests(tutor_id, subject_id, title, created_datetime) VALUES (:tutor_id, :subject_id, :title, :created_datetime)";
+        $pdostm = parent::getDb()->prepare($sql);
+        if($testID != null) {
+            $sql = "UPDATE mock_tests SET tutor_id=:tutor_id, subject_id=:subject_id, title=:title,updated_datetime=:updated_datetime where id = :testID";
+            $pdostm = parent::getDb()->prepare($sql);
+            $pdostm->bindParam(':testID', $testID); 
+            $pdostm->bindParam(':updated_datetime', $datetime);
+        } else {
+            $pdostm->bindParam(':created_datetime', $datetime);
+        }
+        $pdostm->bindParam(':tutor_id', $values['tutor']); 
+        $pdostm->bindParam(':subject_id', $values['subject']); 
+        $pdostm->bindParam(':title', $values['title']);
+        $pdostm->execute();
+    }
+
+    public function deleteMockTest($testID) {
+        $sql = "DELETE FROM `mock_test_x_questions` WHERE mock_test_id = :mock_test_id";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':mock_test_id', $testID);  
+        $pdostm->execute();
+
+        $sql = "DELETE FROM `mock_tests` WHERE id = :mock_test_id";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':mock_test_id', $testID);  
         $pdostm->execute();
     }
 }

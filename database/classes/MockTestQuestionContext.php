@@ -103,7 +103,6 @@ class MockTestQuestionContext extends Database
         } else {
             $pdostm->bindParam(':created_datetime', $datetime);
         }
-        echo "UPDATE mock_questions SET tutor_id=".$values['tutor'].",subject_id=".$values['subject'].",question=".$values['questionValue'].",marks=".$values['marks'].",updated_datetime=".$datetime." where id = ".$questionID;
         $pdostm->bindParam(':tutor_id', $values['tutor']); 
         $pdostm->bindParam(':subject_id', $values['subject']); 
         $pdostm->bindParam(':question', $values['questionValue']); 
@@ -116,6 +115,11 @@ class MockTestQuestionContext extends Database
         foreach($options as $option) {
             self::deleteMockTestOption($option['id']);
         }
+        $sql = "delete from mock_test_x_questions where mock_question_id = :question_id";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':question_id', $questionID);
+        $pdostm->execute();
+
         $sql = "delete from mock_questions where id = :question_id";
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->bindParam(':question_id', $questionID);

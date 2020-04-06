@@ -1,17 +1,22 @@
 <?php
 include_once "../database/classes/MockTestQuestionContext.php";
 $mockTestQuestions = new MockTestQuestionContext();
-if(isset($_GET['deleteQuestion'])) {
-  $mockTestQuestions->deleteMockTestQuestion($_GET['deleteQuestion']);
-  // header('location: mockTests.php?tab=questions');
-} else if(isset($_GET['deleteOption'])) {
-  $mockTestQuestions->deleteMockTestOption($_GET['deleteOption']);
-  header('location: mockTests.php?tab=questions');
-}
-$mockQuestions = $mockTestQuestions->getMockTestQuestions(null, (isset($_GET['searchQuestion']) && $_GET['searchQuestion'] != '') ? $_GET['searchQuestion'] : null, (isset($_GET['subjectQuestion']) && $_GET['subjectQuestion'] != '') ? $_GET['subjectQuestion'] : null, (isset($_GET['tutorQuestion']) && $_GET['tutorQuestion'] != '') ? $_GET['tutorQuestion'] : null);
 
 include_once "../database/classes/MockTestContext.php";
 $mockTestsContext = new MockTestContext();
+
+if(isset($_GET['deleteQuestion'])) {
+  $mockTestQuestions->deleteMockTestQuestion($_GET['deleteQuestion']);
+  header('location: mockTests.php?tab=questions');
+} else if(isset($_GET['deleteOption'])) {
+  $mockTestQuestions->deleteMockTestOption($_GET['deleteOption']);
+  header('location: mockTests.php?tab=questions');
+} else if(isset($_GET['deleteTest'])){
+  $mockTestsContext->deleteMockTest($_GET['deleteTest']);
+  header('location: mockTests.php?tab=tests');
+}
+
+$mockQuestions = $mockTestQuestions->getMockTestQuestions(null, (isset($_GET['searchQuestion']) && $_GET['searchQuestion'] != '') ? $_GET['searchQuestion'] : null, (isset($_GET['subjectQuestion']) && $_GET['subjectQuestion'] != '') ? $_GET['subjectQuestion'] : null, (isset($_GET['tutorQuestion']) && $_GET['tutorQuestion'] != '') ? $_GET['tutorQuestion'] : null);
 
 $mockTests = $mockTestsContext->getMockTests(null, (isset($_GET['searchTest']) && $_GET['searchTest'] != '') ? $_GET['searchTest'] : null, (isset($_GET['subjectTest']) && $_GET['subjectTest'] != '') ? $_GET['subjectTest'] : null, (isset($_GET['tutorTest']) && $_GET['tutorTest'] != '') ? $_GET['tutorTest'] : null);
 
@@ -95,8 +100,18 @@ if(isset($_GET['tab'])) {
                               <td><?= $mockTest['subject']['title']; ?></td>
                               <td><?= $mockTest['marks']; ?></td>
                               <td>
-                                  <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
-                                  <a href=""><i class="material-icons red-text">delete</i></a>
+                                  <a href="addUpdateMockTest.php?action=Update&testID=<?= $mockTest['id']; ?>"><i class="material-icons blue-text">create</i></a>
+                                  <a class='waves-effect waves-light modal-trigger' href="#testDeleteModel<?= $mockTest['id']; ?>"><i class="material-icons red-text">delete</i></a>
+                                  <div id="testDeleteModel<?= $mockTest['id']; ?>" class="modal">
+                                    <div class="modal-content">
+                                      <h4>Are you sure you want to delete this Test?</h4>
+                                      <p><?= $mockTest['title']; ?></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
+                                      <a href="mockTests.php?deleteTest=<?= $mockTest['id']; ?>" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+                                    </div>
+                                  </div>
                               </td>
                           </tr>
                           <?php } ?>
@@ -120,7 +135,7 @@ if(isset($_GET['tab'])) {
         </div>
         <div class="row">
           <div class="direction-top">
-            <a title="Add Mock Test" href="#" class="btn-floating btn-large green floatright">
+            <a title="Add Mock Test" href="addUpdateMockTest.php?action=Add" class="btn-floating btn-large green floatright">
               <i class="large material-icons">add</i>
             </a>
           </div>
