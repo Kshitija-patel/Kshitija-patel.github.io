@@ -9,12 +9,24 @@ require_once "../includes/adminHeader.php" ?>
 require_once '../database/classes/JobApplicationContext.php';
 require_once '../database/classes/JobPostContext.php';
 
+$jobPostId = "";
+$searchKey = "";
 //Fetch all Job posts
 $jobApplicationsDb = new JobApplicationContext();
 $jobApplications = $jobApplicationsDb->ListAll();
 
 $jobPostDb = new JobPostContext();
 $jobPosts = $jobPostDb->ListAll();
+
+if(isset($_POST["searchJobApplication"])){
+    $searchKey = $_POST["searchKey"];
+    if(isset($_POST["jobPostId"]))
+    {
+        $jobPostId  = $_POST["jobPostId"];
+    }
+    $jobApplicationsDb = new JobApplicationContext();
+    $jobApplications = $jobApplicationsDb->Search($jobPostId,$searchKey);
+}
 
 ?>
     <main class="adminmain">
@@ -30,7 +42,7 @@ $jobPosts = $jobPostDb->ListAll();
                             <label for="searchKey" class="serach-label">Search Job applicants...</label>
                         </div>
                         <div class="input-field col s12 m12 l3">
-                            <select class="browser-default">
+                            <select name="jobPostId" class="browser-default">
                                 <option value="" disabled selected>Select Job Post
                                     <?php
                                     foreach ($jobPosts as $jobPost){
@@ -42,7 +54,7 @@ $jobPosts = $jobPostDb->ListAll();
                             </select>
                         </div>
                         <div class="input-field col s12 m12 l2">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                            <button class="btn waves-effect waves-light" type="submit" name="searchJobApplication">Search
                                 <i class="material-icons right">search</i>
                             </button>
                         </div>
