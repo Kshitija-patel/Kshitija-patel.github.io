@@ -1,5 +1,5 @@
 <?php
-
+ require_once "../includes/adminHeader.php";
 require_once "connect.php";
 include_once "../database/classes/models/TutorAppointment.php";      //CRUD operations file
 class TutorAppointmentContext extends Database
@@ -24,7 +24,15 @@ U.id AS users_id, U.first_name AS users_first_name, U.last_name AS user_last_nam
       $tutor = $pdostm->fetch(PDO::FETCH_ASSOC);
       return $tutor;
     }
-
+/*
+    public function getRoleId($user_id)
+    {
+      $sql = "select * from users WHERE id = $user_id";
+      $pdostm = parent::getDb()->prepare($sql);
+      $pdostm->execute();
+      $role = $pdostm->fetchAll(PDO::FETCH_ASSOC);
+      return $role;
+    }*/
 
     public function getAllTutors()
     {
@@ -63,13 +71,24 @@ U.id AS users_id, U.first_name AS users_first_name, U.last_name AS user_last_nam
         return $numRowsAffected;
 
     }
-    public function ListAll()
+    public function ListAll($userId)
     {
-        $sql = "SELECT * FROM tutor_appointment_bookings";
+      // require_once "../includes/adminHeader.php";
+      // echo $sessionData->userId;
+        $sql = "SELECT * FROM tutor_appointment_bookings where user_id = $userId";
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->execute();
         $tutor_appointment_bookings = $pdostm->fetchAll(PDO::FETCH_OBJ);
         return $tutor_appointment_bookings;
+    }
+    public function Delete($id)
+    {
+        $sql = "DELETE FROM tutor_appointment_bookings WHERE id = :id";
+
+        $pst = parent::getDb()->prepare($sql);
+        $pst->bindParam(':id', $id);
+        $count = $pst->execute();
+        return $count;
     }
 
 }
