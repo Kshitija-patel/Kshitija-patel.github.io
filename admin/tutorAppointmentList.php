@@ -1,4 +1,16 @@
-<?php require_once "../includes/adminHeader.php" ?>
+<?php require_once "../includes/adminHeader.php";
+
+require_once "../database/classes/TutorAppointmentContext.php"; //crud functions
+require_once "../database/classes/models/TutorAppointment.php";
+$noappoint ="";
+$addUpdateMsg = "";
+// initialise the CRUD class
+$TutorAppointmentContext = new TutorAppointmentContext();
+//calling the list method from Learning Room Db class
+$Appointments = $TutorAppointmentContext->ListAll();
+
+// $Appointments
+?>
     <main class="adminmain admin-mock-tests">
         <div class="section no-pad-bot" id="index-banner">
             <div class="row">
@@ -47,66 +59,26 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php 
+                                    echo $noappoint;  // this will display if there are no rooms if a user is searching which is not in the list
+                                    // echo "----------------".$Appointments['subject_id'];
+                                    foreach($Appointments as $value){?> 
                                     <tr>
-                                        <td>Christine</td>
-                                        <td>Mobile App Develop</td>
-                                        <td>R03</td>
-                                        <td>12-Feb-2020</td>
+                                        <?php
+                                            $subject_data = $TutorAppointmentContext->getTutorSubject($value->subject_id);
+                                            //  var_dump($subject_data);
+                                        ?>
+                                        <td><?=$subject_data['users_first_name']?></td>
+                                        <td><?=$subject_data['subject_title']?></td>
+                                        <td><?=$value->learning_room_id?></td>
+                                        <td><?=$value->date_time?></td>
                                         <td>
                                             <a href=""><i class="material-icons blue-text">create</i></a>
                                             <a href=""><i class="material-icons red-text">delete</i></a>
                                         </td>
                                     </tr>
-									<tr>
-                                        <td>Priyanka</td>
-                                        <td>Digital Design</td>
-                                        <td>R01</td>
-                                        <td>12-Feb-2020</td>
-                                        <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-									<tr>
-                                        <td>Bernie</td>
-                                        <td>Web info Develop</td>
-                                        <td>R01</td>
-                                        <td>12-Feb-2020</td>
-                                        <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-									<tr>
-                                        <td>Sean</td>
-                                        <td>Security QA</td>
-                                        <td>R03</td>
-                                        <td>12-Feb-2020</td>
-                                        <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-									<tr>
-                                        <td>Christine</td>
-                                        <td>Mobile App Develop</td>
-                                        <td>R03</td>
-                                        <td>12-Feb-2020</td>
-                                        <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-									<tr>
-                                        <td>Nithiya</td>
-                                        <td>XML Services</td>
-                                        <td>R01</td>
-                                        <td>12-Feb-2020</td>
-                                        <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
+                                    <?php }  ?>
+                                     
 									</tbody>
                                 </table>
                                 <ul class="pagination">

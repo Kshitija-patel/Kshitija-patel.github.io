@@ -47,9 +47,9 @@
 
            $result = $TutorAppointmentContext->Add($TutorAppointment);
            if($result){
-               echo "True";
+            //    echo "True";
            }else{
-               echo "False";
+            //    echo "False";
            }
 
     }
