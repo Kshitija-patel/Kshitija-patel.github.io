@@ -68,6 +68,19 @@ includes following functionality.
   | database/connect.php | That file contains the database connection string to be used throughout the project | Priyanka Khadilkar |
 
 
+  - Feature Two: Mock Tests Management
+  1. Mock Test CRUD
+  2. Search for Mock Tests
+  3. Add/Remove Questions into/from Mock tests
+
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | admin/mockTests.php | It's the listing file for mock tests and mock test questions. It contains two tabs for mock test listing and the listing of mock test questions | Het Kansara |
+  | admin/addUpdateMockTest.php | That file contains the form to add/update mock tests. | Het Kansara | 
+  | admin/showMockTest.php | That file contains the mock test detail view with option to add/remove questions into mock test. | Het Kansara |
+  | database/MockTestContext.php | That file contains all the functions to communicate to the database (All CRUD Functions). | Het Kansara |
+  | database/connect.php | That file contains the database connection string to be used throughout the project | Priyanka Khadilkar |
+
 ## 3) Shubham
   - Feature One: Learning Rooms
   1. Add New Rooms
