@@ -1,8 +1,8 @@
 <?php
-     include_once '../database/classes/FaqContext.php';
-    
+include_once '../database/classes/FaqContext.php';
 
-     $id = "";
+
+$id = "";
 $question = "";
 $answer = "";
 
@@ -12,32 +12,30 @@ if (isset($_GET['id'])) {
     $faqs = $f->Get($id);
     $question = $faqs->question;
     $answer = $faqs->answer;
-
 }
-if(isset($_POST["update"])){
-    if(empty($_POST["question"])){
+if (isset($_POST["update"])) {
+    if (empty($_POST["question"])) {
         $questionErr = "Question is required";
         $err = true;
     }
-    
-    if(empty($_POST["answer"])){
+
+    if (empty($_POST["answer"])) {
         $answerErr = "Answer is required";
         $err = true;
     }
 
-    if(!$err){
+    if (!$err) {
         echo "no err";
         $db = Database::getDb();
         $f = new FaqContext();
-        $con = $f->Update($_POST,$id);
+        $con = $f->Update($_POST, $id);
 
-        if($con){
+        if ($con) {
             header('Location: faqList.php');
         } else {
             echo "problem updtaing faq";
-        } 
+        }
     }
-
 }
 ?>
 
@@ -62,9 +60,9 @@ if(isset($_POST["update"])){
                                             <label for="answer">Answer</label>
                                         </div>
                                         <div class="input-field col s12">
-                                            <button class="btn waves-effect waves-light" name="update" type="submit" >Update
-</button>
-<a class="btn waves-effect waves-light" href="faqList.php">Cancel</a>                                    
+                                            <button class="btn waves-effect waves-light" name="update" type="submit">Update
+                                            </button>
+                                            <a class="btn waves-effect waves-light" href="faqList.php">Cancel</a>
                                         </div>
                                 </form>
                             </div>

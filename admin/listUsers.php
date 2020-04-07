@@ -1,4 +1,28 @@
 <?php require_once "../includes/adminHeader.php" ?>
+<?php
+require_once '../database/classes/UserAdminContext.php';
+
+
+$db = Database::getDb();
+$u = new UserAdminContext();
+$userdetails = $u->ListAll();
+
+
+if (isset($_POST["delete"])) {
+    $userId = $_POST["userId"];
+  
+    $db = Database::getDb();
+    $u = new UserAdminContext();
+    $numRowsAffected = $u->Delete($userId);
+    if ($numRowsAffected) {
+        $u = new UserAdminContext();
+        $userdetails = $u->ListAll();
+    } else {
+        echo "problem deleting data";
+    }
+  }
+?>
+<?php require_once "../includes/adminHeader.php" ?>
     <main class="adminmain admin-mock-tests">
         <div class="section no-pad-bot" id="index-banner">
             <div class="row">
@@ -19,6 +43,7 @@
                         </div>
                     </form>
                 </div>
+               
                 <div class="row">
                     <div class="col s12 m12 l12">
                         <div class="card">
@@ -28,82 +53,54 @@
                                         <i class="large material-icons">add</i>
                                     </a>
                                 </div>
+                  
                                 <table class="responsive-table">
                                     <thead>
                                     <tr>
                                         <th>Name</th>
                                         <th>E-mail</th>
                                         <th>Phone</th>
+                                        <th>Role</th>
                                         <th></th>
                                     </tr>
                                     </thead>
+                                    <?php 
+                    foreach($userdetails as $userdetail) {
+                ?>
                                     <tbody>
                                     <tr>
-                                        <td><a href="showUser.php">Marks Smith</a></td>
-                                        <td>marksmith@gmail.com</td>
-                                        <td>(+1)555-555-5555</td>
+                                        <td><a href="showUser.php"><?=$userdetail->first_name;?></a></td>
+                                        <td><?=$userdetail->email;?></td>
+                                        <td><?=$userdetail->phone_number;?></td>
+                                        <td><?=$userdetail->role_id;?></td>
+
                                         <td>
-                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
+                                            <a href="updateUser.php?id=<?= $userdetail->id; ?>"><i class="material-icons blue-text">create</i></a>
+                                            <?PHP
+                      $modalId = "modal" . $userdetail->id;
+                     ?>
+                    <a class="modal-trigger" href="#<?= $modalId ?>" name="delete"><i class="material-icons red-text">delete</i></a>
+                    <div id="<?= $modalId ?>" class="modal">
+                        <div class="modal-content">
+                          <h4><?= $userdetail->first_name; ?></h4>
+                          <p>Are you sure you want to delete this user?</p>
+                        </div>
+                        <form method="post">
+                            <div class="modal-footer">
+                              <input type="hidden" name="userId" value="<?= $userdetail->id ?>">
+                              <a class="modal-close waves-effect waves-red btn-flat">No</a>
+                              <button class="btn waves-effect waves-light" type="submit" name="delete">Yes</button>
+                            </div>
+                        </form>
+                                            
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td><a href="userShow.php">Marks Smith</a></td>
-                                        <td>marksmith@gmail.com</td>
-                                        <td>(+1)555-555-5555</td>
-                                        <td>
-                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="userShow.php">Marks Smith</a></td>
-                                        <td>marksmith@gmail.com</td>
-                                        <td>(+1)555-555-5555</td>
-                                        <td>
-                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="userShow.php">Marks Smith</a></td>
-                                        <td>marksmith@gmail.com</td>
-                                        <td>(+1)555-555-5555</td>
-                                        <td>
-                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="userShow.php">Marks Smith</a></td>
-                                        <td>marksmith@gmail.com</td>
-                                        <td>(+1)555-555-5555</td>
-                                        <td>
-                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="userShow.php">Marks Smith</a></td>
-                                        <td>marksmith@gmail.com</td>
-                                        <td>(+1)555-555-5555</td>
-                                        <td>
-                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="userShow.php">Marks Smith</a></td>
-                                        <td>marksmith@gmail.com</td>
-                                        <td>(+1)555-555-5555</td>
-                                        <td>
-                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
+                                    
 
                                     </tbody>
+                                    <?php } ?>
                                 </table>
+                               
                                 <ul class="pagination">
                                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a>
                                     </li>
@@ -112,14 +109,14 @@
                                     <li class="waves-effect"><a href="#!">3</a></li>
                                     <li class="waves-effect"><a href="#!">4</a></li>
                                     <li class="waves-effect"><a href="#!">5</a></li>
-                                    <li class="waves-effect"><a href="#!"><i
-                                                    class="material-icons">chevron_right</i></a>
+                                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+               
             </div>
         </div>
     </main>
