@@ -1,4 +1,60 @@
-<?php require_once "../includes/adminHeader.php" ?>
+ <?php
+ require_once '../database/classes/connect.php';
+ require_once '../database/classes/SubjectContext.php';
+ $title = $subjectField  = $description = "";
+ $titleErr = $subjectFieldErr  = $descriptionErr = "";
+
+ $errFound = false;
+ if(isset($_POST["addSubject"])){
+     if(empty($_POST["title"])){
+         $titleErr = "Subject title is required";
+         $errFound = true;
+     } else {
+         $title = check_input($_POST["title"]);
+     }
+
+     if(empty($_POST["subjectField"])){
+         $subjectFieldErr = "Please select the field of the subject";
+         $errFound = true;
+     } else {
+         $subjectField = check_input($_POST["subjectField"]);
+     }
+
+     
+     if(empty($_POST["description"])){
+         $description = "Description of the subject is required";
+         $errFound = true;
+     } else {
+         $description = check_input($_POST["description"]);
+     }
+
+     if(!$errFound){
+         $db = Database::getDb();
+         $s = new SubjectContext();
+         $sub = $s->addSubject($title,$subjectField,$description,$db);
+
+         if($sub){
+             header('Location: listSubjects.php');
+         } else {
+             echo "problem adding the subject";
+         }
+     }
+ }
+
+ function check_input($input){
+     $input = trim($input);
+     $input = stripslashes($input);
+     $input = htmlspecialchars($input);
+     return $input;
+ }
+
+ 
+ ?>
+ <?php
+ require_once "../includes/adminHeader.php";
+ 
+ 
+ ?>
     <main>
         <div class="container">
             <div class="section">
@@ -8,35 +64,32 @@
                             <div class="card-content">
                                 <span class="card-title">Add Subject</span>
                                 <div class="row">
-                                    <form class="col s12">
+                                    <form class="col s12" action="" method="post" enctype="multipart/form-data">
                                         <div class="row margin-bottom-none">
                                             <div>
                                                 <p for="sub-update-title">Subject:</p>
-                                                <input id="sub-update-title" type="text" class="add-contact-form" placeholder="Subject Name">
+                                                <input id="sub-update-title" name="title" type="text" class="add-contact-form" placeholder="Subject Name">
                                             </div>
-                                            <form action="#">
-                                                <div class="file-field input-field add-contact-form">
-                                                    <div class="btn">
-                                                        <span>File</span>
-                                                        <input type="file">
-                                                    </div>
-                                                    <div class="file-path-wrapper">
-                                                        <input class="file-path validate" type="text" placeholder="Upload Image">
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            <div>
-                                                <p for="sub-update-title">Field:</p>
-                                                <input id="sub-update-title" type="text" class="add-contact-form" placeholder="Field Name">
+                                            <div class="add-contact-form">
+                                                <label for="subjectField">Choose a Field:</label>
+                                                <select id="subjectField" name="subjectField">
+                                                <option value="">----Select----</option>
+                                                <option value="webDevelopment">Web Development</option>
+                                                <option value="webDesignAndDevelopment">Web Design and Development</option>
+                                                <option value="itSolution">IT Solution</option>
+                                                <option value="gameProgramming">Game Programming</option>
+                                                <option value="projectManagement">Project Management</option>
+                                                </select>
                                             </div>
                                             <div>
                                                 <p for="sub-update-title">Description:</p>
-                                                <input id="sub-update-title" type="text" class="add-contact-form" placeholder="Description">
+                                                <input id="sub-update-title" name="description" type="text" class="add-contact-form" placeholder="Description">
                                             </div>
                                             
                                             <div class="add-contact-flex">
                                                 <div>
-                                                    <a class="waves-effect waves-light btn add-contact-btn " href="#">Add</a>
+                                                    <button class="btn-small waves-effect waves-light contact-submit" type="submit" name="addSubject">Add
+                                                    </button>
                                                 </div>
                                                 <div>
                                                     <a class="waves-effect waves-light btn add-contact-btn " href="listSubjects.php">Cancel</a>
