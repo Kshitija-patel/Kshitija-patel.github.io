@@ -1,5 +1,5 @@
 <?php
- require_once "../includes/adminHeader.php";
+//  require_once "../includes/adminHeader.php";
 require_once "connect.php";
 include_once "../database/classes/models/TutorAppointment.php";      //CRUD operations file
 class TutorAppointmentContext extends Database
@@ -24,15 +24,7 @@ U.id AS users_id, U.first_name AS users_first_name, U.last_name AS user_last_nam
       $tutor = $pdostm->fetch(PDO::FETCH_ASSOC);
       return $tutor;
     }
-/*
-    public function getRoleId($user_id)
-    {
-      $sql = "select * from users WHERE id = $user_id";
-      $pdostm = parent::getDb()->prepare($sql);
-      $pdostm->execute();
-      $role = $pdostm->fetchAll(PDO::FETCH_ASSOC);
-      return $role;
-    }*/
+
 
     public function getAllTutors()
     {
@@ -81,6 +73,16 @@ U.id AS users_id, U.first_name AS users_first_name, U.last_name AS user_last_nam
         $tutor_appointment_bookings = $pdostm->fetchAll(PDO::FETCH_OBJ);
         return $tutor_appointment_bookings;
     }
+    public function ListAlll()
+    {
+      // require_once "../includes/adminHeader.php";
+      // echo $sessionData->userId;
+        $sql = "SELECT * FROM tutor_appointment_bookings";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->execute();
+        $tutor_appointment_bookings = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        return $tutor_appointment_bookings;
+    }
     public function Delete($id)
     {
         $sql = "DELETE FROM tutor_appointment_bookings WHERE id = :id";
@@ -90,5 +92,34 @@ U.id AS users_id, U.first_name AS users_first_name, U.last_name AS user_last_nam
         $count = $pst->execute();
         return $count;
     }
+    public function Get($user_id)
+    {   
+        $sql = "select * from users where id = :user_id";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':user_id', $user_id);
+        $pdostm->execute();
+        $user_id = $pdostm->fetch(PDO::FETCH_OBJ);
+        return $user_id;
+    }
+    public function GetEdit($id)
+    {   
+        $sql = "select * from tutor_appointment_bookings where id = :id";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':id', $id);
+        $pdostm->execute();
+        $user_id = $pdostm->fetch(PDO::FETCH_OBJ);
+        return $user_id;
+    }
+    public function Update($value,$id)
+    { //set room_number = :room_number where id= :id"
+        $sql = "Update tutor_appointment_bookings set is_confirmed = :value where id = :id";
+        $pdostm = parent::getDb()->prepare($sql);
+   
+        // $getRoomNo = $learningRoom->getRoomNumber();
+        $pdostm->bindParam(':value', $value);
+         $pdostm->bindParam(':id', $id);
 
+        $numRowsAffected = $pdostm->execute();
+        return $numRowsAffected;
+    }
 }

@@ -68,6 +68,15 @@ class LearningRoomDb extends Database
         $roomno = $pdostm->fetch(PDO::FETCH_OBJ);
         return $roomno;
     }
+    public function Getbyid($id)
+    {   
+        $sql = "select * from learning_rooms where id = :id";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':id', $id);
+        $pdostm->execute();
+        $roomno = $pdostm->fetch(PDO::FETCH_OBJ);
+        return $roomno;
+    }
     //this method is used to search rooms from the list
     public function Search($room_number)
     {

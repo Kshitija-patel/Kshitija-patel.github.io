@@ -2,14 +2,16 @@
 
 require_once "../database/classes/TutorAppointmentContext.php"; //crud functions
 require_once "../database/classes/models/TutorAppointment.php";
+include_once "../database/LearningRoomDb.php";
 // initialise the CRUD class
+$room = new LearningRoomDb();
+// $rooms = $room->Getbyid();
 $TutorAppointmentContext = new TutorAppointmentContext();
-$Appointments = $TutorAppointmentContext->ListAll($sessionData->userId);
-// $getrole = $TutorAppointmentContext->getRoleId($sessionData->userId);
-//  var_dump($getrole);
-// echo "--------------------------------------------------".$sessionData->roleId;
-// var_dump($_SESSION);
-
+if($sessionData->roleId == 1){
+    $Appointments = $TutorAppointmentContext->ListAlll();
+}else{
+    $Appointments = $TutorAppointmentContext->ListAll($sessionData->userId);
+}
 
 
 if (isset($_POST["deleteAppointBtn"])) {
@@ -67,6 +69,9 @@ if (isset($_POST["deleteAppointBtn"])) {
                                 <table class="responsive-table">
                                     <thead>
                                     <tr>
+                                        <?php if($sessionData->roleId == 1){ ?>
+                                        <th>Booked by</th>
+                                        <?php } ?>
                                         <th>Tutor</th>
                                         <th>Subject</th>
                                         <th>Room No</th>
@@ -83,14 +88,32 @@ if (isset($_POST["deleteAppointBtn"])) {
                                         <?php
                                             $subject_data = $TutorAppointmentContext->getTutorSubject($value->subject_id);
                                             //  var_dump($subject_data);
-                                        ?>
+                                            if($sessionData->roleId == 1){
+                                                // echo $value->user_id;
+                                                $admin = $TutorAppointmentContext->Get($value->user_id);
+                                                // var_dump($admin);
+                                                ?>
+                                            <td><?=$admin->first_name; ?></td>        
+                                            <?php }                                        ?>
+                                    
+                                        
                                         <td><?=$subject_data['users_first_name']?></td>
                                         <td><?=$subject_data['subject_title']?></td>
-                                        <td><?=$value->learning_room_id?></td>
+                                        <td><?php $rooms = $room->Getbyid($value->learning_room_id);
+                                        // var_dump($rooms);
+                                            echo $rooms->room_number;
+                                        ?></td>
                                         <td><?=$value->date_time?></td>
+                                        <?php if($sessionData->roleId == 1){ ?>
+                                            <td><?=($value->is_confirmed == 0 ? "Not Confirmed" : "Confirmed") ?>
+                                                <a href='tutorAppointmentEdit.php?id=<?=$value->id?>' name='appointEdit'><i class='material-icons blue-text'>create</i></a>
+                                        </td>
+                                        <?php }else{ ?>
+
                                         <td><?=($value->is_confirmed == 0 ? "Not Confirmed" : "Confirmed") ?></td>
+                                        <?php } ?>
+
                                         <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
 
                                             <?php $appid = "id".$value->id; ?> 
                                             <a class='modal-trigger cursor-pointer' href='#<?=$appid?>'>
@@ -126,4 +149,13 @@ if (isset($_POST["deleteAppointBtn"])) {
             </div>
         </div>
     </main>
+    <script>
+    function sendIt(e) {
+       if(e == 0){
+           alert("Not confirmed");
+       }else{
+           alert("Confirmed");
+       }
+    }
+    </script>
 <?php require_once "../includes/adminFooter.php" ?>
