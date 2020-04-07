@@ -1,6 +1,8 @@
 <?php
 /*
-    Created by : Priyanka Khadilkar
+ *  Developed by : Priyanka Khadilkar
+    This file is being used for the all the database communication
+   to the job_post table (CRUD)
 */
 require_once "connect.php";
 require_once "models/JobPost.php";
@@ -11,8 +13,10 @@ class JobPostContext extends Database
     {
     }
 
+    //This function will List all job post records
     public function ListAll()
     {
+        //Query to selecting all the job post from the database
         $sql = "SELECT * FROM job_post";
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->execute();
@@ -22,6 +26,7 @@ class JobPostContext extends Database
 
     }
 
+    //Search job post list with the job post title.
     public function Search($searchKey)
     {
         $sql = "SELECT * FROM job_post where LOWER(title) LIKE :searchKey";
@@ -34,6 +39,7 @@ class JobPostContext extends Database
         return $jobOpenings;
     }
 
+    //This function to add job post into the database
     public function Add($JobPost)
     {
         $sql = "INSERT INTO job_post (title, description, created_datetime) VALUES (:jobtitle, :jobdescription, :createdDatetime)";
@@ -50,6 +56,7 @@ class JobPostContext extends Database
 
     }
 
+    //This function to update job post into the database
     public function Update($JobPost, $id)
     {
         $sql = "Update job_post set title = :jobtitle, description = :jobdescription where id= :id";
@@ -65,6 +72,7 @@ class JobPostContext extends Database
 
     }
 
+    //This function to delete job post into the database
     public function Delete($id)
     {
         $sql = "DELETE FROM job_post WHERE id = :id";
@@ -76,6 +84,7 @@ class JobPostContext extends Database
 
     }
 
+    //This function to get job post by id into the database
     public function Get($id)
     {
         $sql = "select * from job_post where id = :id";

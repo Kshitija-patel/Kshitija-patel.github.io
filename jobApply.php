@@ -128,15 +128,16 @@ if (isset($_POST["btnApply"])) {
     if ($isFormValid == true) {
         //Folder to upload resume
         $uploads_dir = 'Resume';
-        //Get the file extension
-        //$fileExtension = get_file_extension($_FILES['resume']['tmp_name']);
-        //File name to store into folder
-        //$fileName = $firstname.'_'.$lastname.'.'.$fileExtension;
+        //Get the file name
         $fileName = $_FILES['resume']['name'];
-        //Move file to the Resume folder
+
+        //Move file from the temp location to physical path
         move_uploaded_file($_FILES['resume']['tmp_name'], "$uploads_dir/$fileName");
+
         $jobApplication = new JobApplication($firstname, $lastname, $email, $phoneNumber, $fileName, $jobId);
         $jobApplicationContext = new JobApplicationContext();
+
+        //Application will be added into database
         $isApplied = $jobApplicationContext->Add($jobApplication);
         if ($isApplied) {
             $msg = "<span class='green-text'>Thank you. You have successfully applied for job. We will contact you soon. </span>";

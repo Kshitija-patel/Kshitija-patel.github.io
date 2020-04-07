@@ -1,6 +1,8 @@
 <?php
 /*
-    Created by : Priyanka Khadilkar
+ *  Developed by : Priyanka Khadilkar
+    This file is being used for the all the database communication
+   to the user table (CRUD)
 */
 require_once "connect.php";
 require_once "models/User.php";

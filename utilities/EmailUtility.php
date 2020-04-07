@@ -1,6 +1,8 @@
 <?php
-//Created by : Priyanka Khadilkar
-
+/* Developer : Priyanka Khadilkar
+  * This file is email utility. which is used for all common function for sending email.
+  *
+  */
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require_once "ConstantStr.php";
@@ -9,6 +11,7 @@ require_once "../vendor/autoload.php";
 
 class EmailUtility
 {
+    //function to send an email
     public static function SendEmail($to_address, $to_name,
                                      $subject, $body, $is_body_html = false)
     {
@@ -49,6 +52,7 @@ class EmailUtility
         }
     }
 
+    //Email template for the forgot password email
     public static function ForgotPasswordTemplate($firstname, $link)
     {
         $emailtemplate = "<div><b> Hi " . $firstname . ",</b></div><p> You recently requested to reset your password for your iTutor Account.Please Click the below link to reset it.</p>" .
@@ -58,6 +62,7 @@ class EmailUtility
 
     }
 
+    //Email template for the job applicant.
     public static function JobApplicationTemplate($firstname, $message)
     {
         $emailtemplate = "<div><b> Hi " . $firstname . ",</b></div><p>".$message."</p><br/><br/><div>Thanks,</div><div>The iTutor Team</div>";

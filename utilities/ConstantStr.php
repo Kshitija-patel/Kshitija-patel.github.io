@@ -1,6 +1,9 @@
 <?php
 
-//Created by : Priyanka Khadilkar
+/* Developer : Priyanka Khadilkar
+  * In this file all the constant values or configuration for the
+  *website will be declared here.
+  */
 abstract class ConstantStr
 {
     const ResetPasswordlink = "http://priyankakhadilkar.com/onlinetutor/resetPassword.php";

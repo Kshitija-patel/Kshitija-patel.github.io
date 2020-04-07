@@ -1,8 +1,9 @@
 <?php
 
 /*
+ *  Developed by : Priyanka Khadilkar
     Use the static method getInstance to get the object.
-    Created by : Priyanka Khadilkar
+    set and get the session variables and values
     Citation :https://www.php.net/manual/en/function.session-start.php
 */
 class Session
@@ -26,7 +27,6 @@ class Session
      *
      *    @return    object
      **/
-
     public static function getInstance()
     {
         if ( !isset(self::$instance))
@@ -45,7 +45,6 @@ class Session
      *
      *    @return    bool    TRUE if the session has been initialized, else FALSE.
      **/
-
     public function startSession()
     {
         if ( $this->sessionState == self::SESSION_NOT_STARTED )

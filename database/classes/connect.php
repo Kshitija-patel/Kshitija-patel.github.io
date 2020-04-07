@@ -1,5 +1,9 @@
 <?php
-
+/*
+ *  Developed by : Priyanka Khadilkar
+    This file is being used for the connection to the database,
+    and database configuration
+*/
 class Database
 {
     
@@ -13,6 +17,7 @@ class Database
 
     }
 
+    //Connect to database
     public static function getDb()
     {
         if (!isset(self::$dbcon)) {
