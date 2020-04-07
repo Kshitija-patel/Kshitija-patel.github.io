@@ -40,11 +40,12 @@ CREATE TABLE tutors (
 
 CREATE TABLE subjects (
   id int PRIMARY KEY AUTO_INCREMENT,
-  title	varchar(100) NOT NULL,
-  description	varchar(100) NOT NULL,
+  title	varchar(200) NOT NULL,
+  description	varchar(1000) NOT NULL,
   subject_field	varchar(100) NOT NULL,
   created_datetime	datetime,
-  updated_datetime	datetime
+  updated_datetime	datetime,
+  FOREIGN KEY(tutor_id) REFERENCES tutors(id)
 );
 
 CREATE TABLE learning_materials (

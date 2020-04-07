@@ -90,63 +90,55 @@
                                         <i class="large material-icons">add</i>
                                     </a>
                                 </div>
+                                
+
                                 <div class="row sub-list">
+                                <?php
+                                    echo $noSubject;
+                                    foreach($subjects as $subject){
+                                ?>
                                     <div class="col s12 m6 l4">
                                         <div class="card">
                                             <div class="card-content">
-                                                <span class="card-title">Physics</span>
-                                                <p>Field:<strong>Science</strong></p>
-                                                <p class="small-text">Physics is the branch of science that deals with the structure of matter and how the fundamental constituents of the universe interact. </p>
-                                                <!-- source link: "https://www.britannica.com/science/physics-science" -->
+                                           
+                                                <span class="card-title"><?= $subject["title"]?></span>
+                                                <p>Field:<strong><?= $subject["subject_field"]?></strong></p>
+                                                <p class="small-text"><?= $subject["description"]?></p>
+                                                 <!-- source link: "https://www.britannica.com/sc   ience/physics-science" -->
                                             </div>
                                             <div class="card-action add-contact-flex">
-                                                <a href="showSubject.php" class="small-text">View</a>
-                                                <a href=""><i class="material-icons red-text sub-del-icon">delete</i></a>
+                                                <form action="showSubject.php" method="post">
+                                                    <input type="hidden" name="id" value="<?= $subject["id"] ?>"/>
+                                                    <input type="submit" class="small-text" name="updateStudent" value="View"/>
+                                                </form>
+                                                <!-- <a href="showSubject.php" class="small-text">View</a> -->
+                                                <?php 
+                                                     $id = "id".$subject["id"]; 
+                                                ?>
+                                                 <a class='modal-trigger cursor-pointer' href='#<?=$id?>'>
+                                                <i class='material-icons red-text'>delete</i>
+                                            </a>
                                             </div>
+                                            <div id='id<?=$subject["id"]?>' class='modal modal-learning-popup'>
+                                        <div class='modal-content'>
+                                        <h4>Are you sure?</h4>
+                                        <p>Do you really want to delete this subject?</p>
+                                        </div>
+                                        <div class='modal-footer-LearningRoom'>
+                                            <form method="post">
+                                                <div class="modal-footer">
+                                                    <input type="hidden" name="id" value="<?=$subject["id"];?>">
+                                                    <a href="#!" class="modal-action modal-close waves-effect waves-white btn-flat">Close</a>
+                                                    <button class="btn waves-effect waves-light delete-btn-learningRoom"
+                                                            type="submit" name="deleteSubject">Delete
+                                                    </button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
-                                    <div class="col s12 m6 l4">
-                                        <div class="card">
-                                            <div class="card-content">
-                                                <span class="card-title">Accounts</span>
-                                                <p>Field: <strong>Commerce</strong></p>
-                                                <p class="small-text">Accounting has several subfields or subject areas, including financial accounting, management accounting, auditing, taxation and accounting information systems.</p>
-                                                <!-- source link: "https://en.wikipedia.org/wiki/Accounting" -->
-                                            </div>
-                                            <div class="card-action add-contact-flex">
-                                                <a href="showSubject.php" class="small-text">View</a>
-                                                <a href=""><i class="material-icons red-text sub-del-icon">delete</i></a>
-                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col s12 m6 l4">
-                                        <div class="card">
-                                            <div class="card-content">
-                                                <span class="card-title">History</span>
-                                                <p>Field: <strong>Arts</strong></p>
-                                                 <p class="small-text">History includes the academic discipline which uses a narrative to examine and analyse a sequence of past events, and objectively determine the patterns of cause and effect that determine them.</p>
-                                                 <!-- souce link:"https://en.wikipedia.org/wiki/History" -->
-                                            </div>
-                                            <div class="card-action add-contact-flex">
-                                                <a href="showSubject.php" class="small-text">View</a>
-                                                <a href=""><i class="material-icons red-text sub-del-icon">delete</i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col s12 m6 l4">
-                                        <div class="card">
-                                            <div class="card-content">
-                                                <span class="card-title">Chemistry</span>
-                                                <p>Field: <strong>Science</strong></p>
-                                                <p class="small-text">Chemistry is the study of matter, including its composition, properties, and structure; how it changes; and how it interacts with energy.</p>
-                                                <!-- source link:"https://study.com/academy/lesson/what-is-chemistry-definition-history-topics.html" -->
-                                            </div>
-                                            <div class="card-action add-contact-flex">
-                                                <a href="showSubject.php" class="small-text">View</a>
-                                                <a href=""><i class="material-icons red-text sub-del-icon">delete</i></a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <?php }?>
                                 </div>
                                 <ul class="pagination">
                                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a>
