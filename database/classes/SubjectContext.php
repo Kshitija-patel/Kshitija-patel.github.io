@@ -83,7 +83,7 @@ class SubjectContext extends Database
       $pst->bindParam(':title',$searchKey);
       $pst->execute();
 
-      $subject = $pst->fetchAll(PDO::FETCH_ASSOC);
+      $subject = $pst->fetchAll(PDO::FETCH_OBJ);
       return $subject;
     }
 

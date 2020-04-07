@@ -2,8 +2,8 @@
     require_once "../includes/adminHeader.php";
     require_once "../database/classes/connect.php";
     require_once "../database/classes/SubjectContext.php";
-    // replace karvu padse GET
-        $id = $_POST['id'];
+    
+        $id = $_GET['id'];
         $db = Database::getDb();
 
         $s = new SubjectContext();   
@@ -29,10 +29,11 @@
                                 </div>
                             </div>
                             <div class="add-contact-flex">
-                                <form action="updateSubject.php" method="post">
+                                <!-- <form action="updateSubject.php" method="post">
                                     <input type="hidden" name="id" value="<?= $subject["id"] ?>"/>
-                                    <input type="submit" class="button btn btn-primary" name="updateSubject" value="Update"/>
-                                </form>
+                                    <input type="submit"  name="updateSubject" value="Update"/>
+                                </form> -->
+                                <a href="updateSubject.php?id=<?= $subject['id']; ?>" class="waves-effect waves-light btn add-contact-btn ">Update</a>
                                 <div>
                                     <a class="waves-effect waves-light btn add-contact-btn " href="listSubjects.php">Back</a>
                                 </div>

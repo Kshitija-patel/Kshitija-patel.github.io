@@ -11,7 +11,7 @@
 
     $db = Database::getDb();
     $noSubject = "";
-    
+    $addUpdateMsg = "";
     $s = new SubjectContext();
     $subjects = $s->getAllSubjects($db);
 
@@ -28,7 +28,7 @@
         }
     }
 
-    if(isset($_POST["searchContactBtn"])){
+    if(isset($_POST["searchSubjectBtn"])){
         $searchKey = $_POST["subjectSearch"];
         $subjects = $s->Search($searchKey,$db);
         if(!$subjects){
@@ -49,37 +49,13 @@
                             <input id="subjectSearch" type="text" class="validate search-box">
                             <label for="subjectSearch" class="serach-label">Search subjects...</label>
                         </div>
-                        <div class="input-field col s12 m12 l3">
-                            <select class="browser-default">
-                                <option value="" disabled selected>Select Field</option>
-                                <option value="WebDevelopment">Web Development </option>
-                                <option value="WebDesign">Web Design</option>
-                                <option value="ITSolution">IT Solution</option>
-                                <option value="GameProgramming">Game Programming</option>
-                                <option value="ProjectManagement">Project Management</option>
-                            </select>
-                        </div>
-                        <div class="input-field col s12 m12 l3">
-                            <select class="browser-default">
-                                <option value="" disabled selected>Select Subject</option>
-                                <option value="WebProgramming">Web Programming</option>
-                                <option value="XML">XML</option>
-                                <option value="SecurityAndQuality">Security And Quality</option>
-                                <option value="WebProduction">Web Production</option>
-                                <option value="OperatingSystems">Operating Systems</option>
-                                <option value="JavaProgramming">Java Programming</option>
-                                <option value="Database">Database</option>
-                                <option value="GameConcepts">Game Concepts</option>
-                                <option value="GameDesign">Game Design</option>
-                                <option value="ProjectCommunications">Project Communications</option>
-                            </select>
-                        </div>
                         <div class="input-field col s12 m12 l2">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                            <button class="btn waves-effect waves-light" name="searchSubjectBtn" type="submit" name="action">Search
                                 <i class="material-icons right">search</i>
                             </button>
                         </div>
                     </form>
+                    <span><?= $addUpdateMsg;?></span>
                 </div>
                 <div class="row">
                     <div class="col s12 m12 l12">
@@ -107,11 +83,8 @@
                                                  <!-- source link: "https://www.britannica.com/sc   ience/physics-science" -->
                                             </div>
                                             <div class="card-action add-contact-flex">
-                                                <form action="showSubject.php" method="post">
-                                                    <input type="hidden" name="id" value="<?= $subject["id"] ?>"/>
-                                                    <input type="submit" class="small-text" name="updateStudent" value="View"/>
-                                                </form>
-                                                <!-- <a href="showSubject.php" class="small-text">View</a> -->
+                                                
+                                                <a href="showSubject.php?id=<?= $subject["id"] ?>" class="small-text">View</a>
                                                 <?php 
                                                      $id = "id".$subject["id"]; 
                                                 ?>
