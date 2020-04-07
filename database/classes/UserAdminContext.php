@@ -10,12 +10,12 @@ class UserAdminContext extends Database
 
     public function ListAll()
     {
-        $sql = "SELECT * FROM users";
+        $sql = "select u.*, g.gender, ur.user_role from users u, gender g, user_roles ur where u.role_id = ur.id AND g.id = u.gender_id";
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->execute();
 
         $userdetails = $pdostm->fetchAll(PDO::FETCH_OBJ);
-        // var_dump($faqs);
+        
         return $userdetails;
 
     }
@@ -23,7 +23,7 @@ class UserAdminContext extends Database
     public function Add($Userdetail)
     {
         $date = date('Y-m-d H:i:s');
-        $sql = "INSERT INTO users (first_name, last_name, email, user_password, phone_number, date_of_birth, gender_id, role_id, created_datetime ) VALUES (:userdetailfirst_name, :userdetaillast_name, :userdetailemail, 'xxxxxxxxx', :userdetailphone_number, :userdetaildate_of_birth, :userdetailgender_id, :userdetailrole_id, :created_datetime)";
+        $sql = "INSERT INTO users (first_name, last_name, email, user_password, phone_number, date_of_birth, gender_id, role_id, created_datetime ) VALUES (:userdetailfirst_name, :userdetaillast_name, :userdetailemail, 'xxxxxxxx', :userdetailphone_number, :userdetaildate_of_birth, :userdetailgender_id, :userdetailrole_id, :created_datetime)";
         
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->bindParam(':userdetailfirst_name', $Userdetail['first_name']);
@@ -84,14 +84,19 @@ class UserAdminContext extends Database
         return $userdetails;
     }
 
-    public function show($id)
+    public function Show($id)
     {
-        $sql= "select u.*, g.gender, ur.user_role from users u, gender g, user_roles ur where u.role_id = ur.id AND g.id = u.gender_id";
+        // var_dump($id);
+        // exit();
+        $sql= "select u.*, g.gender, ur.user_role from users u, gender g, user_roles ur where u.role_id = ur.id AND g.id = u.gender_id AND u.id = :id";
+        
+        
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->bindParam(':id', $id);
         $pdostm->execute();
         $userdetails = $pdostm->fetch(PDO::FETCH_OBJ);
         return $userdetails;
+       
     }
 
 

@@ -69,10 +69,10 @@ if (isset($_POST["delete"])) {
                 ?>
                                     <tbody>
                                     <tr>
-                                        <td><a href="showUser.php"><?=$userdetail->first_name;?></a></td>
+                                        <td><a href="showUser.php?id=<?= $userdetail->id ?>"><?=$userdetail->first_name;?></a></td>
                                         <td><?=$userdetail->email;?></td>
                                         <td><?=$userdetail->phone_number;?></td>
-                                        <td><?=$userdetail->role_id;?></td>
+                                        <td><?=$userdetail->user_role;?></td>
 
                                         <td>
                                             <a href="updateUser.php?id=<?= $userdetail->id; ?>"><i class="material-icons blue-text">create</i></a>

@@ -112,9 +112,9 @@
                   <i class="material-icons prefix">wc</i>
                     <select name="role_id">
                       <option value="" disabled selected>Select Role</option>
-                      <option value="1">Student</option>
+                      <option value="1">Admin</option>
                       <option value="2">Tutor</option>
-                      <option value="3">Admin</option>
+                      <option value="3">Student</option>
                     </select>
                     <label>Role</label>
                     <span class="helper-text red-text"> <?php  echo $role_idErr?></span>
