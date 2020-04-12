@@ -3,9 +3,7 @@
   * form of Email to job application.
  * Only admin can access this  List
   */
-require_once '../database/classes/JobApplicationContext.php';
-require_once '../utilities/EmailUtility.php';
-require_once '../utilities/ConstantStr.php';
+require_once "../vendor/autoload.php";
 
 $messageErr = "";
 $applicantId = "";

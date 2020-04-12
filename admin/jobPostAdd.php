@@ -3,8 +3,7 @@
 * This file contains form for adding job post.
 * Only admin can access this form
 */
-require_once '../database/classes/JobPostContext.php';
-require_once '../database/classes/models/JobPost.php';
+require_once "../vendor/autoload.php";
 
 //Variable to hold the validation Message.
 $TitleValidationMsg = "";

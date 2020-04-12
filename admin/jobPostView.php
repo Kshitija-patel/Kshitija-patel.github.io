@@ -4,8 +4,7 @@
 This page will display the details of job posting.
 so when user click on view icon on the job listing page it will redirect to here.
 */
-require_once '../database/classes/JobPostContext.php';
-require_once '../database/classes/models/JobPost.php';
+require_once "../vendor/autoload.php";
 
 //Variable to set the data to input
 $id = "";

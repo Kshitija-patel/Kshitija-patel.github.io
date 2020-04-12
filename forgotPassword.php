@@ -3,9 +3,7 @@
 /*
     Created by : Priyanka Khadilkar
 */
-require_once 'database/classes/UserContext.php';
-require_once 'utilities/EmailUtility.php';
-require_once 'utilities/ConstantStr.php';
+require_once "vendor/autoload.php";
 
 $EmailErr = "";
 $Email = "";

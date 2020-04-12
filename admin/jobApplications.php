@@ -7,8 +7,7 @@
 require_once "../includes/adminHeader.php" ?>
 <?php
 
-require_once '../database/classes/JobApplicationContext.php';
-require_once '../database/classes/JobPostContext.php';
+require_once "../vendor/autoload.php";
 
 //Declaring job Application search form variables
 $jobPostId = "";
@@ -100,18 +99,6 @@ if(isset($_POST["searchJobApplication"])){
                                     <?php } ?>
                                     </tbody>
                                 </table>
-                                <ul class="pagination">
-                                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a>
-                                    </li>
-                                    <li class="red"><a href="#!">1</a></li>
-                                    <li class="waves-effect"><a href="#!">2</a></li>
-                                    <li class="waves-effect"><a href="#!">3</a></li>
-                                    <li class="waves-effect"><a href="#!">4</a></li>
-                                    <li class="waves-effect"><a href="#!">5</a></li>
-                                    <li class="waves-effect"><a href="#!"><i
-                                                    class="material-icons">chevron_right</i></a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
