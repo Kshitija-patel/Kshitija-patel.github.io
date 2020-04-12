@@ -2,13 +2,11 @@
 /* Developer : Priyanka Khadilkar
   * This file is email utility. which is used for all common function for sending email.
   *
-  */
+ */
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-require_once "ConstantStr.php";
-require_once "vendor/autoload.php";
+require_once "../vendor/autoload.php";
 
 class EmailUtility
 {

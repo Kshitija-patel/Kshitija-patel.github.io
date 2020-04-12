@@ -3,6 +3,8 @@
 /*
     Created by : Priyanka Khadilkar
 */
+$pathInPieces = explode('/',__DIR__);
+echo $pathInPieces[0];
 require_once "vendor/autoload.php";
 
 $EmailErr = "";
