@@ -50,6 +50,14 @@
     padding-top: 6px !important;
 }
 
+.paddingleft0{
+    padding-left: 0 !important;
+}
+
+.fontsizeinherit{
+    font-size: inherit;
+}
+
 .fixed-card-height {
     height: 213px;
     overflow: hidden;

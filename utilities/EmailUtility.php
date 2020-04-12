@@ -18,7 +18,7 @@ class EmailUtility
         $mail = new PHPMailer;
         $mail->isSMTP();
         //$mail->SMTPDebug = 2;
-        $send_using_config = 2; // For local set it to 1
+        $send_using_config = 1; // For local set it to 1
         switch ($send_using_config):
             case 1:
                 $mail->Host = 'smtp.gmail.com';              // Set SMTP server

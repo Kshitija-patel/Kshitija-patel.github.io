@@ -83,6 +83,9 @@ if (isset($_POST['btnJobPostUpdate'])) {
                                             <label class="active" for="title">Title</label>
                                             <span class="helper-text red-text"><?= $TitleValidationMsg ?></span>
                                         </div>
+                                        <div class="col s12 paddingleft0">
+                                            <label class="fontsizeinherit" for="description">Description</label>
+                                        </div>
                                         <div class="input-field col s12">
                                             <textarea id="description" name="description"
                                                       class="validate summernote"><?= $jobDescription ?></textarea>

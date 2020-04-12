@@ -1,10 +1,10 @@
 <?php require_once "includes/header.php" ?>
 <?php
 /*
-    Created by : Priyanka Khadilkar
+Created by : Priyanka Khadilkar
+This file is for forgot password.
 */
-$pathInPieces = explode('/',__DIR__);
-echo $pathInPieces[0];
+
 require_once "vendor/autoload.php";
 
 $EmailErr = "";

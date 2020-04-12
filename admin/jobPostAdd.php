@@ -66,7 +66,9 @@ if (isset($_POST['addJobPost'])) {
                                                 <input id="title" name="title" type="text" class="validate">
                                                 <label for="title">Title</label>
                                                 <span class="helper-text red-text"><?= $TitleValidationMsg ?></span>
-
+                                                <div class="col s12 paddingleft0">
+                                                    <label class="fontsizeinherit" for="description">Description</label>
+                                                </div>
                                                 <div class="input-field col s12">
                                                 <textarea id="description" name="description"
                                                           class="summernote validate"

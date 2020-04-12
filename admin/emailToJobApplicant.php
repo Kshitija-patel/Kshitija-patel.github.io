@@ -83,7 +83,9 @@ if (isset($_POST['sendEmail'])) {
                                                 Resume : <a target="_blank"
                                                             href="<?= $filelink ?>"><?= $jobApplication->resume_filename ?></a>
                                             </div>
-                                            <div><label for="message">Email Message</label></div>
+                                            <div class="col s12 ">
+                                                <span class="fontsizeinherit" for="description">Email Message :</span>
+                                            </div>
                                             <div class="input-field col s12">
                                                 <textarea id="message" name="message"
                                                           class="validate summernote"
