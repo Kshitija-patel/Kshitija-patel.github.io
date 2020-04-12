@@ -52,7 +52,7 @@ class ComposerStaticInit1702db1fc08d08e4e694f56be633dd1c
         'ConstantStr' => __DIR__ . '/../..' . '/utilities/ConstantStr.php',
         'Contact' => __DIR__ . '/../..' . '/database/classes/ContactContext.php',
         'Database' => __DIR__ . '/../..' . '/database/classes/connect.php',
-        'EmailUtility' => __DIR__ . '/../..' . '/utilities/EmailUtility.php',
+        'EmailUtility' => __DIR__ . '/../..' . '/EmailUtility.php',
         'FaqContext' => __DIR__ . '/../..' . '/database/classes/FaqContext.php',
         'JobApplication' => __DIR__ . '/../..' . '/database/classes/models/JobApplication.php',
         'JobApplicationContext' => __DIR__ . '/../..' . '/database/classes/JobApplicationContext.php',

@@ -9,7 +9,7 @@ return array(
     'ConstantStr' => $baseDir . '/utilities/ConstantStr.php',
     'Contact' => $baseDir . '/database/classes/ContactContext.php',
     'Database' => $baseDir . '/database/classes/connect.php',
-    'EmailUtility' => $baseDir . '/utilities/EmailUtility.php',
+    'EmailUtility' => $baseDir . '/EmailUtility.php',
     'FaqContext' => $baseDir . '/database/classes/FaqContext.php',
     'JobApplication' => $baseDir . '/database/classes/models/JobApplication.php',
     'JobApplicationContext' => $baseDir . '/database/classes/JobApplicationContext.php',

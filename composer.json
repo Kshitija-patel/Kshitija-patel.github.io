@@ -14,7 +14,8 @@
       "database",
       "database/classes",
       "database/classes/models",
-      "errorLog"
+      "errorLog",
+      "EmailUtility.php"
     ]
   }
 }
