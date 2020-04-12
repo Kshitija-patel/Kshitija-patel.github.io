@@ -9,7 +9,8 @@ include_once "../database/classes/MockTestQuestionContext.php";
 $mockTestQuestionContext = new MockTestQuestionContext();
 $mockTestQuestions = $mockTestQuestionContext->getMockTestQuestions();
 
-$mockTestQuestions = $mockTestsContext->filterMockTestQuestions($mockTestQuestions, $mockTest['questions'], $mockTest['subject']['id']);
+// var_dump($mockTest);
+$mockTestQuestions = $mockTestsContext->filterMockTestQuestions($mockTestQuestions, $mockTest['questions'], $mockTest['subject'][0]['id']);
 
 if (isset($_POST['addQuestion'])) {
   $mockTestsContext->addQuestionMockTest($_POST['questionID'], $mockTest['id']);
@@ -31,7 +32,7 @@ if (isset($_GET['deleteQuestion'])) {
         <div class="card-content">
         <a href="mockTests.php">Back to List </a>
           <span class="card-title"><?= $mockTest['title']; ?></span>
-          <p>Subject: <strong><?= $mockTest['subject']['title']; ?></strong></p>
+          <p>Subject: <strong><?= $mockTest['subject'][0]['title']; ?></strong></p>
           <strong class="marks-card"><?= $mockTest['marks']; ?> marks </strong>
           <table class="responsive-table">
             <thead>
