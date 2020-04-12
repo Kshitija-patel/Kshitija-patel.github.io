@@ -3,8 +3,7 @@
   * This file contains form to update job post.
  * Only admin can access this  List
   */
-require_once '../database/classes/JobPostContext.php';
-require_once '../database/classes/models/JobPost.php';
+require_once "../vendor/autoload.php";
 
 //Declaring variables for validation message and form input
 $TitleValidationMsg = "";
@@ -18,7 +17,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     //Get the the job post detail from database using job post Id
-    $jobPostDb = new jobPostContext();
+    $jobPostDb = new JobPostContext();
     $jobPost = $jobPostDb->Get($id);
 
     //Assign the value to the input.
@@ -82,14 +81,19 @@ if (isset($_POST['btnJobPostUpdate'])) {
                                             <input id="title" value="<?= $jobTitle ?>" name="title" type="text"
                                                    class="validate">
                                             <label class="active" for="title">Title</label>
+                                            <span class="helper-text red-text"><?= $TitleValidationMsg ?></span>
+                                        </div>
+                                        <div class="col s12 paddingleft0">
+                                            <label class="fontsizeinherit" for="description">Description</label>
                                         </div>
                                         <div class="input-field col s12">
                                             <textarea id="description" name="description"
-                                                      class="validate materialize-textarea"
-                                                      data-length="120"><?= $jobDescription ?></textarea>
-                                            <label class="active" for="description">Description</label>
+                                                      class="validate summernote"><?= $jobDescription ?></textarea>
                                         </div>
-                                        <div class="input-field col s12">
+                                         <div class=" input-field col s12">
+                                            <span class="helper-text red-text"><?= $DescriptionValidationMsg ?></span>
+                                        </div>
+                                        <div class=" input-field col s12">
                                             <button class="btn waves-effect waves-light" type="submit"
                                                     name="btnJobPostUpdate">Submit
                                             </button>

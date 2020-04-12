@@ -7,7 +7,7 @@
 require_once "../includes/adminHeader.php" ?>
 <?php
 
-require_once '../database/classes/JobPostContext.php';
+require_once "../vendor/autoload.php";
 
 //Fetch all Job posts
 $jobPostDb = new JobPostContext();
@@ -45,7 +45,7 @@ if (isset($_POST["searchJobPost"])) {
                     <form method="post">
                         <div class="input-field col s12 m12 l4">
                             <input id="searchKey" name="searchKey" type="text" class="validate search-box">
-                            <label for="searchKey" class="serach-label">Search Job Title..</label>
+                            <label for="searchKey" class="serach-label">Search Job Posts..</label>
                         </div>
                         <div class="input-field col s12 m12 l2">
                             <button class="btn waves-effect waves-light" type="submit" name="searchJobPost">Search
@@ -109,18 +109,6 @@ if (isset($_POST["searchJobPost"])) {
                                         </div>
                                     <?php } ?>
                                 </div>
-                                <ul class="pagination">
-                                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a>
-                                    </li>
-                                    <li class="red"><a href="#!">1</a></li>
-                                    <li class="waves-effect"><a href="#!">2</a></li>
-                                    <li class="waves-effect"><a href="#!">3</a></li>
-                                    <li class="waves-effect"><a href="#!">4</a></li>
-                                    <li class="waves-effect"><a href="#!">5</a></li>
-                                    <li class="waves-effect"><a href="#!">
-                                            <i class="material-icons">chevron_right</i></a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>

@@ -1,23 +1,36 @@
 <?php
-include_once "../database/classes/SubjectContext.php";
-$subject = new SubjectContext();
-$subjects = $subject->getAllSubjects();
 
-require_once "../database/classes/TutorContext.php";
-$tutor = new TutorContext();
-$tutors = $tutor->getAllTutors();
-
+// include files
+// Mock Tests - database interaction
 include_once "../database/classes/MockTestContext.php";
 $mockTestContext = new MockTestContext();
 
+// Subjects - database interaction
+include_once "../database/classes/SubjectContext.php";
+$subject = new SubjectContext();
+
+// Tutors - database interaction
+include_once "../database/classes/TutorContext.php";
+$tutor = new TutorContext();
+
+// fetch subjects
+$subjects = $subject->getAllSubjects();
+
+// fetch tutors
+$tutors = $tutor->getAllTutors();
+
+// check the page type (Add/Update)
 $page = isset($_GET['action']) ? $_GET['action'] : "Add";
 $mockTest;
 if($page == 'Update') {
   $testID = isset($_GET['testID']) ? $_GET['testID'] : 0;
+  // get mock test data if the page is update
   $mockTest = $mockTestContext->getMockTests($testID);
 }
 
+// check if the form is submitted
 if(isset($_POST['addUpdateMockTest'])) {
+  // add/update mock test data
   $mockTestContext->addUpdateMockTest($_POST, ($page == 'Add') ? null : $_POST['testID']);
   header('Location: mockTests.php?tab=tests');
 }

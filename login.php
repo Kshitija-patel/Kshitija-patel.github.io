@@ -4,9 +4,7 @@
 /*
     Created by : Priyanka Khadilkar
 */
-
-require_once 'database/classes/UserContext.php';
-require_once 'utilities/Session.php';
+require_once "vendor/autoload.php";
 
 //Initialize the session
 $sessionData = Session::getInstance();

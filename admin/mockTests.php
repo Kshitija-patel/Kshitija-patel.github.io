@@ -1,33 +1,49 @@
 <?php
+// include files
+// Mock Test Questions - database interaction
 include_once "../database/classes/MockTestQuestionContext.php";
 $mockTestQuestions = new MockTestQuestionContext();
 
+// Mock Tests - database interaction
 include_once "../database/classes/MockTestContext.php";
 $mockTestsContext = new MockTestContext();
 
+// Subjects - database interaction
+include_once "../database/classes/SubjectContext.php";
+$subject = new SubjectContext();
+
+// Tutors - database interaction
+include_once "../database/classes/TutorContext.php";
+$tutor = new TutorContext();
+
+// handle delete requests
 if(isset($_GET['deleteQuestion'])) {
+  // delete mock test question
   $mockTestQuestions->deleteMockTestQuestion($_GET['deleteQuestion']);
   header('location: mockTests.php?tab=questions');
 } else if(isset($_GET['deleteOption'])) {
+  // delete option from the question
   $mockTestQuestions->deleteMockTestOption($_GET['deleteOption']);
   header('location: mockTests.php?tab=questions');
 } else if(isset($_GET['deleteTest'])){
+  // delete mock test
   $mockTestsContext->deleteMockTest($_GET['deleteTest']);
   header('location: mockTests.php?tab=tests');
 }
 
+// fetch mock test questions
 $mockQuestions = $mockTestQuestions->getMockTestQuestions(null, (isset($_GET['searchQuestion']) && $_GET['searchQuestion'] != '') ? $_GET['searchQuestion'] : null, (isset($_GET['subjectQuestion']) && $_GET['subjectQuestion'] != '') ? $_GET['subjectQuestion'] : null, (isset($_GET['tutorQuestion']) && $_GET['tutorQuestion'] != '') ? $_GET['tutorQuestion'] : null);
 
+// fetch mock tests
 $mockTests = $mockTestsContext->getMockTests(null, (isset($_GET['searchTest']) && $_GET['searchTest'] != '') ? $_GET['searchTest'] : null, (isset($_GET['subjectTest']) && $_GET['subjectTest'] != '') ? $_GET['subjectTest'] : null, (isset($_GET['tutorTest']) && $_GET['tutorTest'] != '') ? $_GET['tutorTest'] : null);
 
-include_once "../database/classes/SubjectContext.php";
-$subject = new SubjectContext();
+// fetch subjects
 $subjects = $subject->getAllSubjects();
 
-include_once "../database/classes/TutorContext.php";
-$tutor = new TutorContext();
+// fetch tutors
 $tutors = $tutor->getAllTutors();
 
+// set the tab back on refresh the page
 $tab = 'tests';
 if(isset($_GET['tab'])) {
   $tab = $_GET['tab'];
@@ -97,7 +113,7 @@ if(isset($_GET['tab'])) {
                           ?>
                           <tr>
                               <td><a href="showMockTest.php?testID=<?= $mockTest['id']; ?>"><?= $mockTest['title']; ?></a></td>
-                              <td><?= $mockTest['subject']['title']; ?></td>
+                              <td><?= $mockTest['subject'][0]['title']; ?></td>
                               <td><?= $mockTest['marks']; ?></td>
                               <td>
                                   <a href="addUpdateMockTest.php?action=Update&testID=<?= $mockTest['id']; ?>"><i class="material-icons blue-text">create</i></a>
@@ -117,18 +133,6 @@ if(isset($_GET['tab'])) {
                           <?php } ?>
                           </tbody>
                       </table>
-                      <!-- <ul class="pagination">
-                          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a>
-                          </li>
-                          <li class="red"><a href="#!">1</a></li>
-                          <li class="waves-effect"><a href="#!">2</a></li>
-                          <li class="waves-effect"><a href="#!">3</a></li>
-                          <li class="waves-effect"><a href="#!">4</a></li>
-                          <li class="waves-effect"><a href="#!">5</a></li>
-                          <li class="waves-effect"><a href="#!"><i
-                                          class="material-icons">chevron_right</i></a>
-                          </li>
-                      </ul> -->
                   </div>
               </div>
           </div>

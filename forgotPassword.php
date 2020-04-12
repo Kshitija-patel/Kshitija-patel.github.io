@@ -1,11 +1,11 @@
 <?php require_once "includes/header.php" ?>
 <?php
 /*
-    Created by : Priyanka Khadilkar
+Created by : Priyanka Khadilkar
+This file is for forgot password.
 */
-require_once 'database/classes/UserContext.php';
-require_once 'utilities/EmailUtility.php';
-require_once 'utilities/ConstantStr.php';
+
+require_once "vendor/autoload.php";
 
 $EmailErr = "";
 $Email = "";

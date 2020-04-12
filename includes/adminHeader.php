@@ -1,11 +1,9 @@
 <?php
-require_once '../utilities/Session.php';
+require_once '../vendor/autoload.php';
 $sessionData = Session::getInstance();
-if(isset($sessionData->userId)) {
+if (isset($sessionData->userId)) {
     $username = $sessionData->firstName;
-}
-else
-{
+} else {
     header('Location: ../login.php');
 }
 ?>
@@ -20,7 +18,10 @@ else
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link rel="stylesheet" href="../css/dist/summernote-lite.css"/>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../css/dist/summernote-lite.js"></script>
+    <script src="../css/dist/lang/summernote-es-ES.js"></script>
 </head>
 <body>
 <header>
@@ -36,7 +37,7 @@ else
                 <a id="logo-container" href="#" class="brand-logo logo-font">iTutor</a>
                 <ul class="right hide-on-med-and-down">
                     <li>
-                        <a class="dropdown-trigger" href="#!" data-target="dropdown1">Welcome, <?=$username?><i
+                        <a class="dropdown-trigger" href="#!" data-target="dropdown1">Welcome, <?= $username ?><i
                                     class="material-icons right">arrow_drop_down</i></a>
                     </li>
                 </ul>
@@ -44,19 +45,22 @@ else
                 <ul id="nav-mobile" class="sidenav admin-mobilemenu">
                     <li><a href="listUsers.php"><i class="material-icons">supervisor_account</i>Users</a></li>
                     <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
-                    <li><a href="learningMaterials.php"><i class="material-icons">note</i>Learning Materials</a></li>
                     <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Materials</a></li>
                     <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
-                    <li><a href="../admin/jobPosts.php"><i class="material-icons">work</i>Job Openings</a></li>
-                    <li><a href="../admin/jobApplications.php"><i class="material-icons">picture_as_pdf</i>Job Applications</a></li>
+                    <?php if ($sessionData->roleId == UserRoles::Admin) { ?>
+                        <li><a href="../admin/jobPosts.php"><i class="material-icons">work</i>Job Openings</a></li>
+                        <li><a href="../admin/jobApplications.php"><i class="material-icons">picture_as_pdf</i>Job
+                                Applications</a></li>
+                    <?php } ?>
                     <li><a href="#!"><i class="material-icons">help_outline</i>FAQs</a></li>
                     <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
                     <li><a href="showContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
                     <li><a href="showUserContact.php"><i class="material-icons">contacts</i> User Contacts </a></li>
                     <li class="divider"></li>
-                    <li><a href="#!"><i class="material-icons">person_outline</i>Profile</a></li>
-                    <li><a href="#!"><i class="material-icons">security</i>Change Password</a></li>
-                    <li><a href="logout.php"><i class="material-icons">keyboard_tab</i>Logout</a></li>
+                    <li><a href="../admin/myProfile.php"><i class="material-icons">person_outline</i>Profile</a></li>
+                    <li><a href="../admin/changePassword.php"><i class="material-icons">security</i>Change Password</a>
+                    </li>
+                    <li><a href="../logout.php"><i class="material-icons">keyboard_tab</i>Logout</a></li>
                 </ul>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons mobileHamburger">menu</i></a>
             </div>
@@ -70,11 +74,13 @@ else
         </li>
         <li><a href="listUsers.php"><i class="material-icons">supervisor_account</i>Users</a></li>
         <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
-        <li><a href="../admin/learningMaterials.php"><i class="material-icons">note</i>Learning Materials</a></li>
         <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Places</a></li>
         <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
-        <li><a href="../admin/jobPosts.php"><i class="material-icons">work</i>Job Openings</a></li>
-        <li><a href="../admin/jobApplications.php"><i class="material-icons">picture_as_pdf</i>Job Applications</a></li>
+        <?php if ($sessionData->roleId == UserRoles::Admin) { ?>
+            <li><a href="../admin/jobPosts.php"><i class="material-icons">work</i>Job Openings</a></li>
+            <li><a href="../admin/jobApplications.php"><i class="material-icons">picture_as_pdf</i>Job
+                    Applications</a></li>
+        <?php } ?>
         <li><a href="faqList.php"><i class="material-icons">help_outline</i>FAQs</a></li>
         <li><a href="showContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
         <li><a href="showUserContact.php"><i class="material-icons">contacts</i> User Contacts </a></li>

@@ -4,12 +4,24 @@ require_once "connect.php";
 require_once "SubjectContext.php";
 require_once "TutorContext.php";
 
+
+/**
+ * Author: Het Kansara
+ * Mock Test Context - All database interaction related to mock tests are written here
+ */
 class MockTestContext extends Database
 {
     public function __construct()
     {
     }
 
+    /**
+     * Retrive all mock tests
+     * questionId: Filter by question (null for no filters)
+     * searchVal: Filter by search text (null for no filters)
+     * subjectID: Filter by subject (null for no filters)
+     * tutorID: Filter by tutor (null for no filters)
+     */
     public function getMockTests($questionID = null, $searchVal = null, $subjectID = null, $tutorID = null)
     {
         $sql = "select * from mock_tests ";
@@ -64,6 +76,10 @@ class MockTestContext extends Database
         }
     }
 
+    /**
+     * Retrive mock test questions for specific mock test
+     * mockTestId: mock test id
+     */
     public function getMockTestQuestions($mockTestId) {
       $sql = "select * from mock_test_x_questions, mock_tests, mock_questions WHERE mock_test_x_questions.mock_test_id = mock_tests.id AND mock_test_x_questions.mock_test_id = :mock_test_id AND mock_test_x_questions.mock_question_id = mock_questions.id";
       $pdostm = parent::getDb()->prepare($sql);
@@ -73,10 +89,16 @@ class MockTestContext extends Database
       return $mockQuestions;
     }
 
+    /**
+     * Remove questions from the list which do not belong to specific subject & specific mock test
+     * allQuestions: All questions
+     * mockTestQuestions: Specific mock test questions
+     * subjectID: subject id to filter data
+     */
     public function filterMockTestQuestions($allQuestions, $mockTestQuestions, $subjectID) {
         foreach($allQuestions as $allQuestionsKey => $allQuestionsValue)
         { 
-            if($allQuestionsValue['subject']['id'] != $subjectID || $allQuestionsValue['answer'] == NULL) {
+            if($allQuestionsValue['subject'][0]['id'] != $subjectID || $allQuestionsValue['answer'] == NULL) {
                 unset($allQuestions[$allQuestionsKey]);
                 continue;
             }
@@ -90,6 +112,11 @@ class MockTestContext extends Database
         return $allQuestions;
     }
 
+    /**
+     * Add Question into mock test
+     * questionID = question id
+     * mockTestID = mock test id
+     */
     public function addQuestionMockTest($questionID, $mockTestID) {
         $sql = "INSERT INTO `mock_test_x_questions`(`mock_test_id`, `mock_question_id`) VALUES (:mock_test_id, :mock_question_id)";
         $pdostm = parent::getDb()->prepare($sql);
@@ -98,6 +125,10 @@ class MockTestContext extends Database
         $pdostm->execute();
     }
 
+    /**
+     * Delete mock test question
+     * mockTestID: mock test id
+     */
     public function deleteMockTestQuestion($questionID, $mockTestID) {
         $sql = "DELETE FROM `mock_test_x_questions` WHERE mock_test_id = :mock_test_id AND mock_question_id = :mock_question_id";
         $pdostm = parent::getDb()->prepare($sql);
@@ -106,6 +137,11 @@ class MockTestContext extends Database
         $pdostm->execute();
     }
 
+    /**
+     * Add/Update mock test
+     * values: array of values to be passed in database
+     * testID: test id For update (null for add)
+     */
     public function addUpdateMockTest($values, $testID = null) {
         $datetime = (string) date('Y-m-d H:i:s', time());
         $sql = "INSERT INTO mock_tests(tutor_id, subject_id, title, created_datetime) VALUES (:tutor_id, :subject_id, :title, :created_datetime)";
@@ -124,6 +160,10 @@ class MockTestContext extends Database
         $pdostm->execute();
     }
 
+    /**
+     * Delete specific mock test
+     * testID: test id to delete
+     */
     public function deleteMockTest($testID) {
         $sql = "DELETE FROM `mock_test_x_questions` WHERE mock_test_id = :mock_test_id";
         $pdostm = parent::getDb()->prepare($sql);

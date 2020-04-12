@@ -1,6 +1,7 @@
 <?php
 /*
     Created by : Priyanka Khadilkar
+    setting constant values for the user roles for saving into database
 */
 abstract class UserRoles
 {

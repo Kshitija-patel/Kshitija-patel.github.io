@@ -53,7 +53,9 @@ includes following functionality.
   | database/classes/models/JobApplication.php | This file contains all the properties of JobApplication. | Priyanka Khadilkar |
   | database/classes/JobApplicationContext.php | This file contains all the functions to communicate to the database for JobApplication table (All CRUD Functions). | Priyanka Khadilkar |
   | database/classes/JobPostContext.php | This file contains all the functions to communicate to the database for Jobpost table (All CRUD Functions). | Priyanka Khadilkar |
-       
+  | composer.json | Implemented composer for resolving dependencies | Priyanka Khadilkar |    
+  | errorLog/errorHandle.php | Implemented error handling log file | Priyanka Khadilkar |    
+
 ## 2) Het
   - Feature One: Mock Test Questions Management
   1. Mock Test Questions & Options CRUD

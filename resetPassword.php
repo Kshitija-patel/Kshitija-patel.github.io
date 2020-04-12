@@ -1,7 +1,7 @@
 <?php require_once "includes/header.php" ?>
 <?php
 
-require_once 'database/classes/UserContext.php';
+require_once "vendor/autoload.php";
 
 $NewPasswordErr = "";
 $ConfirmNewPasswordErr = "";
