@@ -3,6 +3,7 @@
 <?php
 /*
     Created by : Priyanka Khadilkar
+    This file is to register for students users only
 */
 require_once "vendor/autoload.php";
 
