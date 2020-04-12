@@ -3,7 +3,7 @@
 /*
     Created by : Priyanka Khadilkar
 */
-require_once '../database/classes/UserContext.php';
+require_once "../vendor/autoload.php";
 
 $OldPasswordErr = "";
 $NewPasswordErr = "";

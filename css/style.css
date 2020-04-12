@@ -30,6 +30,9 @@
     height: 64px;
 
 }
+.height300{
+    height: 300px;
+}
 
 .floatright {
     float: right;

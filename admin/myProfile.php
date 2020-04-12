@@ -4,8 +4,7 @@
   * This file contains form to update profile data.
  * All Logged in user can access this form.
   */
-require_once '../database/classes/UserContext.php';
-require_once '../database/classes/models/User.php';
+require_once "../vendor/autoload.php";
 
 //Declaring variables for validation message and form input
 $fNameErr = "";

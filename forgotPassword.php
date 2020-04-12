@@ -3,9 +3,9 @@
 /*
     Created by : Priyanka Khadilkar
 */
-require_once 'database/classes/UserContext.php';
-require_once 'utilities/EmailUtility.php';
-require_once 'utilities/ConstantStr.php';
+$pathInPieces = explode('/',__DIR__);
+echo $pathInPieces[0];
+require_once "vendor/autoload.php";
 
 $EmailErr = "";
 $Email = "";

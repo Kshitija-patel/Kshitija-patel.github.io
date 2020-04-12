@@ -6,10 +6,7 @@
 require_once "includes/header.php" ?>
 <?php
 
-require_once 'database/classes/JobPostContext.php';
-require_once 'database/classes/models/JobPost.php';
-require_once 'database/classes/JobApplicationContext.php';
-require_once 'database/classes/models/JobApplication.php';
+require_once "vendor/autoload.php";
 
 //Variable to set the data
 $id = "";
@@ -32,7 +29,7 @@ if (isset($_GET['id'])) {
     $jobId = $_GET['id'];
 
     //Get the job post detail according to id from the database
-    $jobPostDb = new jobPostContext();
+    $jobPostDb = new JobPostContext();
     $jobPost = $jobPostDb->Get($jobId);
     $jobTitle = $jobPost->title;
     $jobDescription = $jobPost->description;
