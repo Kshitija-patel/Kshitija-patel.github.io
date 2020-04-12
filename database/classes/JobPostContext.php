@@ -29,7 +29,7 @@ class JobPostContext extends Database
     //Search job post list with the job post title.
     public function Search($searchKey)
     {
-        $sql = "SELECT * FROM job_post where LOWER(title) LIKE :searchKey";
+        $sql = "SELECT * FROM job_post where LOWER(title) LIKE :searchKey OR LOWER(description) LIKE :searchKey";
         $pdostm = parent::getDb()->prepare($sql);
         $searchKey = '%' . strtolower($searchKey) . '%';
         $pdostm->bindParam(':searchKey', $searchKey);

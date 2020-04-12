@@ -5,13 +5,16 @@
   "autoload": {
     "psr-4": {
       "utilities\\": "utilities",
-      "database\\": "database"
+      "database\\": "database",
+      "errorLog\\" : "errorLog"
     },
+    "files": ["errorLog/errorHandle.php"],
     "classmap": [
       "utilities",
       "database",
       "database/classes",
-      "database/classes/models"
+      "database/classes/models",
+      "errorLog"
     ]
   }
 }

@@ -6,10 +6,18 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit1702db1fc08d08e4e694f56be633dd1c
 {
+    public static $files = array (
+        'e7dd926c5ab0154ded76b34951696759' => __DIR__ . '/../..' . '/errorLog/errorHandle.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'u' => 
         array (
             'utilities\\' => 10,
+        ),
+        'e' => 
+        array (
+            'errorLog\\' => 9,
         ),
         'd' => 
         array (
@@ -25,6 +33,10 @@ class ComposerStaticInit1702db1fc08d08e4e694f56be633dd1c
         'utilities\\' => 
         array (
             0 => __DIR__ . '/../..' . '/utilities',
+        ),
+        'errorLog\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/errorLog',
         ),
         'database\\' => 
         array (
