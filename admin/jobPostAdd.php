@@ -39,7 +39,7 @@ if (isset($_POST['addJobPost'])) {
         $jobPost = new JobPost($jobTitle, $jobDescription);
 
         //insert the data
-        $jobPostDb = new jobPostContext();
+        $jobPostDb = new JobPostContext();
         $numRowsAffected = $jobPostDb->Add($jobPost);
         if ($numRowsAffected) {
             header('Location: jobPosts.php');
@@ -66,22 +66,23 @@ if (isset($_POST['addJobPost'])) {
                                                 <input id="title" name="title" type="text" class="validate">
                                                 <label for="title">Title</label>
                                                 <span class="helper-text red-text"><?= $TitleValidationMsg ?></span>
-                                            </div>
-                                            <div class="input-field col s12">
+
+                                                <div class="input-field col s12">
                                                 <textarea id="description" name="description"
-                                                          class="validate materialize-textarea"
-                                                          data-length="120"></textarea>
-                                                <label for="description">Description</label>
-                                                <span class="helper-text red-text"><?= $DescriptionValidationMsg ?></span>
-                                            </div>
-                                            <div class="input-field col s12">
-                                                <button class="btn waves-effect waves-light" type="submit"
-                                                        name="addJobPost">Submit
-                                                </button>
-                                                <a class="btn waves-effect waves-light"
-                                                   href="jobPosts.php">Back to List
-                                                </a>
-                                            </div>
+                                                          class="summernote validate"
+                                                ></textarea>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <span class="helper-text red-text"><?= $DescriptionValidationMsg ?></span>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <button class="btn waves-effect waves-light" type="submit"
+                                                            name="addJobPost">Submit
+                                                    </button>
+                                                    <a class="btn waves-effect waves-light"
+                                                       href="jobPosts.php">Back to List
+                                                    </a>
+                                                </div>
                                     </form>
                                 </div>
                             </div>

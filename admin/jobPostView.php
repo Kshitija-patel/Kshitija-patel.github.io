@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     //Get the job post detail according to id from the database
-    $jobPostDb = new jobPostContext();
+    $jobPostDb = new JobPostContext();
     $jobPost = $jobPostDb->Get($id);
     $jobTitle = $jobPost->title;
     $jobDescription = $jobPost->description;
