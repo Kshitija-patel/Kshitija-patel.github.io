@@ -68,7 +68,8 @@ includes following functionality.
   | admin/addUpdateMockTestQuestion.php | That file contains the form to add/update mock test question. | Het Kansara |
   | database/MockTestQuestionContext.php | That file contains all the functions to communicate to the database (All CRUD Functions). | Het Kansara |
   | database/connect.php | That file contains the database connection string to be used throughout the project | Priyanka Khadilkar |
-
+  | admin/attemptMockTest.php | This file contains the dynamic paper generated for specific mock test | Het Kansara |
+  | admin/mockTestEnroll.php | This file contains the listing of mock tests to the user to enroll | Het Kansara |
 
   - Feature Two: Mock Tests Management
   1. Mock Test CRUD

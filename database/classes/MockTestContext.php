@@ -175,4 +175,37 @@ class MockTestContext extends Database
         $pdostm->bindParam(':mock_test_id', $testID);  
         $pdostm->execute();
     }
+
+    /**
+     * Attempt Mock test
+     * testData: Mock test questions and ansewers
+     */
+    public function attemptMockTest($testData) {
+        $totalMarks = 0;
+        foreach ($testData as $key => $value) {
+            $questions = self::getMockTestQuestions($key);
+            foreach($questions as $question) {
+                if($testData[$question['id']] == $question['answer']) {
+                    $totalMarks = $totalMarks + ((Int) $question['marks']);
+                }
+            }
+        }
+        $datetime = (string) date('Y-m-d H:i:s', time());
+        $sql = "INSERT INTO `mock_test_enroll`(`user_id`, `mock_test_id`, `optained_marks`, `created_datetime`) VALUES (:user_id, :mock_test_id, :obtained_marks, :created_datetime)";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':user_id', $testData['user_id']);  
+        $pdostm->bindParam(':mock_test_id', $testData['test_id']);  
+        $pdostm->bindParam(':obtained_marks', $totalMarks);  
+        $pdostm->bindParam(':created_datetime', $datetime);  
+        $pdostm->execute();
+    }
+
+    public function getMockTestResult($userId){
+        $sql = "SELECT * FROM mock_test_enroll me, mock_tests mt WHERE me.mock_test_id = mt.id AND user_id = :user_id";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':user_id', $userId);  
+        $pdostm->execute();
+        $mockResult = $pdostm->fetchAll(PDO::FETCH_ASSOC);
+        return $mockResult;
+    }
 }
