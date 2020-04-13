@@ -7,8 +7,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once "ConstantStr.php";
-require_once "../vendor/autoload.php";
+require_once "vendor/autoload.php";
 
 class EmailUtility
 {
