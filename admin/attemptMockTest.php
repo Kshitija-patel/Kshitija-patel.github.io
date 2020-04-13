@@ -1,27 +1,23 @@
 <?php
 
+// Mock Tests - database interaction
 include_once "../database/classes/MockTestContext.php";
 $mockTestsContext = new MockTestContext();
 
+// fetch mock tests
 $mockTest = $mockTestsContext->getMockTests($_GET['testID'], (isset($_GET['searchTest']) && $_GET['searchTest'] != '') ? $_GET['searchTest'] : null, (isset($_GET['subjectTest']) && $_GET['subjectTest'] != '') ? $_GET['subjectTest'] : null, (isset($_GET['tutorTest']) && $_GET['tutorTest'] != '') ? $_GET['tutorTest'] : null);
 
+// Mock Tests Questions - database interaction
 include_once "../database/classes/MockTestQuestionContext.php";
 $mockTestQuestionContext = new MockTestQuestionContext();
+
+// fetch mock test questions
 $mockTestQuestions = $mockTestQuestionContext->getMockTestQuestions();
 
-// var_dump($mockTest);
+// filter mock test questions
 $mockTestQuestions = $mockTestsContext->filterMockTestQuestions($mockTestQuestions, $mockTest['questions'], $mockTest['subject'][0]['id']);
 
-if (isset($_POST['addQuestion'])) {
-  $mockTestsContext->addQuestionMockTest($_POST['questionID'], $mockTest['id']);
-  header('Location: showMockTest.php?testID=' . $_GET['testID']);
-}
-
-if (isset($_GET['deleteQuestion'])) {
-  $mockTestsContext->deleteMockTestQuestion($_GET['deleteQuestion'], $mockTest['id']);
-  header('Location: showMockTest.php?testID=' . $_GET['testID']);
-}
-
+// Attempt Mock Test
 if(isset($_POST['attemptMockTest'])) {
   $mockTestsContext->attemptMockTest($_POST);
 }

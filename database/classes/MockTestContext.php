@@ -200,6 +200,10 @@ class MockTestContext extends Database
         $pdostm->execute();
     }
 
+    /**
+     * Get Mock tests result.
+     * userId: user id for getting mock test
+     */
     public function getMockTestResult($userId){
         $sql = "SELECT * FROM mock_test_enroll me, mock_tests mt WHERE me.mock_test_id = mt.id AND user_id = :user_id";
         $pdostm = parent::getDb()->prepare($sql);
