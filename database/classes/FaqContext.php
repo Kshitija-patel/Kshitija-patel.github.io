@@ -1,6 +1,6 @@
 <?php
 
-require_once "connect.php";
+require_once "../vendor/autoload.php";
 
 class FaqContext extends Database
 {
