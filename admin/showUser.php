@@ -1,6 +1,6 @@
 <?php
 
-include_once '../database/classes/UserAdminContext.php';
+require_once "../vendor/autoload.php";
 
 $id = "";
 $first_name = $last_name = $email = $phone_number = $date_of_birth = $gender = $role = "";

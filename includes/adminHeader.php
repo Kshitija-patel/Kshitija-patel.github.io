@@ -46,12 +46,14 @@ if (isset($sessionData->userId)) {
                     <li><a href="listUsers.php"><i class="material-icons">supervisor_account</i>Users</a></li>
                     <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
                     <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Materials</a></li>
-                    <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
                     <?php if ($sessionData->roleId == UserRoles::Admin) { ?>
+                        <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
                         <li><a href="../admin/jobPosts.php"><i class="material-icons">work</i>Job Openings</a></li>
                         <li><a href="../admin/jobApplications.php"><i class="material-icons">picture_as_pdf</i>Job
                                 Applications</a></li>
-                    <?php } ?>
+                    <?php } else if ($sessionData->roleId == UserRoles::Student) { ?>
+                        <li><a href="../admin/mockTestEnroll.php"><i class="material-icons">assignment</i>Mock Test Enrollment</a></li>
+                    <?php }?>
                     <li><a href="#!"><i class="material-icons">help_outline</i>FAQs</a></li>
                     <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
                     <li><a href="showContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
@@ -77,9 +79,12 @@ if (isset($sessionData->userId)) {
         <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Places</a></li>
         <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
         <?php if ($sessionData->roleId == UserRoles::Admin) { ?>
+            <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
             <li><a href="../admin/jobPosts.php"><i class="material-icons">work</i>Job Openings</a></li>
             <li><a href="../admin/jobApplications.php"><i class="material-icons">picture_as_pdf</i>Job
                     Applications</a></li>
+        <?php } else if ($sessionData->roleId == UserRoles::Student) { ?>
+            <li><a href="../admin/mockTestEnroll.php"><i class="material-icons">assignment</i>Mock Test Enrollment</a></li>
         <?php } ?>
         <li><a href="faqList.php"><i class="material-icons">help_outline</i>FAQs</a></li>
         <li><a href="showContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>

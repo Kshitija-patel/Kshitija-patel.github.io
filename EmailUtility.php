@@ -6,7 +6,9 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require_once "vendor/autoload.php";
+
+require_once "ConstantStr.php";
+require_once "../vendor/autoload.php";
 
 class EmailUtility
 {
@@ -17,7 +19,7 @@ class EmailUtility
         $mail = new PHPMailer;
         $mail->isSMTP();
         //$mail->SMTPDebug = 2;
-        $send_using_config = 2; // For local set it to 1, as case 2 configuration is for godaddy server
+        $send_using_config = 2; // For local set it to 1
         switch ($send_using_config):
             case 1:
                 echo "smtp";
@@ -82,6 +84,15 @@ class EmailUtility
     public static function JobApplicationTemplate($firstname, $message)
     {
         $emailtemplate = "<div><b> Hi " . $firstname . ",</b></div><p>" . $message . "</p><br/><br/><div>Thanks,</div><div>The iTutor Team</div>";
+
+        return $emailtemplate;
+
+    }
+    public static function NewUserPasswordResetTemplate($firstname,$emailmsg)
+    {
+        $emailtemplate = "<div><b> Hi " . $firstname . ",</b></div><p>Your 
+        registration has been succesfully completed. Below is the link
+        to set your password.</p><p>".$emailmsg."</p><br/><br/><div>Thanks,</div><div>The iTutor Team</div>";
 
         return $emailtemplate;
 

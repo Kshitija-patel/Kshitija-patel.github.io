@@ -24,7 +24,7 @@ includes following functionality.
   | logout.php | This file contains code to logout from the system and redirect to Login page. | Priyanka Khadilkar |
   | resetPassword.php | This file contains form to reset password. | Priyanka Khadilkar |
   | utilities/ConstantStr.php | This file contains all the constant configuration. | Priyanka Khadilkar |
-  | utilities/EmailUtility.php | This file contains method to send emails and email template for email. | Priyanka Khadilkar |
+  | EmailUtility.php | This file contains method to send emails and email template for email. | Priyanka Khadilkar |
   | utilities/Session.php | This file contains all method to get and set session variables and values. | Priyanka Khadilkar |
   | admin/myProfile.php | This file contains form to show the profile data of logged in user and user can change the profile data. | Priyanka Khadilkar |
   | admin/changePassword.php | This file contains form to change password of logged in user. | Priyanka Khadilkar |
@@ -69,11 +69,12 @@ includes following functionality.
   | database/MockTestQuestionContext.php | That file contains all the functions to communicate to the database (All CRUD Functions). | Het Kansara |
   | database/connect.php | That file contains the database connection string to be used throughout the project | Priyanka Khadilkar |
 
-
   - Feature Two: Mock Tests Management
   1. Mock Test CRUD
   2. Search for Mock Tests
   3. Add/Remove Questions into/from Mock tests
+  4. Enroll in Mock Tests
+  5. View Mock Test Result
 
   | File | Description | Author |
   | ------- | ----------- | ----- |
@@ -82,6 +83,8 @@ includes following functionality.
   | admin/showMockTest.php | That file contains the mock test detail view with option to add/remove questions into mock test. | Het Kansara |
   | database/MockTestContext.php | That file contains all the functions to communicate to the database (All CRUD Functions). | Het Kansara |
   | database/connect.php | That file contains the database connection string to be used throughout the project | Priyanka Khadilkar |
+  | admin/attemptMockTest.php | This file contains the dynamic paper generated for specific mock test | Het Kansara |
+  | admin/mockTestEnroll.php | This file contains the listing of mock tests to the user to enroll and show result of previous mock tests. | Het Kansara |
 
 ## 3) Shubham
   - Feature One: Learning Rooms

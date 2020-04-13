@@ -3,14 +3,26 @@
 require_once "../database/classes/TutorAppointmentContext.php"; //crud functions
 require_once "../database/classes/models/TutorAppointment.php";
 include_once "../database/LearningRoomDb.php";
+
 // initialise the CRUD class
 $room = new LearningRoomDb();
 // $rooms = $room->Getbyid();
 $TutorAppointmentContext = new TutorAppointmentContext();
 if($sessionData->roleId == 1){
     $Appointments = $TutorAppointmentContext->ListAlll();
+}else if($sessionData->roleId == 2){
+    //echo "----------------------------------------------------user id ----".$sessionData->userId;
+    $gettutorid = $TutorAppointmentContext->Gettutor($sessionData->userId);
+    //$userid_tutor = $gettutorid->id;
+    $tutor_id = $gettutorid->ttutor_id; //2
+    //  echo "----------------------------------------------------Tutor id ----".$tutor_id;
+     //var_dump($gettutorid);
+    $Appointments = $TutorAppointmentContext->ListAllTutor($tutor_id);
+    //var_dump($Appointments);
 }else{
+    // echo "--------------------------------------".$sessionData->userId;
     $Appointments = $TutorAppointmentContext->ListAll($sessionData->userId);
+    // var_dump($Appointments);
 }
 
 
@@ -21,6 +33,7 @@ if (isset($_POST["deleteAppointBtn"])) {
     if ($numRowsAffected) { 
             //if a appointment is deleted it will list method
         $TutorAppointmentContext = new TutorAppointmentContext();
+        
         $Appointments = $TutorAppointmentContext->ListAll($sessionData->userId); //calling the list method
     } else {
         echo "Problem in Deleting!!";
@@ -29,10 +42,21 @@ if (isset($_POST["deleteAppointBtn"])) {
 // $Appointments
 ?>
     <main class="adminmain admin-mock-tests">
+    
         <div class="section no-pad-bot" id="index-banner">
             <div class="row">
                 <div class="col s10 m6 l12">
                     <h5 class="breadcrumbs-title">Tutor Appointments</h5>
+                    <!-- <?=var_dump($sessionData->roleId);?> -->
+                    <?php
+                    if($sessionData->roleId === "1"){
+                        echo "Welcome admin";
+                    }else if($sessionData->roleId === "2"){
+                        echo "Welcome tutor";
+                    }else if($sessionData->roleId === "3"){
+                        echo "Welcome Student";
+                    }
+                    ?>
                 </div>
                 <div class="row">
                     <form>
@@ -71,8 +95,14 @@ if (isset($_POST["deleteAppointBtn"])) {
                                     <tr>
                                         <?php if($sessionData->roleId == 1){ ?>
                                         <th>Booked by</th>
-                                        <?php } ?>
-                                        <th>Tutor</th>
+                                        <?php }else if($sessionData->roleId == 2){ ?>
+                                        <th>Booked by</th>
+                                        <?php }
+                                            if($sessionData->roleId != 2){?>
+                                                <th>Tutor</th>
+                                        <?php    }                                      
+                                        ?>
+
                                         <th>Subject</th>
                                         <th>Room No</th>
                                         <th>Appointment Date</th>
@@ -82,22 +112,31 @@ if (isset($_POST["deleteAppointBtn"])) {
                                     </thead>
                                     <tbody>
                                     <?php 
-                                    // echo "----------------".$Appointments['subject_id'];
                                     foreach($Appointments as $value){?> 
                                     <tr>
                                         <?php
                                             $subject_data = $TutorAppointmentContext->getTutorSubject($value->subject_id);
-                                            //  var_dump($subject_data);
+                                              //var_dump($subject_data);
                                             if($sessionData->roleId == 1){
                                                 // echo $value->user_id;
                                                 $admin = $TutorAppointmentContext->Get($value->user_id);
                                                 // var_dump($admin);
                                                 ?>
                                             <td><?=$admin->first_name; ?></td>        
-                                            <?php }                                        ?>
-                                    
-                                        
-                                        <td><?=$subject_data['users_first_name']?></td>
+                                            <?php }
+                                            if($sessionData->roleId == 2){
+                                                 
+                                                 $tutor = $TutorAppointmentContext->Get($value->user_id);
+                                                 //var_dump($value);
+                                             echo "<td>".$value->first_name."</td>";    
+                                                  
+                                            }else{
+                                                //echo "<td>".$value->first_name."</td>";
+                                                echo  "<td>".$subject_data['users_first_name']."</td>";
+                                            }
+                                            
+                                            ?>
+                                      
                                         <td><?=$subject_data['subject_title']?></td>
                                         <td><?php $rooms = $room->Getbyid($value->learning_room_id);
                                         // var_dump($rooms);

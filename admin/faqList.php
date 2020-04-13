@@ -1,6 +1,6 @@
 <?php require_once "../includes/adminHeader.php" ?>
 <?php
-require_once '../database/classes/FaqContext.php';
+require_once "../vendor/autoload.php";
 
 
 $db = Database::getDb();

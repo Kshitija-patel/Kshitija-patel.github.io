@@ -1,5 +1,5 @@
 <?php
-     include_once '../database/classes/FaqContext.php';
+     require_once "../vendor/autoload.php";
 
     $question= $answer = "";
     $questionErr = $answerErr = "";
