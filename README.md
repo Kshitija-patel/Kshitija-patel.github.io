@@ -73,6 +73,8 @@ includes following functionality.
   1. Mock Test CRUD
   2. Search for Mock Tests
   3. Add/Remove Questions into/from Mock tests
+  4. Enroll in Mock Tests
+  5. View Mock Test Result
 
   | File | Description | Author |
   | ------- | ----------- | ----- |
