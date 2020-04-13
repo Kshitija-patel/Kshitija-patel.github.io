@@ -131,3 +131,30 @@ includes following functionality.
   5. List of all user contact details.
   6. Delete user contact details.
   7. Search user contact details.
+
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | admin/addContact.php |This page lets admin add the contact details which will be shown on the user side. | Maitri Modi|
+  | admin/showContact.php |This page lets admin see the contact details which will be seen on the user side. | Maitri Modi| 
+  | admin/showUserContact.php | This page lets admin sees all the user details entered by the user on the user side form.| Maitri Modi|
+  | admin/updateContact.php | This page lets admin update all the contact details.| Maitri Modi|
+  | database/classes/ContactContext.php | This page contains all the functions operated on the contact details of the website.| Maitri Modi|
+  | database/classes/UserContactContext.php | This page contains all the functions operated on the user contact details entered by the user in the form.| Maitri Modi|
+  | addUserContact.php | This page is shown on the user side and lets user enter their details for contacting them.| Maitri Modi|
+
+  - Feature Two: Subject Management, which contains list of subjects, admin can add update and delete any subject. Search bar is also included on the page. User who visits the page can see the subjects provided by the iTutor.
+  1. Add subject.(Admin)
+  2. Update subject.(Admin)
+  3. Delete subject.(Admin)
+  4. Show subject details.(Admin/Public)
+  
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | admin/addSubject.php |This page lets admin add subject. | Maitri Modi|
+  | admin/listSubjects.php | This page lets admin see the list of subjects add to the database.| Maitri Modi| 
+  | admin/showSubject.php | This page lets admin see the details of an individual subject.| Maitri Modi |
+  | admin/updateSubject.php | This page lets admin update the details of an individual subject.| Maitri Modi|
+  | database/classes/SubjectContext.php | This page contains all the function operated on the subject management system.| Maitri Modi|
+  | listSubjects.php | This page lets users see the subjects available for them to learn on iTutor.| Maitri Modi|
+  | showSubject.php | This page lets user see the details of an individual subject.| Maitri Modi|
+ 
