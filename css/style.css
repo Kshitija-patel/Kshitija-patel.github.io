@@ -30,6 +30,9 @@
     height: 64px;
 
 }
+.height300{
+    height: 300px;
+}
 
 .floatright {
     float: right;
@@ -45,6 +48,14 @@
     font-size: 24px !important;
     padding-left: 38px !important;
     padding-top: 6px !important;
+}
+
+.paddingleft0{
+    padding-left: 0 !important;
+}
+
+.fontsizeinherit{
+    font-size: inherit;
 }
 
 .fixed-card-height {

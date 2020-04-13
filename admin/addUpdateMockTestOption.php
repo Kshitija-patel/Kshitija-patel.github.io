@@ -1,22 +1,35 @@
 <?php
-include_once "../database/classes/SubjectContext.php";
-$subject = new SubjectContext();
-$subjects = $subject->getAllSubjects();
 
-require_once "../database/classes/TutorContext.php";
-$tutor = new TutorContext();
-$tutors = $tutor->getAllTutors();
-
+// include files
+// Mock Test Questions - database interaction
 include_once "../database/classes/MockTestQuestionContext.php";
 $mockTestQuestions = new MockTestQuestionContext();
 
+// Subjects - database interaction
+include_once "../database/classes/SubjectContext.php";
+$subject = new SubjectContext();
+
+// Tutors - database interaction
+include_once "../database/classes/TutorContext.php";
+$tutor = new TutorContext();
+
+// fetch subjects
+$subjects = $subject->getAllSubjects();
+
+// fetch tutors
+$tutors = $tutor->getAllTutors();
+
+// check the page type (Add/Update)
 $page = isset($_GET['action']) ? $_GET['action'] : "Add";
 $option;
 if($page == 'Update') {
+  // get specific option data to update
   $option = $mockTestQuestions->getMockTestQuestionOptions(0, $_GET['optionID']);
 }
 
+// check if the form is submitted
 if(isset($_POST['addUpdateMockTestOption'])) {
+  // add/update option
   $mockTestQuestions->addUpdateMockTestOption($_POST, ($page == 'Add') ? null : $_POST['optionID']);
   header('Location: mockTests.php?tab=questions');
 }

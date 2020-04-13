@@ -2,6 +2,7 @@
 
 /*
     Created by : Priyanka Khadilkar
+    Properties of job application page
 */
 class JobApplication
 {

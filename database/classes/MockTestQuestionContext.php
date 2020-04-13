@@ -4,12 +4,23 @@ require_once "connect.php";
 require_once "SubjectContext.php";
 require_once "TutorContext.php";
 
+/**
+ * Author: Het Kansara
+ * Mock Test Context - All database interaction related to mock test questions are written here
+ */
 class MockTestQuestionContext extends Database
 {
     public function __construct()
     {
     }
 
+    /**
+     * Retrive all mock test questions
+     * questionId: Filter by question (null for no filters)
+     * searchVal: Filter by search text (null for no filters)
+     * subjectID: Filter by subject (null for no filters)
+     * tutorID: Filter by tutor (null for no filters)
+     */
     public function getMockTestQuestions($questionID = null, $searchVal = null, $subjectID = null, $tutorID = null)
     {
         $sql = "select * from mock_questions ";
@@ -59,6 +70,10 @@ class MockTestQuestionContext extends Database
         }
     }
 
+    /**
+     * Get answer of the specific question
+     * questionID: question id
+     */
     public function getAnswerOfTheQuestion($questionID) {
         $sql = "select answer from mock_questions where id = :id";
         $pdostm =  parent::getDb()->prepare($sql);
@@ -67,6 +82,11 @@ class MockTestQuestionContext extends Database
         return $pdostm->fetch(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Get options for the specific questions
+     * questionID: Question id to fetch options
+     * optionID: Get specific option for the question (null otherwiese)
+     */
     public function getMockTestQuestionOptions($questionID, $optionID = null) {
         $sql = "select * from mock_questions_options where mock_question_id = :id";
         if($optionID != null) {
@@ -91,6 +111,11 @@ class MockTestQuestionContext extends Database
         return $options;
     }
 
+    /**
+     * Add/Update mock test question
+     * values: array of values to be passed in database
+     * questionID: question id For update (null for add)
+     */
     public function addUpdateMockTestQuestion($values, $questionID = null) {
         $datetime = (string) date('Y-m-d H:i:s', time());
         $sql = "INSERT INTO mock_questions(tutor_id, subject_id, question, marks, created_datetime) VALUES (:tutor_id, :subject_id, :question, :marks, :created_datetime)";
@@ -110,6 +135,10 @@ class MockTestQuestionContext extends Database
         $pdostm->execute();
     }
 
+    /**
+     * Delete specific mock test question
+     * questionID: question id to delete
+     */
     public function deleteMockTestQuestion($questionID) {
         $options = self::getMockTestQuestionOptions($questionID);
         foreach($options as $option) {
@@ -126,6 +155,11 @@ class MockTestQuestionContext extends Database
         $pdostm->execute();
     }
 
+    /**
+     * Add/Update option in specific question in the mock test
+     * values: array of values to be passed in database
+     * questionID: question id For update (null for add)
+     */
     public function addUpdateMockTestOption($values, $optionID = null) {
         $datetime = (string) date('Y-m-d H:i:s', time());
         $sql = "INSERT INTO mock_questions_options(mock_question_id, option_value, created_datetime) VALUES (:questionID, :optionValue, :created_datetime)";
@@ -159,6 +193,10 @@ class MockTestQuestionContext extends Database
         }
     }
 
+    /**
+     * Delete specific option of the question
+     * optionID: option id to delete
+     */
     public function deleteMockTestOption($optionID) {
         $sql = "delete from mock_questions_options where id = :option_id";
         $pdostm = parent::getDb()->prepare($sql);

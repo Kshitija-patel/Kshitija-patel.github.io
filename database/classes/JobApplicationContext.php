@@ -18,6 +18,8 @@ class JobApplicationContext extends Database
     {
 
         $sql = "INSERT INTO job_applications (firstname, lastname, email,phone_number,resume_filename,job_id,applied_On) VALUES (:first_name,:last_name,:email,:phone_number,:resume_filename,:job_id,:applied_On)";
+
+       //Saving the date into database for
         $date = date('Y-m-d H:i:s');
         $pdostm = parent::getDb()->prepare($sql);
 

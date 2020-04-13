@@ -71,8 +71,9 @@ U.id AS users_id, U.first_name AS users_first_name, U.last_name AS user_last_nam
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->execute();
         $tutor_appointment_bookings = $pdostm->fetchAll(PDO::FETCH_OBJ);
-        return $tutor_appointment_bookings;
+        return $tutor_appointment_bookings; 
     }
+   
     public function ListAlll()
     {
       // require_once "../includes/adminHeader.php";
@@ -100,6 +101,23 @@ U.id AS users_id, U.first_name AS users_first_name, U.last_name AS user_last_nam
         $pdostm->execute();
         $user_id = $pdostm->fetch(PDO::FETCH_OBJ);
         return $user_id;
+    }
+    public function Gettutor($user_id)
+    {   
+        $sql = "select tt.id as ttutor_id,tt.user_id as tutor_user_id,us.id as user_id from tutors tt inner join users us on tt.user_id = us.id where us.id = :user_id";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':user_id', $user_id);
+        $pdostm->execute();
+        $user_id_query = $pdostm->fetch(PDO::FETCH_OBJ);
+        return $user_id_query;
+    }
+    public function ListAllTutor($userId)
+    {
+        $sql = "SELECT * FROM tutor_appointment_bookings ts Inner join users us on ts.user_id = us.id inner join tutors tt on tt.id = ts.tutor_id WHERE ts.tutor_id = $userId";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->execute();
+        $tutor_appointment_bookings = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        return $tutor_appointment_bookings; 
     }
     public function GetEdit($id)
     {   

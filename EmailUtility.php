@@ -2,7 +2,7 @@
 /* Developer : Priyanka Khadilkar
   * This file is email utility. which is used for all common function for sending email.
   *
-  */
+ */
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -16,11 +16,10 @@ class EmailUtility
     public static function SendEmail($to_address, $to_name,
                                      $subject, $body, $is_body_html = false)
     {
-
         $mail = new PHPMailer;
         $mail->isSMTP();
         //$mail->SMTPDebug = 2;
-        $send_using_config = 1; // For local set it to 1
+        $send_using_config = 2; // For local set it to 1
         switch ($send_using_config):
             case 1:
                 $mail->Host = 'smtp.gmail.com';              // Set SMTP server
@@ -39,6 +38,7 @@ class EmailUtility
                 break;
         endswitch;
 
+        //set the smtp options
         $mail->SMTPOptions = array(
             'ssl' => array(
                 'verify_peer' => FALSE,

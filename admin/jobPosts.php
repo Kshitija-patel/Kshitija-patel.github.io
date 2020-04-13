@@ -45,7 +45,7 @@ if (isset($_POST["searchJobPost"])) {
                     <form method="post">
                         <div class="input-field col s12 m12 l4">
                             <input id="searchKey" name="searchKey" type="text" class="validate search-box">
-                            <label for="searchKey" class="serach-label">Search Job Title..</label>
+                            <label for="searchKey" class="serach-label">Search Job Posts..</label>
                         </div>
                         <div class="input-field col s12 m12 l2">
                             <button class="btn waves-effect waves-light" type="submit" name="searchJobPost">Search

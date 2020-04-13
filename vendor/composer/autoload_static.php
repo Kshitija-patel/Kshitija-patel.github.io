@@ -6,10 +6,18 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit1702db1fc08d08e4e694f56be633dd1c
 {
+    public static $files = array (
+        'e7dd926c5ab0154ded76b34951696759' => __DIR__ . '/../..' . '/errorLog/errorHandle.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'u' => 
         array (
             'utilities\\' => 10,
+        ),
+        'e' => 
+        array (
+            'errorLog\\' => 9,
         ),
         'd' => 
         array (
@@ -26,6 +34,10 @@ class ComposerStaticInit1702db1fc08d08e4e694f56be633dd1c
         array (
             0 => __DIR__ . '/../..' . '/utilities',
         ),
+        'errorLog\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/errorLog',
+        ),
         'database\\' => 
         array (
             0 => __DIR__ . '/../..' . '/database',
@@ -40,7 +52,7 @@ class ComposerStaticInit1702db1fc08d08e4e694f56be633dd1c
         'ConstantStr' => __DIR__ . '/../..' . '/utilities/ConstantStr.php',
         'Contact' => __DIR__ . '/../..' . '/database/classes/ContactContext.php',
         'Database' => __DIR__ . '/../..' . '/database/classes/connect.php',
-        'EmailUtility' => __DIR__ . '/../..' . '/utilities/EmailUtility.php',
+        'EmailUtility' => __DIR__ . '/../..' . '/EmailUtility.php',
         'FaqContext' => __DIR__ . '/../..' . '/database/classes/FaqContext.php',
         'JobApplication' => __DIR__ . '/../..' . '/database/classes/models/JobApplication.php',
         'JobApplicationContext' => __DIR__ . '/../..' . '/database/classes/JobApplicationContext.php',
