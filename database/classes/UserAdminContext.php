@@ -97,8 +97,8 @@ class UserAdminContext extends Database
     public function Search($usersearchKey, $userRole)
     {
         $sql = "select u.*, g.gender, ur.user_role from users u, gender g, user_roles ur where u.role_id = ur.id AND g.id = u.gender_id and LOWER(u.first_name) LIKE :usersearchKey";
-        if($userRole!="") { 
-            $sql .= " AND ur.id = $userRole"; 
+        if ($userRole != "") {
+            $sql .= " AND ur.id = $userRole";
         }
         $pdostm = parent::getDb()->prepare($sql);
         $usersearchKey = '%' . strtolower($usersearchKey) . '%';

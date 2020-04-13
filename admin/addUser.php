@@ -56,15 +56,15 @@ if (isset($_POST["add"])) {
       $verificationCode = generateRandomString();
       $userUpdated = $userContext->UpdateVerificationCode($_POST["email"], $verificationCode);
       if ($userUpdated) {
-          $emailmsg = ConstantStr::ResetPasswordlink . "?code=" . $verificationCode . "&id=" . $userExist->id;
-          $emailBody = EmailUtility::NewUserPasswordResetTemplate($_POST["first_name"], $emailmsg);
-          $isEmailSent = EmailUtility::SendEmail($_POST["email"], $_POST["first_name"], "iTutor - Registered succesfully and reset Password", $emailBody, true);
-          if ($isEmailSent) {
-              // $ErrorMsg = "<span class='green-text'>Registered succesfully and password reset link has been sent to the user.</span>";
-              header('Location: listUsers.php');
-          }  else {
-            echo "problem adding user";
-          }
+        $emailmsg = ConstantStr::ResetPasswordlink . "?code=" . $verificationCode . "&id=" . $userExist->id;
+        $emailBody = EmailUtility::NewUserPasswordResetTemplate($_POST["first_name"], $emailmsg);
+        $isEmailSent = EmailUtility::SendEmail($_POST["email"], $_POST["first_name"], "iTutor - Registered succesfully and reset Password", $emailBody, true);
+        if ($isEmailSent) {
+          // $ErrorMsg = "<span class='green-text'>Registered succesfully and password reset link has been sent to the user.</span>";
+          header('Location: listUsers.php');
+        } else {
+          echo "problem adding user";
+        }
       }
     }
   }
@@ -72,13 +72,13 @@ if (isset($_POST["add"])) {
 
 function generateRandomString($length = 8)
 {
-    $characters = '0123456789abcdefghijklmnopqrs092u3tuvwxyzaskdhfhf9882323ABCDEFGHIJKLMNksadf9044OPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    return $randomString;
+  $characters = '0123456789abcdefghijklmnopqrs092u3tuvwxyzaskdhfhf9882323ABCDEFGHIJKLMNksadf9044OPQRSTUVWXYZ';
+  $charactersLength = strlen($characters);
+  $randomString = '';
+  for ($i = 0; $i < $length; $i++) {
+    $randomString .= $characters[rand(0, $charactersLength - 1)];
+  }
+  return $randomString;
 }
 
 ?>
@@ -117,7 +117,7 @@ function generateRandomString($length = 8)
                     <input id="password" name="user_password" type="password" class="validate">
                     <label for="password">Password</label>
                     <span class="helper-text red-text"><?= $user_passwordErr ?></span>
-                  </div>                    
+                  </div>
                   <div class="input-field col s12">
                     <i class="material-icons prefix">phone</i>
                     <input id="contact" name="phone_number" type="text" class="validate">

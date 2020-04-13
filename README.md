@@ -96,10 +96,34 @@ includes following functionality.
 
 ## 4) Kshitija
   - Feature One: FAQ 
-  1. Add new FAQ
-  2. List all FAQ
-  3. Update FAQ
-  4. Delete FAQ
+  1. Add new FAQ.
+  2. List all FAQs.
+  3. Update FAQ.
+  4. Delete FAQ.
+
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | faqAdd.php | This file contains code to add new faq by admin | Kshitija Patel |
+  | faqList.php | This file contains code to list all the faqs for admin. From here the admin can add, update or delete any faq | Kshitija Patel | 
+  | faqUpdate.php | This file contains code to update the existing faq. | Kshitija Patel |
+  | faqlist.php | This file contains code to list the faqs for users. | Kshitija Patel |
+  | faqContext.php | This file contains the fuctions such as add,update,list,delete and search for faqs. | Kshitija Patel |
+
+  - Feature Two: User Management
+  1. Add new user from admin side.
+  2. Update that user information.
+  3. Delete the user.
+  4. List all the users.
+
+
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | addUser.php | This file contains the code to add new user(student,tutor or admin) by admin. | Kshitija Patel |
+  | listUsers.php | This file contains code to list all the users to admin. From here the admin can search a particular user by first name ,update the particular user ,delete any user. There is a dropdown menu if the admin wants the list of only students or admin or tutors. | Kshitija Patel |
+  | showUser.php | This file contains code to show the details of a particular user. | Kshitija Patel |
+  | updateUser.php | This file contains code to update the information of a selected user. | Kshitija Patel |
+  | UserAdminContext.php |  This file contains the fuctions such as add,update,list,delete and search. |  Kshitija Patel |
+  | EmailUtility.php | This file contains method to send emails and email template for new registration password reset link. |  Kshitija Patel |
 
 ## 5) Maitri
   - Feature One : Website contact us details and the list of users who fill in the form of contact page.This feature is completed and working, which includes following functionality.
