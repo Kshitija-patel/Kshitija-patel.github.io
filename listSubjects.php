@@ -1,13 +1,15 @@
 <?php 
-    require_once "../includes/adminHeader.php";
-    require_once "../database/classes/connect.php";
-    require_once "../database/classes/SubjectContext.php";
+    require_once "includes/header.php"?>
+<?php
+    // require_once "../database/classes/connect.php";
+    // require_once "../database/classes/SubjectContext.php";
+    require_once "vendor/autoload.php";
 
-    if(isset($_GET['action'])){
-        if($_GET['action']=="delete" && isset($_GET['id'])){
-            $id = $_GET['id'];
-        }
-    }
+    // if(isset($_GET['action'])){
+    //     if($_GET['action']=="delete" && isset($_GET['id'])){
+    //         $id = $_GET['id'];
+    //     }
+    // }
 
     $db = Database::getDb();
     $noSubject = "";
@@ -15,18 +17,18 @@
     $s = new SubjectContext();
     $subjects = $s->getAllSubjects($db);
 
-    if(isset($_POST['deleteSubject'])){
-        $id = $_POST["id"];
+    // if(isset($_POST['deleteSubject'])){
+    //     $id = $_POST["id"];
 
-        $s = new SubjectContext();
-        $numRowsAffected = $s->deleteSubject($id,$db);
+    //     $s = new SubjectContext();
+    //     $numRowsAffected = $s->deleteSubject($id,$db);
 
-        if($numRowsAffected){
-            $subjects = $s->getAllSubjects($db);
-        } else{
-            echo "Problem in Deleting!!";
-        }
-    }
+    //     if($numRowsAffected){
+    //         $subjects = $s->getAllSubjects($db);
+    //     } else{
+    //         echo "Problem in Deleting!!";
+    //     }
+    // }
 
     if(isset($_POST["searchSubjectBtn"])){
         $searchKey = $_POST["subjectSearch"];
@@ -38,7 +40,7 @@
     }
 
 ?>
-    <main class="adminmain admin-mock-tests">
+    <main class="adminmain admin-mock-tests subject-style">
         <div class="section no-pad-bot" id="index-banner">
             <div class="row">
                 <div class="col s10 m6 l12">
@@ -61,11 +63,11 @@
                     <div class="col s12 m12 l12">
                         <div class="card">
                             <div class="card-content">
-                                <div class="direction-top">
+                                <!-- <div class="direction-top">
                                     <a title="Add Leaning Material" href="addSubject.php" class="btn-floating btn-large green floatright">
                                         <i class="large material-icons">add</i>
                                     </a>
-                                </div>
+                                </div> -->
                                 <div class="row sub-list">
                                 <?php
                                    foreach($subjects as $subject){
@@ -85,16 +87,16 @@
                                                 <?php 
                                                      $id = "id".$subject["id"]; 
                                                 ?>
-                                                 <a class='modal-trigger cursor-pointer' href='#<?=$id?>'>
-                                                <i class='material-icons red-text'>delete</i>
-                                            </a>
+                                                 <!-- <a class='modal-trigger cursor-pointer' href='#<?=$id?>'> -->
+                                                <!-- <i class='material-icons red-text'>delete</i> -->
+                                            <!-- </a> -->
                                             </div>
                                             <div id='id<?=$subject["id"]?>' class='modal modal-learning-popup'>
-                                        <div class='modal-content'>
+                                        <!-- <div class='modal-content'>
                                         <h4>Are you sure?</h4>
                                         <p>Do you really want to delete this subject?</p>
-                                        </div>
-                                        <div class='modal-footer-LearningRoom'>
+                                        </div> -->
+                                        <!-- <div class='modal-footer-LearningRoom'>
                                             <form method="post">
                                                 <div class="modal-footer">
                                                     <input type="hidden" name="id" value="<?=$subject["id"];?>">
@@ -104,13 +106,13 @@
                                                     </button>
                                                 </div>
                                             </form>
-                                        </div>
+                                        </div> -->
                                     </div>
                                         </div>
                                     </div>
                                 <?php }?>
                                 </div>
-                                <ul class="pagination">
+                                <!-- <ul class="pagination">
                                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a>
                                     </li>
                                     <li class="red"><a href="#!">1</a></li>
@@ -121,7 +123,7 @@
                                     <li class="waves-effect"><a href="#!">
                                         <i class="material-icons">chevron_right</i></a>
                                     </li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                     </div>
@@ -129,4 +131,4 @@
             </div>
         </div>
     </main>
-<?php require_once "../includes/adminFooter.php" ?>
+<?php require_once "includes/footer.php" ?>

@@ -7,8 +7,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once "ConstantStr.php";
-require_once "../vendor/autoload.php";
+require_once "vendor/autoload.php";
 
 class EmailUtility
 {
@@ -22,6 +21,8 @@ class EmailUtility
         $send_using_config = 2; // For local set it to 1
         switch ($send_using_config):
             case 1:
+                echo "smtp";
+                var_dump($is_body_html);
                 $mail->Host = 'smtp.gmail.com';              // Set SMTP server
                 $mail->SMTPSecure = 'tls';                   // Set encryption type
                 $mail->Port = 587;                           // Set TCP port
@@ -94,6 +95,14 @@ class EmailUtility
 
         return $emailtemplate;
 
+    }
+
+    //Email template for thanking users
+    public static function ThankUserTemplate($firstname)
+    {
+        $emailtemplate = "<div
+        ><b> Hi " . $firstname . ",</b></div><p>Thank you for contacting us. We will reach out to you soon.</p><br/><br/><div>Thanks,</div><div>The iTutor Team</div>";
+        return $emailtemplate;
     }
 
 }

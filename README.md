@@ -73,6 +73,8 @@ includes following functionality.
   1. Mock Test CRUD
   2. Search for Mock Tests
   3. Add/Remove Questions into/from Mock tests
+  4. Enroll in Mock Tests
+  5. View Mock Test Result
 
   | File | Description | Author |
   | ------- | ----------- | ----- |
@@ -86,13 +88,32 @@ includes following functionality.
 
 ## 3) Shubham
   - Feature One: Learning Rooms
-  1. Add New Rooms
-  2. Edit Rooms
-  3. Listing Rooms
-  4. Deleting Rooms
+  1. CRUD functionalities.
+  2. Validation for room numbers.
+ 
 
-  - Feature Two: Tutor Apoointment
-    [CRUD on Tutor Appointments]
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | database/LearningRoomDb.php | That file contains all the CRUD functionalities i.e methods such as adding new room, updating new room, listing all the rooms and deleting rooms if required. | Shubham Patel | 
+  | database/classes/models/LearningRoom.php | That file are used to declare new variable or columns of the database. Also, this file is used for getter and setter methods where we access private variables. | Shubham Patel | 
+  | admin/LearningRoomList.php | This file is used for listing all the rooms and when they are created. Also, there are links for particular room to delete any room. | Shubham Patel |
+  | admin/LearningRoomAdd.php | This page contains form where we can add room details. | Shubham Patel |
+  | admin/LearningRoomEdit.php | This file also contains form where a particular room details are already pasted and we can modify according to our requirements. | Shubham Patel |
+
+
+  - Feature Two: Tutor Appointment Bookings
+  1. CRUD functionality on bookings 
+  2. Listing of individual Student booking.
+  3. Listing of Booked Tutor.
+  4. Listing of all the booking done by students and view for admin.
+
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | database/classes/models/TutorAppointment.php | This file is used to declare new variable or columns of the database. Also, this file is used for getter and setter methods where we access private variables. | Shubham Patel | 
+  | database/classes/models/TutorAppointmentContext.php | This file contains all the CRUD functionality methods. Also, additional methods are introduced to dynamically fetch some data and displaying that.  | Shubham Patel | 
+  | admin/tutorAppointmentAdd.php | This file is used for adding new booking by student. New Booking is only available for students and not for tutors. Adding new booking dynamically list the subject and the tutor associated to it in a drop down. Also, there is a date picker to book on particular date.  | Shubham Patel |
+  | admin/tutorAppointmentEdit.php | This page is accessed by admin and tutors only as they have the rights to confirm or put on waiting or reject any booking. | Shubham Patel |
+  | admin/LearningRoomList.php | This file also displays listing according to the role of the user. Student will have list of their bookings. Tutors will have the listing which is done by all students to them. Admin will have the list of all the students and tutors where he can modify as per his needs. Also, while listing tutor and admin can delete any booking. | Shubham Patel |
 
 ## 4) Kshitija
   - Feature One: FAQ 
@@ -134,3 +155,30 @@ includes following functionality.
   5. List of all user contact details.
   6. Delete user contact details.
   7. Search user contact details.
+
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | admin/addContact.php |This page lets admin add the contact details which will be shown on the user side. | Maitri Modi|
+  | admin/showContact.php |This page lets admin see the contact details which will be seen on the user side. | Maitri Modi| 
+  | admin/showUserContact.php | This page lets admin sees all the user details entered by the user on the user side form.| Maitri Modi|
+  | admin/updateContact.php | This page lets admin update all the contact details.| Maitri Modi|
+  | database/classes/ContactContext.php | This page contains all the functions operated on the contact details of the website.| Maitri Modi|
+  | database/classes/UserContactContext.php | This page contains all the functions operated on the user contact details entered by the user in the form.| Maitri Modi|
+  | addUserContact.php | This page is shown on the user side and lets user enter their details for contacting them.| Maitri Modi|
+
+  - Feature Two: Subject Management, which contains list of subjects, admin can add update and delete any subject. Search bar is also included on the page. User who visits the page can see the subjects provided by the iTutor.
+  1. Add subject.(Admin)
+  2. Update subject.(Admin)
+  3. Delete subject.(Admin)
+  4. Show subject details.(Admin/Public)
+  
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | admin/addSubject.php |This page lets admin add subject. | Maitri Modi|
+  | admin/listSubjects.php | This page lets admin see the list of subjects add to the database.| Maitri Modi| 
+  | admin/showSubject.php | This page lets admin see the details of an individual subject.| Maitri Modi |
+  | admin/updateSubject.php | This page lets admin update the details of an individual subject.| Maitri Modi|
+  | database/classes/SubjectContext.php | This page contains all the function operated on the subject management system.| Maitri Modi|
+  | listSubjects.php | This page lets users see the subjects available for them to learn on iTutor.| Maitri Modi|
+  | showSubject.php | This page lets user see the details of an individual subject.| Maitri Modi|
+ 
