@@ -24,7 +24,7 @@ includes following functionality.
   | logout.php | This file contains code to logout from the system and redirect to Login page. | Priyanka Khadilkar |
   | resetPassword.php | This file contains form to reset password. | Priyanka Khadilkar |
   | utilities/ConstantStr.php | This file contains all the constant configuration. | Priyanka Khadilkar |
-  | utilities/EmailUtility.php | This file contains method to send emails and email template for email. | Priyanka Khadilkar |
+  | EmailUtility.php | This file contains method to send emails and email template for email. | Priyanka Khadilkar |
   | utilities/Session.php | This file contains all method to get and set session variables and values. | Priyanka Khadilkar |
   | admin/myProfile.php | This file contains form to show the profile data of logged in user and user can change the profile data. | Priyanka Khadilkar |
   | admin/changePassword.php | This file contains form to change password of logged in user. | Priyanka Khadilkar |
