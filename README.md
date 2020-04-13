@@ -88,13 +88,32 @@ includes following functionality.
 
 ## 3) Shubham
   - Feature One: Learning Rooms
-  1. Add New Rooms
-  2. Edit Rooms
-  3. Listing Rooms
-  4. Deleting Rooms
+  1. CRUD functionalities.
+  2. Validation for room numbers.
+ 
 
-  - Feature Two: Tutor Apoointment
-    [CRUD on Tutor Appointments]
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | database/LearningRoomDb.php | That file contains all the CRUD functionalities i.e methods such as adding new room, updating new room, listing all the rooms and deleting rooms if required. | Shubham Patel | 
+  | database/classes/models/LearningRoom.php | That file are used to declare new variable or columns of the database. Also, this file is used for getter and setter methods where we access private variables. | Shubham Patel | 
+  | admin/LearningRoomList.php | This file is used for listing all the rooms and when they are created. Also, there are links for particular room to delete any room. | Shubham Patel |
+  | admin/LearningRoomAdd.php | This page contains form where we can add room details. | Shubham Patel |
+  | admin/LearningRoomEdit.php | This file also contains form where a particular room details are already pasted and we can modify according to our requirements. | Shubham Patel |
+
+
+  - Feature Two: Tutor Appointment Bookings
+  1. CRUD functionality on bookings 
+  2. Listing of individual Student booking.
+  3. Listing of Booked Tutor.
+  4. Listing of all the booking done by students and view for admin.
+
+  | File | Description | Author |
+  | ------- | ----------- | ----- |
+  | database/classes/models/TutorAppointment.php | This file is used to declare new variable or columns of the database. Also, this file is used for getter and setter methods where we access private variables. | Shubham Patel | 
+  | database/classes/models/TutorAppointmentContext.php | This file contains all the CRUD functionality methods. Also, additional methods are introduced to dynamically fetch some data and displaying that.  | Shubham Patel | 
+  | admin/tutorAppointmentAdd.php | This file is used for adding new booking by student. New Booking is only available for students and not for tutors. Adding new booking dynamically list the subject and the tutor associated to it in a drop down. Also, there is a date picker to book on particular date.  | Shubham Patel |
+  | admin/tutorAppointmentEdit.php | This page is accessed by admin and tutors only as they have the rights to confirm or put on waiting or reject any booking. | Shubham Patel |
+  | admin/LearningRoomList.php | This file also displays listing according to the role of the user. Student will have list of their bookings. Tutors will have the listing which is done by all students to them. Admin will have the list of all the students and tutors where he can modify as per his needs. Also, while listing tutor and admin can delete any booking. | Shubham Patel |
 
 ## 4) Kshitija
   - Feature One: FAQ 
