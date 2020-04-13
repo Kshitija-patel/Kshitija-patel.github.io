@@ -38,18 +38,18 @@ if (isset($_POST["searchuser"])) {
             <div class="row">
                 <form method="POST">
                     <div class="input-field col s12 m12 l4">
-                        <input id="first_name" type="text" class="validate search-box" name="usersearchkey" value="<?=(isset($_POST['usersearchkey'])) ? $_POST['usersearchkey'] : ""?>">
+                        <input id="first_name" type="text" class="validate search-box" name="usersearchkey" value="<?= (isset($_POST['usersearchkey'])) ? $_POST['usersearchkey'] : "" ?>">
                         <label for="usersearchkey" class="serach-label">Search users...</label>
                     </div>
 
                     <div class="input-field col s12 m12 l4">
-                           <select class="browser-default" name="userRole">
-								<option value="" disabled selected>Select role</option>
-                                <option value="">All Users</option>
-								<option value="1" <?=(isset($_POST['userRole']) && $_POST['userRole'] == "1") ? "selected" : ""?>>Admin</option>
-								<option value="2" <?=(isset($_POST['userRole']) && $_POST['userRole'] == "2") ? "selected" : ""?>>Tutor</option>
-								<option value="3" <?=(isset($_POST['userRole']) && $_POST['userRole'] == "3") ? "selected" : ""?>>Student</option>
-							</select>
+                        <select class="browser-default" name="userRole">
+                            <option value="" disabled selected>Select role</option>
+                            <option value="">All Users</option>
+                            <option value="1" <?= (isset($_POST['userRole']) && $_POST['userRole'] == "1") ? "selected" : "" ?>>Admin</option>
+                            <option value="2" <?= (isset($_POST['userRole']) && $_POST['userRole'] == "2") ? "selected" : "" ?>>Tutor</option>
+                            <option value="3" <?= (isset($_POST['userRole']) && $_POST['userRole'] == "3") ? "selected" : "" ?>>Student</option>
+                        </select>
                     </div>
 
                     <div class="input-field col s12 m12 l2">

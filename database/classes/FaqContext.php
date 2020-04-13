@@ -1,6 +1,6 @@
 <?php
 
-require_once "../vendor/autoload.php";
+// require_once "../../vendor/autoload.php";
 
 class FaqContext extends Database
 {
@@ -17,7 +17,6 @@ class FaqContext extends Database
         $faqs = $pdostm->fetchAll(PDO::FETCH_OBJ);
         // var_dump($faqs);
         return $faqs;
-
     }
 
     public function Add($Faq)
@@ -28,24 +27,22 @@ class FaqContext extends Database
         $pdostm->bindParam(':faqquestion', $Faq['question']);
         $pdostm->bindParam(':faqanswer', $Faq['answer']);
         $pdostm->bindParam(':createdDatetime', $date);
-        
+
 
         $numRowsAffected = $pdostm->execute();
         return $numRowsAffected;
-
     }
 
-    public function Update($Faq,$id)
+    public function Update($Faq, $id)
     {
         $sql = "Update faqs set question = :faqquestion, answer = :faqanswer where id= :id";
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->bindParam(':faqquestion', $Faq['question']);
-        $pdostm->bindParam(':faqanswer',$Faq['answer']);
+        $pdostm->bindParam(':faqanswer', $Faq['answer']);
         $pdostm->bindParam(':id', $id);
 
         $numRowsAffected = $pdostm->execute();
         return $numRowsAffected;
-
     }
 
     public function Delete($id)
@@ -56,7 +53,6 @@ class FaqContext extends Database
         $pst->bindParam(':id', $id);
         $count = $pst->execute();
         return $count;
-
     }
 
     public function Get($id)
@@ -67,7 +63,6 @@ class FaqContext extends Database
         $pdostm->execute();
         $faqs = $pdostm->fetch(PDO::FETCH_OBJ);
         return $faqs;
-
     }
     public function Search($faqsearchkey)
     {
@@ -80,5 +75,4 @@ class FaqContext extends Database
         $faqs = $pdostm->fetchAll(PDO::FETCH_OBJ);
         return $faqs;
     }
-
 }
