@@ -354,3 +354,9 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .delete-btn-learningRoom{
     background-color: #F15E5E;
 }
+
+.subject-style{
+    padding-left: 142px;
+    padding-right: 135px;
+}
+}

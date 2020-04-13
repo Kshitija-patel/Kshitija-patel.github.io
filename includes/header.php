@@ -19,6 +19,7 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="addUserContact.php">Contact</a></li>
             <li><a href="jobListing.php">Career</a></li>
+            <li><a href="listSubjects.php">Subjects</a></li>
             <li><a href="login.php">Login</a></li>
         </ul>
 
@@ -26,6 +27,7 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="addUserContact.php">Contact</a></li>
             <li><a href="jobListing.php">Career</a></li>
+            <li><a href="listSubjects.php">Subjects</a></li>
             <li><a href="login.php" class="orange">Login</a></li>
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>

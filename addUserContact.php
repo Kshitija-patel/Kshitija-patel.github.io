@@ -1,7 +1,14 @@
-<?php require_once "includes/header.php";
-    require_once "database/classes/connect.php";
-    require_once "database/classes/ContactContext.php";
-    require_once "database/classes/UserContactContext.php";
+<?php require_once "includes/header.php"?>
+<?php
+/*
+    Created by: Maitri Modi
+*/
+    require_once "vendor/autoload.php";
+    $ErrorMsg = "";
+
+    // require_once "database/classes/connect.php";
+    // require_once "database/classes/ContactContext.php";
+    // require_once "database/classes/UserContactContext.php";
 
     $db = Database::getDb();
     $c = new Contact();
@@ -46,7 +53,7 @@
                         } else{
                             $telephone = check_input($_POST["telephone"]);
                             if(!preg_match('/[0-9]{3}-[0-9]{3}-[0-9]{4}/', $telephone)){
-                                $telephoneErr = "Invalid phone number";
+                                $telephoneErr = "Invalid phone number (111-111-1111)";
                                 $errFound = true;
                             }
                         }
@@ -80,9 +87,13 @@
                             $db = Database::getDb();
                             $uc = new UserContact();
                             $user_contact = $uc->addUserContact($name,$telephone,$email,$subject,$message,$db);
-
+                            echo $user_contact;
                             if($user_contact){
-                                header('Location: thankYouUser.php');
+                                $emailBody = EmailUtility::ThankUserTemplate($name);
+                                $isEmailSent = EmailUtility::SendEmail($email,$name,"iTutor - Contact",$emailBody,true);
+                                if($isEmailSent){
+                                    $ErrorMsg = "<span class='green-text'>You will be contacted shortly.For updates check your email.</span>";
+                                }
                             } else {
                                 echo "problem adding user contact";
                             }
@@ -94,6 +105,7 @@
                <div class="card login-card">
                     <div class="card-content">
                         <span class="card-title">Fill this form</span>
+                        <?= $ErrorMsg ?>
                         <div class="row">
                             <form class="col s12 contact-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                 <div class="row">
@@ -123,7 +135,7 @@
                                         <span class="add-contact-error">* <?php  echo $messageErr;?></span>
                                     </div>
                                     <div>
-                                        <a class="waves-effect waves-light btn-small add-contact-btn" href="thankyouUser.php">Cancel</a>
+                                        <a class="waves-effect waves-light btn-small add-contact-btn" href="index.php">Cancel</a>
                                         <button class="btn waves-effect waves-light contact-submit" type="submit" name="action">Submit
                                         </button>
                                     </div>
