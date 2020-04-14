@@ -20,6 +20,7 @@ $mockTestQuestions = $mockTestsContext->filterMockTestQuestions($mockTestQuestio
 // Attempt Mock Test
 if(isset($_POST['attemptMockTest'])) {
   $mockTestsContext->attemptMockTest($_POST);
+  header("Location: mockTestEnroll.php?tab=attempts");
 }
 ?>
 <?php require_once "../includes/adminHeader.php" ?>

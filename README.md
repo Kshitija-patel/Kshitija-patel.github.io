@@ -54,7 +54,9 @@ includes following functionality.
   | database/classes/JobApplicationContext.php | This file contains all the functions to communicate to the database for JobApplication table (All CRUD Functions). | Priyanka Khadilkar |
   | database/classes/JobPostContext.php | This file contains all the functions to communicate to the database for Jobpost table (All CRUD Functions). | Priyanka Khadilkar |
   | composer.json | Implemented composer for resolving dependencies | Priyanka Khadilkar |    
-  | errorLog/errorHandle.php | Implemented error handling log file | Priyanka Khadilkar |    
+  | errorLog/errorHandle.php | Implemented error handling log file | Priyanka Khadilkar |
+  | customError.php | User friendly Error page | Priyanka Khadilkar |
+      
 
 ## 2) Het
   - Feature One: Mock Test Questions Management

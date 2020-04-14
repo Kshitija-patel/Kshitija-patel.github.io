@@ -16,7 +16,7 @@
                     <li><a class="white-text" href="jobListing.php">Career</a></li>
                     <li><a class="white-text" href="login.php">Login</a></li>
                     <li><a class="white-text" href="register.php">Register</a></li>
-                    <li><a class="white-text" href="faqList.php">FAQ</a></li>
+                    <li><a class="white-text" href="faqlist.php">FAQ</a></li>
                 </ul>
             </div>
         </div>

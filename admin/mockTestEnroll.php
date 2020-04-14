@@ -16,23 +16,6 @@ $subject = new SubjectContext();
 include_once "../database/classes/TutorContext.php";
 $tutor = new TutorContext();
 
-// handle delete requests
-if(isset($_GET['deleteQuestion'])) {
-  // delete mock test question
-  $mockTestQuestions->deleteMockTestQuestion($_GET['deleteQuestion']);
-  header('location: mockTests.php?tab=questions');
-} else if(isset($_GET['deleteOption'])) {
-  // delete option from the question
-  $mockTestQuestions->deleteMockTestOption($_GET['deleteOption']);
-  header('location: mockTests.php?tab=questions');
-} else if(isset($_GET['deleteTest'])){
-  // delete mock test
-  $mockTestsContext->deleteMockTest($_GET['deleteTest']);
-  header('location: mockTests.php?tab=tests');
-}
-
-
-
 // fetch mock tests
 $mockTests = $mockTestsContext->getMockTests(null, (isset($_GET['searchTest']) && $_GET['searchTest'] != '') ? $_GET['searchTest'] : null, (isset($_GET['subjectTest']) && $_GET['subjectTest'] != '') ? $_GET['subjectTest'] : null, (isset($_GET['tutorTest']) && $_GET['tutorTest'] != '') ? $_GET['tutorTest'] : null);
 
@@ -115,7 +98,7 @@ $mockTestResult = $mockTestsContext->getMockTestResult($sessionData->userId);
                             foreach($mockTests as $mockTest) {
                           ?>
                           <tr>
-                              <td><a href="showMockTest.php?testID=<?= $mockTest['id']; ?>"><?= $mockTest['title']; ?></a></td>
+                              <td><a href="attemptMockTest.php?testID=<?= $mockTest['id']; ?>"><?= $mockTest['title']; ?></a></td>
                               <td><?= $mockTest['subject'][0]['title']; ?></td>
                               <td><?= $mockTest['marks']; ?></td>
                               <td>

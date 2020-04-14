@@ -6,7 +6,7 @@
 		<a href="learningRoomAdd.php">Add More Room</a><br>
 		<a href="learningRoomEdit.php">Manage Rooms</a><br>
 		<a href="listRoom.php">List of Rooms</a><br>
-        <h1 class="header center orange-text">Starter Template</h1>
+        <h1 class="header center orange-text">iTutor</h1>
         <div class="row center">
             <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
         </div>
