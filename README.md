@@ -54,7 +54,9 @@ includes following functionality.
   | database/classes/JobApplicationContext.php | This file contains all the functions to communicate to the database for JobApplication table (All CRUD Functions). | Priyanka Khadilkar |
   | database/classes/JobPostContext.php | This file contains all the functions to communicate to the database for Jobpost table (All CRUD Functions). | Priyanka Khadilkar |
   | composer.json | Implemented composer for resolving dependencies | Priyanka Khadilkar |    
-  | errorLog/errorHandle.php | Implemented error handling log file | Priyanka Khadilkar |    
+  | errorLog/errorHandle.php | Implemented error handling log file | Priyanka Khadilkar |
+  | customError.php | User friendly Error page | Priyanka Khadilkar |
+      
 
 ## 2) Het
   - Feature One: Mock Test Questions Management
@@ -113,7 +115,7 @@ includes following functionality.
   | database/classes/models/TutorAppointmentContext.php | This file contains all the CRUD functionality methods. Also, additional methods are introduced to dynamically fetch some data and displaying that.  | Shubham Patel | 
   | admin/tutorAppointmentAdd.php | This file is used for adding new booking by student. New Booking is only available for students and not for tutors. Adding new booking dynamically list the subject and the tutor associated to it in a drop down. Also, there is a date picker to book on particular date.  | Shubham Patel |
   | admin/tutorAppointmentEdit.php | This page is accessed by admin and tutors only as they have the rights to confirm or put on waiting or reject any booking. | Shubham Patel |
-  | admin/LearningRoomList.php | This file also displays listing according to the role of the user. Student will have list of their bookings. Tutors will have the listing which is done by all students to them. Admin will have the list of all the students and tutors where he can modify as per his needs. Also, while listing tutor and admin can delete any booking. | Shubham Patel |
+  | admin/TutorAppointmentList.php | This file also displays listing according to the role of the user. Student will have list of their bookings. Tutors will have the listing which is done by all students to them. Admin will have the list of all the students and tutors where he can modify as per his needs. Also, while listing tutor and admin can delete any booking. | Shubham Patel |
 
 ## 4) Kshitija
   - Feature One: FAQ 
