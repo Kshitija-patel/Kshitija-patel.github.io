@@ -1,4 +1,8 @@
 <?php
+/* Developer : Maitri Modi
+  * This file is for displaying subject details,
+  * Visitin gusers can see the details of a particualr subject
+ */ 
     require_once "includes/header.php";
     // require_once "../database/classes/connect.php";
     // require_once "../database/classes/SubjectContext.php";

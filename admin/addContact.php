@@ -1,6 +1,13 @@
 <?php
-        require_once '../database/classes/connect.php';
-        require_once '../database/classes/ContactContext.php';
+/* Developer : Maitri Modi
+  * This file is for adding contact details,
+   I have not put any link to this page as it is added just once.
+   After adding the details admin can edit it any time. 
+  *
+ */ 
+        // require_once '../database/classes/connect.php';
+        // require_once '../database/classes/ContactContext.php';
+        require_once "../vendor/autoload.php";
         $heading = $description = $emailTitle = $email = $phoneTitle = $phone = $addressTitle = $address = $latitude = $longitude = $userNameTitle = $userPhoneTitle = $userEmailTitle = $subjectTitle = $messageTitle = "";
         $headingErr = $descriptionErr = $emailTitleErr = $emailErr = $phoneTitleErr = $phoneErr = $addressTitleErr = $addressErr = $latitudeErr = $longitudeErr = $userNameTitleErr = $userPhoneTitleErr = $userEmailTitleErr = $subjectTitleErr = $messageTitleErr = "";
 

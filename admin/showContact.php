@@ -1,6 +1,13 @@
-<?php require_once "../includes/adminHeader.php";
-    require_once "../database/classes/connect.php";
-    require_once "../database/classes/ContactContext.php";
+<?php 
+ /* Developer : Maitri Modi
+  * This file is for showing the display of the contact us page,
+  * Which will be displaed on the user side.
+  * Only Admin can see the static display
+ */ 
+    require_once "../includes/adminHeader.php";
+    require_once '../vendor/autoload.php';
+    // require_once "../database/classes/connect.php";
+    // require_once "../database/classes/ContactContext.php";
 
     $db = Database::getDb();
     $c = new Contact();
@@ -14,56 +21,56 @@
             <div class="col s12 m12 l8">
                 <p class="contact-description"><?= $contact->description?></p>
                 <?php
-                    $name = $telephone = $email = $subject = $message = "";
-                    $nameErr = $telephoneErr = $emailErr = $subjectErr = $messageErr = "";
+                    // $name = $telephone = $email = $subject = $message = "";
+                    // $nameErr = $telephoneErr = $emailErr = $subjectErr = $messageErr = "";
 
-                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                    // if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-                        if(empty($_POST["name"])){
-                            $nameErr = "Name is required";
-                        } else{
-                            $name = check_input($_POST["name"]);
-                            if(!preg_match("/^[a-zA-Z ]*$/", $name)){
-                                $nameErr = "Only letters and white space";
-                            }
-                        }
+                    //     if(empty($_POST["name"])){
+                    //         $nameErr = "Name is required";
+                    //     } else{
+                    //         $name = check_input($_POST["name"]);
+                    //         if(!preg_match("/^[a-zA-Z ]*$/", $name)){
+                    //             $nameErr = "Only letters and white space";
+                    //         }
+                    //     }
 
-                        if(empty($_POST["telephone"])){
-                            $telephoneErr = "Telephone is required";
-                        } else{
-                            $telephone = check_input($_POST["telephone"]);
-                            if(!preg_match('/[0-9]{3}-[0-9]{3}-[0-9]{4}/', $telephone)){
-                                $telephoneErr = "Invalid phone number";
-                            }
-                        }
+                    //     if(empty($_POST["telephone"])){
+                    //         $telephoneErr = "Telephone is required";
+                    //     } else{
+                    //         $telephone = check_input($_POST["telephone"]);
+                    //         if(!preg_match('/[0-9]{3}-[0-9]{3}-[0-9]{4}/', $telephone)){
+                    //             $telephoneErr = "Invalid phone number";
+                    //         }
+                    //     }
 
-                        if(empty($_POST["email"])){
-                            $emailErr = "Email is required";
-                        } else{
-                            $email = check_input($_POST["email"]);
-                            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                                $emailErr = "Invalid email format";
-                            }
-                        }
+                    //     if(empty($_POST["email"])){
+                    //         $emailErr = "Email is required";
+                    //     } else{
+                    //         $email = check_input($_POST["email"]);
+                    //         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                    //             $emailErr = "Invalid email format";
+                    //         }
+                    //     }
 
-                        if(empty($_POST["subject"])){
-                            $subjectErr = "Subject is required";
-                        } else{
-                            $subject = check_input($_POST["subject"]);
-                        }
+                    //     if(empty($_POST["subject"])){
+                    //         $subjectErr = "Subject is required";
+                    //     } else{
+                    //         $subject = check_input($_POST["subject"]);
+                    //     }
 
-                        if(empty($_POST["message"])){
-                            $messageErr = "Message is required";
-                        } else{
-                            $message = check_input($_POST["message"]);
-                        }
-                    }
+                    //     if(empty($_POST["message"])){
+                    //         $messageErr = "Message is required";
+                    //     } else{
+                    //         $message = check_input($_POST["message"]);
+                    //     }
+                    // }
 
-                    function check_input($input){
-                        $input = trim($input);
-                        $input = stripslashes($input);
-                        $input = htmlspecialchars($input);
-                        return $input;
+                    // function check_input($input){
+                    //     $input = trim($input);
+                    //     $input = stripslashes($input);
+                    //     $input = htmlspecialchars($input);
+                    //     return $input;
 
                     }
                 ?>

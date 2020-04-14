@@ -1,4 +1,8 @@
 <?php 
+/* Developer : Maitri Modi
+  * This file is for listing all subjects,
+  * visiting users can see the subjects provided by the iTutor
+ */ 
     require_once "includes/header.php"?>
 <?php
     // require_once "../database/classes/connect.php";

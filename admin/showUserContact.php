@@ -1,8 +1,12 @@
 <?php
+/* Developer : Maitri Modi
+  * This file is for showing the static view of contact us page,
+  * Only Admin can view this static view subjects
+ */ 
 require_once "../includes/adminHeader.php";
-
-require_once '../database/classes/connect.php';
-require_once '../database/classes/UserContactContext.php';
+require_once "../vendor/autoload.php";
+// require_once '../database/classes/connect.php';
+// require_once '../database/classes/UserContactContext.php';
 
     if(isset($_GET['action'])){
 		if($_GET['action']=="delete" && isset($_GET['id'])){

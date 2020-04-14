@@ -1,7 +1,14 @@
 <?php
+/* Developer : Maitri Modi
+  * This file is for showing subject details,
+  * Only Admin can admin can see the subjects from this page. 
+  * There is another interface for showing subject details
+  */ 
+   
     require_once "../includes/adminHeader.php";
-    require_once "../database/classes/connect.php";
-    require_once "../database/classes/SubjectContext.php";
+    require_once "../vendor/autoload.php";
+    // require_once "../database/classes/connect.php";
+    // require_once "../database/classes/SubjectContext.php";
     
         $id = $_GET['id'];
         $db = Database::getDb();

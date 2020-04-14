@@ -1,7 +1,13 @@
 <?php 
+    /* Developer : Maitri Modi
+    * This file is for listing all subjects,
+    * Only Admin can see the subjects list
+    */ 
+
     require_once "../includes/adminHeader.php";
-    require_once "../database/classes/connect.php";
-    require_once "../database/classes/SubjectContext.php";
+    require_once "../vendor/autoload.php";
+    // require_once "../database/classes/connect.php";
+    // require_once "../database/classes/SubjectContext.php";
 
     if(isset($_GET['action'])){
         if($_GET['action']=="delete" && isset($_GET['id'])){

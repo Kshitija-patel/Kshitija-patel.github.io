@@ -2,7 +2,9 @@
 <?php
 /*
     Created by: Maitri Modi
+    This file if for adding the users filing the form of contact us page
 */
+
     require_once "vendor/autoload.php";
     $ErrorMsg = "";
 

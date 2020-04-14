@@ -1,6 +1,11 @@
     <?php
-         require_once '../database/classes/connect.php';
-         require_once '../database/classes/ContactContext.php';
+    /* Developer : Maitri Modi
+    * This file is for updating contact details,
+    * Only Admin can update the contact details
+    */ 
+        require_once '../vendor/autoload.php';
+        // require_once '../database/classes/connect.php';
+        // require_once '../database/classes/ContactContext.php';
         $heading = $description = $emailTitle = $email = $phoneTitle = $phone = $addressTitle = $address = $latitude = $longitude = $userNameTitle = $userPhoneTitle = $userEmailTitle = $subjectTitle = $messageTitle = "";
         $headingErr = $descriptionErr = $emailTitleErr = $emailErr = $phoneTitleErr = $phoneErr = $addressTitleErr = $addressErr = $latitudeErr = $longitudeErr = $userNameTitleErr = $userPhoneTitleErr = $userEmailTitleErr = $subjectTitleErr = $messageTitleErr = "";
 

@@ -1,6 +1,13 @@
  <?php
- require_once '../database/classes/connect.php';
- require_once '../database/classes/SubjectContext.php';
+ /* Developer : Maitri Modi
+  * This file is for adding subject details,
+  * Only Admin can add the subjects
+ */ 
+   
+//  require_once '../database/classes/connect.php';
+//  require_once '../database/classes/SubjectContext.php';
+require_once '../vendor/autoload.php';
+
  $title = $subjectField  = $description = "";
  $titleErr = $subjectFieldErr  = $descriptionErr = "";
 
