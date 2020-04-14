@@ -115,7 +115,7 @@ $mockTestResult = $mockTestsContext->getMockTestResult($sessionData->userId);
                             foreach($mockTests as $mockTest) {
                           ?>
                           <tr>
-                              <td><a href="showMockTest.php?testID=<?= $mockTest['id']; ?>"><?= $mockTest['title']; ?></a></td>
+                              <td><a href="attemptMockTest.php?testID=<?= $mockTest['id']; ?>"><?= $mockTest['title']; ?></a></td>
                               <td><?= $mockTest['subject'][0]['title']; ?></td>
                               <td><?= $mockTest['marks']; ?></td>
                               <td>
