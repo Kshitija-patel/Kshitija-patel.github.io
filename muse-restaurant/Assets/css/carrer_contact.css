@@ -1,0 +1,364 @@
+@import url();
+/*-------------------Footer start -------------------------*/
+.footer {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.footer_partition {
+    width: 49%;
+    margin: 0 auto;
+}
+
+.contact-input {
+    padding: 11px;
+    font-size: 14px;
+    border-width: 1px;
+    border-color: #CCCCCC;
+    background-color: #fafafa;
+    color: #000000;
+    border-style: solid;
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px rgba(66, 66, 66, .81);
+    text-shadow: 0px 0px 0px rgba(66, 66, 66, .75);
+}
+
+.css-input:focus {
+    border: 2px solid #ddd;
+}
+
+.footer_partition div:nth-child(2) .contact-input {
+    width: 94.5%;
+}
+
+.contact-form {
+    width: 100%;
+    overflow: hidden;
+}
+
+.contact-form div {
+    margin: 0 auto;
+    width: 98%;
+    padding: 10px 0 5px 0;
+}
+
+.contact-form div:nth-child(1) input[type=text]:nth-child(1),
+input[type=email] {
+    width: 45%;
+}
+
+.footer_partition textarea {
+    width: 97.5%;
+    resize: none;
+    border: 1px solid #ddd;
+    height: 100px;
+    background: #fafafa;
+}
+
+.submit-btn {
+    padding: 0 25px 0 25px;
+    height: 50px;
+    line-height: 46px;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #4f2122;
+    font-weight: 600;
+    background-color: #fcb040;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.map_contact iframe {
+    width: 98.7%;
+}
+
+.map_contact {
+    width: 99%;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+/*-------------------Footer end -------------------------*/
+/*-------------------Carrers start -------------------------*/
+.carrers_section {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 0px 0px 0 15px;
+}
+
+.carrers_heading h2 {
+    font-size: 30px;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.different_postions {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.different_postions div {
+    width: 33.33%;
+    border-bottom: 2px solid #ddd;
+    padding: 0 0 30px 0;
+    color:#414040;
+
+}
+
+.position_name h3 {
+    font-size: 20px;
+    line-height: 0.7;
+    color: #2d2d2d;
+    text-shadow: 0px 0px 1px;
+    font-weight: 500;
+}
+
+.carrer_type {
+    color: #1ec0ff;
+    /* transition: all .2s ease-in-out; */
+}
+
+.carrer_location {
+    border-left: solid 1px #ccc;
+    padding-left: 11px;
+}
+
+.position_name {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.opportunties_carrers p {
+    text-align: center;
+    margin-top: 35px;
+    color: #888;
+}
+
+.apply_now_carrers a {
+    /* border-radius: 16px;
+    padding: 15px 17px 15px 17px;
+    font-size: 17px;
+    color: #fff;
+    border-color: #fcb040;
+    background-color: #fcb040;
+    text-align: center;
+    margin-top: 15px;
+    display: inline-block; */
+}
+
+.apply_now_carrers span {
+    cursor: pointer;
+    border-radius: 16px;
+    padding: 15px 17px 15px 17px;
+    font-size: 17px;
+    color: #fff;
+    border-color: #fcb040;
+    background-color: #fcb040;
+    text-align: center;
+    margin-top: 15px;
+    display: inline-block;
+    /* padding: 0 8.5px 0 8.5px; */
+    transition: padding 0.2s;
+}
+
+.apply_now_carrers {
+    text-align: center;
+}
+
+.carrer_location img {
+    width: 10px;
+    height: 10px;
+}
+
+.apply_now_carrers a:hover,
+.apply_now_carrers a:active,
+.apply_now_carrers a:focus {
+    background-color: #4f2122;
+    border-color: #4f2122;
+    color: #fff;
+}
+
+#carrer_popup {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 9999;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Styles for the form container */
+.form-container {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/* Full-width for input fields */
+.form-container input[type=text],
+.form-container input[type=email],
+.form-container input[type=number] {
+    width: 100%;
+    padding: 10px 0 10px 0px;
+    margin: 15px 0px 15px 0px;
+    border: 1px solid #ddd;
+    background: #eee;
+    border-radius: 2px;
+}
+
+.form-container input[type=file] {
+    margin-bottom: 20px;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus,
+.form-container input[type=email]:focus,
+.form-container input[type=number]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Style submit/login button */
+.form-container .btn_carrer_submit {
+    background-color: #4f2122;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Hover effects for buttons */
+.form-container .btn_carrer_submit:hover {
+    opacity: 1;
+}
+
+/* Hide the Popup form */
+.form-popup {
+    border: 2px solid #666;
+    z-index: 9;
+    max-width: 400px;
+    margin: 0 auto;
+    height: 401px;
+    border-radius: 5px;
+}
+
+.form-container label {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.form-container h2 {
+    display: inline-block;
+}
+
+.close-carrer-icon{
+    font-size: 25px;
+    float: right;
+    cursor: pointer;
+}
+.footer_partition .fab,.footer_partition .fas{
+    font-size: 19px;
+    margin-left: 15px;
+    transition: background 0.3s;
+    -webkit-transition: background 0.3s;
+    -moz-transition: background 0.3s;
+    -o-transition: background 0.3s;
+    color: #000;
+}
+.footer_partition .fab:hover{
+    background: #6091ce;
+    -webkit-animation: toRightFromLeft 0.3s forwards;
+	-moz-animation: toRightFromLeft 0.3s forwards;
+    animation: toRightFromLeft 0.3s forwards;
+    border-radius: 50%;
+    width: 28px;
+    text-align: center;
+    height: 23px;
+    color: #ddd;
+}
+.footer_partition .fa-instagram:hover{
+    background: #c93f6e;
+    -webkit-animation: toRightFromLeft 0.3s forwards;
+	-moz-animation: toRightFromLeft 0.3s forwards;
+    animation: toRightFromLeft 0.3s forwards;
+    border-radius: 50%;
+    width: 28px;
+    text-align: center;
+    height: 23px;
+    color: #ddd;
+}
+.footer_partition .fas:hover{
+    background: #fcb040;
+    -webkit-animation: toRightFromLeft 0.3s forwards;
+	-moz-animation: toRightFromLeft 0.3s forwards;
+    animation: toRightFromLeft 0.3s forwards;
+    border-radius: 50%;
+    width: 28px;
+    text-align: center;
+    height: 23px;
+    color: #ddd;
+}
+
+@-webkit-keyframes toRightFromLeft {
+	49% {
+		-webkit-transform: translate(40%);
+	}
+	50% {
+		opacity: 0;
+		-webkit-transform: translate(-40%);
+	}
+	51% {
+		opacity: 1;
+	}
+}
+@-moz-keyframes toRightFromLeft {
+	49% {
+		-moz-transform: translate(40%);
+	}
+	50% {
+		opacity: 0;
+		-moz-transform: translate(-40%);
+	}
+	51% {
+		opacity: 1;
+	}
+}
+@keyframes toRightFromLeft {
+	49% {
+		transform: translate(40%);
+	}
+	50% {
+		opacity: 0;
+		transform: translate(-40%);
+	}
+	51% {
+		opacity: 1;
+	}
+}
+

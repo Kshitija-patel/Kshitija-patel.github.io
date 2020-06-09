@@ -1,0 +1,110 @@
+.main-container{
+    /* text-align: center; */
+}
+.menu_flex{
+    display: flex;
+    margin: auto;
+    max-width: 530px;
+    text-align: center;
+}
+
+.menu_logo{
+    padding-right: 90px;
+    margin-top: 14px;
+}
+
+.fa-bread-slice,.fa-drumstick-bite,.fa-hotdog,.fa-wine-glass-alt{
+    font-size: 40px;
+}
+
+.menu_logo_desc{
+    margin-top: 11px;
+    padding-right: 90px;
+}
+
+.menu_content{
+    height: 700px;
+    width: 1050px;
+    border: 6px solid #fcb040;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.menu_title{
+    color: #fcb040;
+    text-align: center;
+}
+
+.menu_image{
+    /* width: 100%; */
+    height: 700px;
+    position: relative;
+}
+
+.menu_circle{
+    height:100px;
+    width:100px;
+    /* border-radius: 50%; */
+    position: absolute;
+    /* background: #fcb040; */
+    /* top: 382px; */
+    /* left: 717px; */
+}
+
+.menu_logo_main{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    /* padding-right: 90px; */
+    /* margin-top: 14px; */
+    top: 387px;
+    left: 139px;
+}
+
+.breakfast_menu,.lunch_menu,.dinner_menu,.drinks_menu{
+    display: none;
+}
+
+.default_menu{
+    display: block;
+}
+
+.breakfast_menu li{
+    list-style: none;
+    /* text-decoration: none; */
+}
+
+.breakfast-1,.breakfast-3,.lunch-1,.lunch-3,.dinner-1,.dinner-3,.drinks-1,.drinks-3{
+    margin-top: 37px;
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    margin-left: 200px;
+}
+
+.breakfast-2,.lunch-2,.dinner-2,.drinks-2{
+    margin-top: 37px;
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    margin-left: 58px;
+}
+
+.breakfast-1_title,.breakfast-3_title,.lunch-1_title,.lunch-3_title,.dinner-1_title,.dinner-3_title,.drinks-1_title,.drinks-3_title{
+    margin-top: 80px;
+    margin-left: 33px;
+}
+
+.breakfast-2_title,.lunch-2_title,.dinner-2_title,.drinks-2_title{
+    margin-left: 269px;
+    margin-top: 70px;
+}
+
+.breakfast_flex,.lunch_flex,.dinner_flex,.drinks_flex{
+    display: flex;
+}
+
+.lunch-1{
+
+}

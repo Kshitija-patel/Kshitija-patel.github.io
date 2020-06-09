@@ -1,0 +1,25 @@
+body{
+	background-color:#e9d6d6;
+}
+
+.booked {
+	text-align:center;
+	margin-top:17%;
+}
+
+.back {
+	font-size: 22px;
+    width: 230px;
+	background-color: #EEEEEE;
+	color: #333333;
+	text-decoration: none;
+    margin-top: 10px;
+    display: block;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+    padding: 4px 3px 4px 6px;
+	text-align:center;
+	margin-left: 42%;
+}

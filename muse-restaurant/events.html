@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="Assets/css/style.css">
+	<link rel="stylesheet" href="Assets/css/events.css">
+	<link rel="stylesheet" href="reserved.html">
+    <!-- Sample Images Downloaded from: https://unsplash.com/ -->
+<!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+	
+    <!-- <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Acme|Signika&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Acme|Arvo&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="nav-content">
+                <div class="flex-container">
+                    <div id="logo-container" class="logo-container">
+                         <a href="index.html"><img class="logo" src="Assets/Images/logo.png"></a>
+                    </div>
+                    <div class="wrapper">
+                        <ul class="links">
+                            <li class="after-logo link">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="link">
+                                <a href="book_table.html">Book Table</a>
+                            </li>
+                            <li class="link">
+                                <a href="giftcard.html">Gift Cards</a>
+                            </li>
+                            <li class="link">
+                                <a href="muse_menu.html">View Menu</a>
+                            </li>
+                            <li class="link">
+                                <a href="contest.html">Contest</a>
+                            </li>
+                            <li class="link">
+                                <a href="index.html#about-muse">About</a>
+                            </li>
+                            <li class="link">
+                                <a href="contact.html">Contact</a>
+                            </li>
+                            <li class="link">
+                                <a href="specials.html"><span class="primary-text">Daily</span> <span class="secondary-text">Specials</span></a>
+                            </li>
+                       </ul>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <!-- <div class="banner-video">
+            <div class="banner-container">
+                <div class="banner-content">
+                    <div class="banner-text">
+                        <img class="banner-logo" src="Assets/Images/logo.png">
+                        <p>
+                            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and
+                            visual mockups.
+                        </p>
+                        <button class="banner-btn color-primary">View Menu</button>
+                        <button class="banner-btn color-primary">Book Table</button>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-images">
+                <img src="Assets/Images/banner3.jpg">
+            </div>
+        </div> -->
+    </header>
+	
+	<div class="main-container">
+		<form class="main_content">
+			<fieldset>
+				<legend><h1>Events for December</h1></legend>
+				 <div class="events"><p><b>Coming up events this month</b></p></div>
+				 <div class="flexcontainer">
+					<div class="column1">
+						<h2 id="h1">December</h2>
+						<p id="title1"><b>There are some special events for you this December...Come and enejoy this holiday special...</b></p>
+						<p class="contentBox" id="h1-content">Click to see the event description!!! </p>
+						
+						<input type="button" value="14th DEC" id="b1" onclick="changeText();"/>				
+							<input type="button" value="25th DEC" id="b2" onclick="changeText();"/>
+							<input type="button" value="31st DEC" id="b3" onclick="changeText();"/>
+					</div>
+					<!-- <div class="main_column"> -->
+					<div class="column2">
+						<div>
+							<h2 id="h1">December 14</h2>
+							<p id="title1"><b>You are cordially invited to a Holiday Afternoon Tea at Muse</b></p>
+							<p class="contentBox" id="h1-content">We are offering our Holiday Afternoon Tea Service on Sunday, December 8th, Thursday, December 12th and Sunday, December 15th by reservation only<br>Reservations available from 12 pm to 2 pm<br>$29.95/adult, $19.95/child (3-10 years), Free (2 yrs & under)<br><br>Today's special is Mini Scones served with Chantilly Cream and Fruit Preserves, Assorted Finger Sandwiches and some Delectable Desserts. </p>
+						
+						</div>
+						<div>
+							<a href="book_table.html" class="reserve">Reserve</a>
+							<!-- <input type="button" value="reserve" id ="r1"/> -->
+						</div>
+						<div>
+							<h2 id="h2">December 25</h2>
+							<p id="title2"><b>Festive Christmas Buffet in the Grand Ballroom</b></p>
+							<p class="contentBox" id="h2-content">Wednesday, December 25, 2019<br>12:00 pm to 4:00 pm by reservation only<br>$38.95/adult, $19.50/child (3-10 yrs), plus tax and 18% gratuity<br>A maximum of a two hour time slot is allotted per reservation.<br><br>This Holiday Buffet features five fresh and tasty Salads, an Antipasto Bar with Cheeses, grilled Vegetables, smoked Meats and chilled Seafood, slow roasted Turkey, Prime Rib, Sole, Maple Cinnamon Glazed Ham, Pasta, Vegetables, Fruits and decadent Desserts.</p>
+							
+						</div>
+						<div>
+							<a href="book_table.html" class="reserve">Reserve</a>
+							<!-- <input type="button" value="reserve" id ="r1"/> -->
+						</div>
+						<div>
+						<div>
+						<h2 id="h3">December 31</h2>
+						<p id="title3"><b>Ring in the New Year in Style at our Muse Dinner & Dance!</b></p>
+						<p class="contentBox" id="h3-content">Tuesday, December 31, 2019<br>6:30 pm to 1:30 am<br>$99/person + tax and 18% gratuity<br><br>Ring in the new decade at Muse Restaurant with our New Year's Eve dinner.Two Seating times are available, 5:30-7:30 (4 course menu) and 8:30-10:30 (5 course menu) for more information, and reservations please call 456-789-1234.</p>
+						</div>
+						
+						
+					</div>
+					
+				
+				<div>
+					<a href="book_table.html" class="reserve">Reserve</a>
+				</div>
+				<div class="contact">456-789-1234 info@muserestaurant.com</div>
+				</div>
+				<!-- </div> -->
+			</fieldset>
+		</form>
+	</div>
+	</div>
+	 <footer>
+        <div class="footer-container">
+                <i class="fas food-icon fa-utensils"></i>
+                <i class="fas food-icon fa-hamburger"></i>
+                <i class="fas food-icon food-pizza fa-pizza-slice"></i>
+                <i class="fas food-icon fa-cheese"></i>
+                <!-- <i class="fas food-icon fa-egg"></i> -->
+                <i class="fas food-icon fa-bread-slice"></i>
+                <i class="fas food-icon fa-drumstick-bite"></i>
+                <i class="fas food-icon fa-hotdog"></i>
+                <!-- <i class="fas food-icon fa-bone"></i> -->
+                <i class="fas food-icon fa-pepper-hot"></i>
+                <i class="fas food-icon fa-ice-cream"></i>
+                <i class="fas food-icon fa-cookie"></i>
+                <!-- <i class="fas food-icon fa-fish"></i> -->
+                <i class="fas food-icon fa-candy-cane"></i>
+                <i class="fas food-icon fa-carrot"></i>
+                <i class="fas food-icon fa-apple-alt"></i>
+                <i class="fas food-icon fa-lemon"></i>
+            <div class="contact-container flex">
+                <h3>Contact Information</h3>
+                <p>Address: 126, Mount Olive Drive, M9V 2E4, Etobicoke</p>
+                <p>Email:
+                    <a href="" class="email-link">musecafe@foodindia.com</a>
+                </p>
+                <ul class="footer-icons">
+                    <li>
+                        <a href="#" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Snapchat">
+                            <i class="fab fa-snapchat-ghost"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Tomato">
+                            <i class="fas fa-pizza-slice"></i>
+                        </a>
+                    </li>
+                </ul>
+                <p>&copy; Copyright 2019 | Muse Cafe</p>
+            </div>
+            <div class="timings-container flex">
+                <img class="banner-logo" src="Assets/Images/logo.png">
+                <h3>Restaurant Hours</h3>
+                <h4>Lunch</h4>
+                <p>Monday-Friday: 11:30AM - 2:00PM</p>
+                <p>Monday-Friday: 11:30AM - 3:00PM</p>
+                <h4>Dinner</h4>
+                <p>Monday-Friday: 5:30AM - 11:00PM</p>
+                <p>Saturday-Sunday: 4:30AM - 11:00PM</p>
+            </div>
+            <div class="useful-links-container flex">
+                <h3>Useful Links</h3>
+                <ul class="useful-links">
+                     <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                         <a href="carrers.html">Carrers</a>
+                    </li>
+                    <li>
+                        <a href="book_table.html">Reservation</a>
+                    </li>
+                    <li>
+                        <a href="events.html">Events</a>
+                    </li>
+                    <li>
+                        <a href="index.html#about-muse">About Us</a>
+                    </li>
+                    <li>
+                        <a href="sitemap.html">Site Map</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="Assets/js/jquery-3.4.1.min.js"></script>
+    <script src="Assets/js/script.js"></script>
+    <script src="Assets/js/fontAwesome.js"></script>	
+	<script src="Assets/js/events.js" ></script>
+</body>
+</html>

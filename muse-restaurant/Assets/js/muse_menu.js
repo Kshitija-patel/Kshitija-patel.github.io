@@ -1,0 +1,64 @@
+$('#menu_breakfast').hover(
+    function(){
+        $(this).css('color','#fcb040');
+    },
+    function(){
+        $(this).css('color','black');
+    }
+);
+$('#menu_lunch').hover(
+    function(){
+        $(this).css('color','#fcb040');
+    },
+    function(){
+        $(this).css('color','black');
+    }
+);
+$('#menu_dinner').hover(
+    function(){
+        $(this).css('color','#fcb040');
+    },
+    function(){
+        $(this).css('color','black');
+    }
+);
+$('#menu_drinks').hover(
+    function(){
+        $(this).css('color','#fcb040');
+    },
+    function(){
+        $(this).css('color','black');
+    }
+);
+
+$('#menu_breakfast').click(function(){
+    $('.default_menu').css('display','none');
+    $('.lunch_menu').css('display','none');
+    $('.dinner_menu').css('display','none');
+    $('.drinks_menu').css('display','none');
+    $('.breakfast_menu').css('display','block');
+});
+
+$('#menu_lunch').click(function(){
+    $('.default_menu').css('display','none');
+    $('.breakfast_menu').css('display','none');
+    $('.dinner_menu').css('display','none');
+    $('.drinks_menu').css('display','none');
+    $('.lunch_menu').css('display','block');
+});
+
+$('#menu_dinner').click(function(){
+    $('.default_menu').css('display','none');
+    $('.breakfast_menu').css('display','none');
+    $('.lunch_menu').css('display','none');
+    $('.dinner_menu').css('display','none');
+    $('.dinner_menu').css('display','block');
+});
+
+$('#menu_drinks').click(function(){
+    $('.default_menu').css('display','none');
+    $('.breakfast_menu').css('display','none');
+    $('.lunch_menu').css('display','none');
+    $('.dinner_menu').css('display','none');
+    $('.drinks_menu').css('display','block');
+});

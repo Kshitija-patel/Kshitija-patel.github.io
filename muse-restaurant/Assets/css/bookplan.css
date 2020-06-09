@@ -1,0 +1,23 @@
+.booked {
+	text-align:center;
+	margin-top: 8%;
+    margin-bottom: 4%;
+}
+
+.back {
+	font-size: 22px;
+    width: 230px;
+	background-color: #EEEEEE;
+	color: #333333;
+	text-decoration: none;
+    margin-top: 10px;
+	margin-bottom:4%;
+    display: block;
+    border-top: 1px solid ;
+    border-right: 1px solid;
+    border-bottom: 1px solid ;
+    border-left: 1px solid ;
+    padding: 4px 3px 4px 6px;
+	text-align:center;
+	margin-left: 42%;
+}

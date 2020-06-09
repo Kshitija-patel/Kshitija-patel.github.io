@@ -1,0 +1,257 @@
+body
+{
+	margin: 0 auto;
+	background-color:#eeeeee;
+}
+.gc_sbtn, #amt, #topPic{
+	font-family: 'Arvo', sans-serif;
+}
+h2, input, label, button {
+	color: #424242;
+}
+input {
+	border: 2px solid lightgrey;
+}
+.container
+{
+	background-color:#eeeeee;
+	padding: 15px;
+}
+#gc_heading
+{
+	margin: 0;
+}
+.gc_heading2
+{
+	padding-left: 40px;
+}
+.thankyou-message{
+	padding: 10px;
+	color: #424242;
+}
+#container{
+	width: 100%;
+	padding-top: 20px;
+}
+#topPic
+{
+    padding-top: 15px;
+	padding-left: 50px;
+}
+#flex-container
+{
+	display: flex;
+}
+#gallery{
+	padding: 10px;
+	margin-top: 10px;
+}
+.vertical
+{
+	display: block;
+	border-radius: 10px;
+	border: 1px solid lightgrey;
+	box-shadow: 2px 1px 4px 1px lightgrey;
+}
+.logo_image
+{
+	position: absolute;
+    width: 20%;
+    margin-top: -344px;
+    margin-left: -65px;
+}
+.ribbon_image
+{
+	position: absolute;
+    width: 8%;
+    margin-top: -305px;
+    margin-left: 405px;
+}
+
+#amt
+{
+	display: none;
+	position: absolute;
+    margin-top: -60px;
+    margin-left: 442px;
+    font-size: 20px;
+    font-weight: bold;
+    /* width: 5%; */
+    padding: 5px;
+	text-align: center;
+	color:#4f2122;
+	background-color: rgba(252,176,64,0.8	);
+	/* border-color: #4f2122 */
+}
+.valid_through{
+	background-color: black;
+}
+.good_through{
+	/* background-color: #4f2122; */
+	background: rgba(79,33,34, 0.7) ;
+	position: absolute;
+	margin-top: -120px;
+	margin-left: 382px;
+	padding: 5px;
+}
+.good_through span{
+	display: block;
+	padding: 2px;
+}
+.gc_good
+{
+	
+	font-size: small;
+	color: white;
+	padding: 5px;
+}
+.gc_thru
+{
+	font-size: small;
+	color: white;
+	padding: 5px;
+}
+.gc_validdate
+{
+	line-height: 38px;
+	background-color: rgba(252,176,64,0.8);
+	position: absolute;
+    margin-top: -120px;
+    margin-left: 437px;
+    font-weight: 700;
+    color: #4f2122;
+    padding: 5px;
+}
+#gc_rnamecard
+{
+	position: absolute;
+	margin-top: -50px;
+	margin-left: 20px;
+    font-weight: bold;
+	font-size: 20px;
+	color: #4f2122;
+}
+#gc_rmessage
+{
+	position: absolute;
+	margin-top: -45px;
+	margin-left: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+#gallery img{
+	margin-left: 30px;
+	margin-bottom: 10px;
+}
+.giftcard-header{
+	border-bottom: 2px solid #fcb040;
+}
+.gc_tagline
+{
+	font-size: 16px;
+}
+.gc_number
+{
+	background-color: rgba(252,176,64,0.8);
+    padding: 10px;
+	font-size: 22px;
+	position: absolute;
+	margin-left: 220px;
+	margin-top: -180px;
+	font-weight: 600;
+	color: #4f2122;
+}
+#mainImg
+{
+	border-radius: 20px;
+	/* border: 5px solid black; */
+	
+	border: 2px solid lightgrey;
+	box-shadow: 2px 1px 4px 1px lightgrey;
+}
+.gc_infohead
+{
+	margin-left: 50px;
+    margin-top: -47px;
+}
+.gc_form
+{
+	margin: 10px;
+	padding: 20px 20px 20px 40px;
+}
+.label
+{
+	display: block;
+	padding-bottom: 20px;
+	font-weight: 800;
+}
+.bar
+{
+	
+	width: 80%;
+	border: 2px solid lightgrey;
+	background: none;
+	padding:10px;
+
+}
+.gc_part
+{
+	padding: 10px;
+}
+#card_amount
+{
+	list-style: none;
+	padding: 0;
+	margin-bottom: 0px;
+}
+.amt_list
+{
+	display: inline-block;
+	padding: 5px;
+	border: 2px solid grey;
+	margin-right: 10px;
+	background-color: grey;
+	color: white;
+	font-size: 14px;
+}
+.amt_list:hover
+{
+	background-color: white;
+	color: grey;
+}
+.delivery_opt
+{
+	list-style: none;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+.del_list
+{
+	display: inline-block;
+	/* text-align: center; */
+	width: 33%;
+	border: 2px solid black;
+	float: left;
+	padding: 10px 0px;
+}
+.del_list:hover
+{
+	background-color: black;
+	color: white;
+}
+.gc_del_line
+{
+	margin-top: 10px;
+}
+.gc_sending_info
+{
+	padding-bottom: 30px;
+}
+.gc_sbtn
+{
+	padding: 10px;
+	background-color: grey;
+	color: white;
+	border: none;
+}

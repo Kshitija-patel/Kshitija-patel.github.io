@@ -1,0 +1,50 @@
+body {
+    background: linear-gradient( rgba(100, 100, 100, 0.60), rgba(200, 200, 200, 0.60), rgba(250, 250, 250, 0.60), rgba(200, 200, 200, 0.60), rgba(100, 100, 100, 0.60) );
+}
+
+.site_map {
+	padding-bottom: 30px;
+}
+
+h1{
+	font-family: impact;
+	color:#a25050;
+	font-size:35px; 	
+}
+
+.icon {
+	font-size: 40px;
+	color: white; 
+	padding-left: 62px;
+	display:inline-block;
+}
+
+h2 {
+	font-size: 30px;
+    width: 170px;
+	color: #fcb040;
+	text-decoration: none;
+	font-family:Comic Sans MS;
+    margin-top: 10px;
+	margin-left: 10px;
+    display: block;
+	
+	
+}
+
+.site, .list-items {
+	text-decoration:none;
+}
+
+ h3{
+	font-family:Comic Sans MS;
+	font-size: 22px;
+    width: 200px;
+	color: #fcb040;
+	text-decoration: none;
+    margin-top: 10px;
+	margin-left: 30px;
+    display:inline-block;
+    padding: 4px 3px 4px 6px;
+}
+

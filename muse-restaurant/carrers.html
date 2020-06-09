@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="Assets/css/style.css">
+    <link rel="stylesheet" href="Assets/css/carrer_contact.css">
+    <!-- Sample Images Downloaded from: https://unsplash.com/ -->
+<!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Acme|Signika&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Acme|Arvo&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="nav-content">
+                <div class="flex-container">
+                    <div id="logo-container" class="logo-container">
+                         <a href="index.html"><img class="logo" src="Assets/Images/logo.png"></a>
+                    </div>
+                    <div class="wrapper">
+                        <ul class="links">
+                            <li class="after-logo link">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="link">
+                                <a href="book_table.html">Book Table</a>
+                            </li>
+                            <li class="link">
+                                <a href="giftcard.html">Gift Cards</a>
+                            </li>
+                            <li class="link">
+                                <a href="muse_menu.html">View Menu</a>
+                            </li>
+                            <li class="link">
+                                <a href="contest.html">Contest</a>
+                            </li>
+                            <li class="link">
+                                <a href="index.html#about-muse">About</a>
+                            </li>
+                            <li class="link">
+                                <a href="contact.html">Contact</a>
+                            </li>
+                            <li class="link">
+                                <a href="specials.html"><span class="primary-text">Daily</span> <span class="secondary-text">Specials</span></a>
+                            </li>
+                       </ul>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <!-- <div class="banner-video">
+            <div class="banner-container">
+                <div class="banner-content">
+                    <div class="banner-text">
+                        <img class="banner-logo" src="Assets/Images/logo.png">
+                        <p>
+                            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and
+                            visual mockups.
+                        </p>
+                        <button class="banner-btn color-primary">View Menu</button>
+                        <button class="banner-btn color-primary">Book Table</button>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-images">
+                <img src="Assets/Images/banner3.jpg">
+            </div>
+        </div> -->
+    </header>
+    <div class="main-container">
+	
+		    <div class="carrers_section">
+        <div class="carrers_heading">
+            <h2>CURRENTLY OPENING</h2>
+        </div>
+
+        <div class="different_postions">
+           
+             <!---------------------------Carrer 1----------------------------------->   
+            <div class="position_name">
+                <h3>Master Chef</h3>
+                <span class="carrer_type">Part Time</span>
+                <span class="carrer_location fas fa-map-marker-alt"></span> Ahmedabad, India
+            </div>
+            <div class="opportunties_carrers">
+                   <p>Carrer Opportunities</p>
+            </div>
+            <div class="apply_now_carrers">
+                    <span title="Apply Now">Apply Now</span>
+            </div>
+
+            <!---------------------------Carrer 2----------------------------------->   
+            <div class="position_name">
+                <h3>Senior Associate Chef</h3>
+                <span class="carrer_type">Part Time</span>
+                <span class="carrer_location fas fa-map-marker-alt"></span> Mumbai, India
+            </div>
+            <div class="opportunties_carrers">
+                    <p>Carrer Opportunities</p>
+             </div>
+             <div class="apply_now_carrers">
+                <span title="Apply Now">Apply Now</span>
+             </div>
+
+        <!---------------------------Carrer 3----------------------------------->   
+            <div class="position_name">
+                <h3>Staff member</h3>
+                <span class="carrer_type">Part Time</span>
+                <span class="carrer_location fas fa-map-marker-alt"> </span> Shimla, India
+            </div>
+            <div class="opportunties_carrers">
+                    <p>Carrer Opportunities</p>
+             </div>
+             <div class="apply_now_carrers">
+                <span title="Apply Now">Apply Now</span>
+             </div>
+
+    <!---------------------------Carrer 4----------------------------------->   
+            <div class="position_name">
+                <h3>Cashier</h3>
+                <span class="carrer_type">Full Time</span>
+                <span class="carrer_location fas fa-map-marker-alt"> </span> Etobicoke, Canada
+            </div>
+            <div class="opportunties_carrers">
+                    <p>Carrer Opportunities</p>
+             </div>
+             <div class="apply_now_carrers">
+                <span title="Apply Now">Apply Now</span>
+             </div>
+                <!-- Apply now form -->
+             <div id="carrer_popup">
+                    <div class="form-popup" id="popupForm">
+                      <form action="#" class="form-container">
+                        <h2>Hurry Up!!!</h2>
+                        <!--<img src="close.svg" alt="close-icon" title="Close"/>-->
+                        <span class="fas fa-times close-carrer-icon" alt="close-icon"></span>
+                       
+                        <input type="text" id="fname" placeholder="Enter your Full Name" maxlength="10" required name="firstname" onKeyPress="return Validate_char(event);">
+                       <span class="alert-box"></span>
+                        <input type="email" id="email" placeholder="Enter your mail" name="mail_id" required onKeyPress="return is_Email(email);">
+
+                        <input type="text" id="phone_no" placeholder="Enter your Phone No" minlength="10" maxlength="10" name="phone_no" required onKeyPress="return number_check(event);">
+                        <label>Kindly upload your Resume : </label>
+
+                        <input type="file" id="upload_cv" name="upload_cv" required>                        
+                        <button type="submit" class="btn_carrer_submit">Submit</button>
+                       
+                      </form>
+                    </div>
+                  </div><!--carrer pop up close-->
+         
+          
+        </div><!--diferent positions-->
+    </div><!--carrer section-->
+
+
+		
+		
+		
+    </div>
+    <footer>
+        <div class="footer-container">
+                <i class="fas food-icon fa-utensils"></i>
+                <i class="fas food-icon fa-hamburger"></i>
+                <i class="fas food-icon food-pizza fa-pizza-slice"></i>
+                <i class="fas food-icon fa-cheese"></i>
+                <!-- <i class="fas food-icon fa-egg"></i> -->
+                <i class="fas food-icon fa-bread-slice"></i>
+                <i class="fas food-icon fa-drumstick-bite"></i>
+                <i class="fas food-icon fa-hotdog"></i>
+                <!-- <i class="fas food-icon fa-bone"></i> -->
+                <i class="fas food-icon fa-pepper-hot"></i>
+                <i class="fas food-icon fa-ice-cream"></i>
+                <i class="fas food-icon fa-cookie"></i>
+                <!-- <i class="fas food-icon fa-fish"></i> -->
+                <i class="fas food-icon fa-candy-cane"></i>
+                <i class="fas food-icon fa-carrot"></i>
+                <i class="fas food-icon fa-apple-alt"></i>
+                <i class="fas food-icon fa-lemon"></i>
+            <div class="contact-container flex">
+                <h3>Contact Information</h3>
+                <p>Address: 126, Mount Olive Drive, M9V 2E4, Etobicoke</p>
+                <p>Email:
+                    <a href="" class="email-link">musecafe@foodindia.com</a>
+                </p>
+                <ul class="footer-icons">
+                    <li>
+                        <a href="#" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Snapchat">
+                            <i class="fab fa-snapchat-ghost"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Tomato">
+                            <i class="fas fa-pizza-slice"></i>
+                        </a>
+                    </li>
+                </ul>
+                <p>&copy; Copyright 2019 | Muse Cafe</p>
+            </div>
+            <div class="timings-container flex">
+                <img class="banner-logo" src="Assets/Images/logo.png">
+                <h3>Restaurant Hours</h3>
+                <h4>Lunch</h4>
+                <p>Monday-Friday: 11:30AM - 2:00PM</p>
+                <p>Monday-Friday: 11:30AM - 3:00PM</p>
+                <h4>Dinner</h4>
+                <p>Monday-Friday: 5:30PM - 11:00PM</p>
+                <p>Saturday-Sunday: 4:30PM - 11:00PM</p>
+            </div>
+            <div class="useful-links-container flex">
+                <h3>Useful Links</h3>
+                <ul class="useful-links">
+                     <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                         <a href="carrers.html">Carrers</a>
+                    </li>
+                    <li>
+                        <a href="book_table.html">Reservation</a>
+                    </li>
+                    <li>
+                        <a href="events.html">Events</a>
+                    </li>
+                    <li>
+                        <a href="index.html#about-muse">About Us</a>
+                    </li>
+                    <li>
+                        <a href="sitemap.html">Site Map</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="Assets/js/jquery-3.4.1.min.js"></script>
+    <script src="Assets/js/script.js"></script>
+    <script src="Assets/js/carrer_contact.js"></script>
+    <script src="Assets/js/fontAwesome.js"></script>
+</body>
+
+</html>
