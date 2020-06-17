@@ -171,6 +171,7 @@ h6 {
 img {
     max-width: 100%;
     vertical-align: middle;
+    border: 2px solid #f47a65;
 }
 
 textarea {
@@ -537,7 +538,7 @@ a {
 .section-home {
     height: 100vh;
     position: relative;
-    background-image: url("../images/banner.jpg");
+    background-image: url("../images/Banner.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -754,6 +755,7 @@ span.typed {
 .about-desc-info span, 
 .about-desc-info a {
     font-size: 14px;
+    display: block;
     color: #5F6F81;
 }
 
