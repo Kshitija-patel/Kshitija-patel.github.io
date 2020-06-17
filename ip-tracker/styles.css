@@ -1,0 +1,52 @@
+.container {
+    width: 70%;
+    margin: auto;
+}
+
+body {
+    border: solid 10px black;
+}
+
+#map {
+    height: 500px;
+    width: 1000px;
+}
+
+.heading-1,
+.heading-2 {
+    text-align: center;
+    padding: 10px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.heading-2 {
+    font-size: 28px;
+}
+
+.searchbtn {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border: 0;
+    padding: 10px;
+}
+
+.searchtext {
+    margin-right: 60px;
+    width: 70%;
+    padding: 10px;
+}
+
+.details_secton {
+    border: 2px solid black;
+    padding-left: 30px;
+    margin: 50px 0px 50px 0px;
+    width: 84%;
+}
+
+.label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 10px;
+}

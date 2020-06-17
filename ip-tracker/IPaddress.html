@@ -1,0 +1,38 @@
+<html lang="en">
+
+<head>
+    <meta charset="uth-8">
+    <title>Final Assignment</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="IPaddress.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading-1">IP Tracker</div>
+        <form action="" id="myForm">
+            <input type="text" class="searchtext" placeholder="Enter your IP Address" id="ipAddress">
+            <input type="submit" class="searchbtn" value="Search Location" />
+        </form>
+
+        <div id="map"></div>
+        <div class="details_secton">
+            <div class="heading-2">IP Address Deatils</div>
+            <p><span class="label">IP Adress:</span><span id="ipaddress"></span></p>
+            <p><span class="label">Country:</span><span id="country"></span></p>
+            <p><span class="label">State:</span><span id="state"></span></p>
+            <p><span class="label">City:</span><span id="city"></span></p>
+            <p><span class="label">Zip:</span><span id="zip"></span></p>
+            <p><span class="label">Time Zone:</span><span id="timezone"></span></p>
+            <p><span class="label">Longitute:</span><span id="long"></span></p>
+            <p><span class="label">Latitude:</span><span id="lati"></span></p>
+        </div>
+    </div>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_agUiuuH6OB2mbxmje2IHBzZvoI2KLTU&callback=initializeMap">
+    </script>
+</body>
+
+</html>
