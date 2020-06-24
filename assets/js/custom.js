@@ -177,14 +177,14 @@
     * Typed init
     /* ---------------------------------------------- */
 
-    if($('.typed').length) {
-        var $this = $(".typed");
-        $this.typed({
-            strings: $this.attr('data-elements').split(','),
-            typeSpeed: 100,
-            backDelay: 3000
-        });
-    }
+    // if($('.typed').length) {
+    //     var $this = $(".typed");
+    //     $this.typed({
+    //         strings: $this.attr('data-elements').split(','),
+    //         typeSpeed: 100,
+    //         backDelay: 3000
+    //     });
+    // }
 
 
 }(window.jQuery);

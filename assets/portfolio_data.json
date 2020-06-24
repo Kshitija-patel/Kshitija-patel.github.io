@@ -1,0 +1,89 @@
+{
+    "name" : "Kshitija",
+    "titles" : ["Kshitija Patel.","A Web Developer.","A Web Designer.","Computer Engineer."],
+    "resume_link" : "assets/resume/Resume-Kshitija_Patel.pdf",
+    "about_img" : "assets/images/profile_image.jpg",
+    "about_para" : "Kshitija Patel is a Computer Engineer with a specialization in Web Development. She is a full-stack developer with more proficiency in front end development techniques. She handles every work with creativity and a multi-tasking approach towards them. She is versed in working with different people as she has worked in many team projects. She handles every challenge with great enthusiasm.",
+    "github_link" : "https://github.com/Kshitija-patel",
+    "linkedin_link" : "https://www.linkedin.com/in/kshitija-patel-6b08471a6/",
+    "age" : "23",
+    "location" : "Toronto, Canada",
+    "degree" : "Bachelors in Computer Engineering",
+    "phone" : "+1-(647)-891-5168",
+    "email" : "kshitjia.patel.kp@gmail.com",
+    "projects" : [
+        {
+            "project_image" : "assets/images/muse1.png",
+            "project_title" : "Muse Restaurant",
+            "project_description" : "JavaScript",
+            "project_href" : "https://kshitija-patel.github.io/muse-restaurant/"            
+        },
+        {
+            "project_image" : "assets/images/iTutor-1.png",
+            "project_title" : "iTutor",
+            "project_description" : "PHP",
+            "project_href" : "http://priyankakhadilkar.com/onlinetutor/"
+        },
+        {
+            "project_image" : "assets/images/IP-Tracker.jpg",
+            "project_title" : "iTutoIP-Trackerr",
+            "project_description" : "XML",
+            "project_href" : "http://kshitijapatel.000webhostapp.com/ip-tracker/"
+        },
+        {
+            "project_image" : "assets/images/Css-Animation.png",
+            "project_title" : "CSS Animation",
+            "project_description" : "CSS",
+            "project_href" : "https://kshitija-patel.github.io/CSS-Animation/"            
+        }
+    ],
+    "education" : [
+        {
+            "education_title" : "Bachelors in Computer Engineering",
+            "education_duration" : "2014-2018",
+            "education_description" : "I did my bachelors from Gujarat Technological University. My journey and thoughtful growth in the field of computers started from here"
+        },
+        {
+            "education_title" : "Web Deevelopment- Graduate Certificate",
+            "education_duration" : "2019-present",
+            "education_description" : "Currently I am pursuing Web Development course from Humber College. My practical knowledge and technical skills blossomed when I started my journey at Humber"
+        }
+    ],
+    "coding_skills" : [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "PHP",
+        "ASP.net",
+        "XML",
+        "Angular",
+        "MySQL",
+        "MoongoDB",
+        "Photoshop"
+    ],
+    "hard_skills" : [
+        "Team Player",
+        "Time Management",
+        "Analytical",
+        "Adaptive",
+        "Quick Learner",
+        "Creative",
+        "Multi-tasking"
+    ],
+    "blogs" : [
+        {
+            "blog_link" : "http://kshitijapatel.000webhostapp.com/2020/04/17/frontend-technologies/",
+            "blog_img" : "assets/images/Front-end_technologies.jpg",
+            "blog_title" : "Frontend Technologies",
+            "blog_description" : "Details about Front-end technologies.",
+            "blog_type" : "Design"
+        },
+        {
+            "blog_link" : "http://kshitijapatel.000webhostapp.com/2020/04/20/asp-net-mvc/",
+            "blog_img" : "assets/images/MVC.jpg",
+            "blog_title" : "ASP.NET MVC",
+            "blog_description" : "Details about ASP.Net MVC frame work.",
+            "blog_type" : "Development"
+        }
+    ]
+}

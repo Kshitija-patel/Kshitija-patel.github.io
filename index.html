@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Kshitija Portfolio</title>
-	<meta name="description" content="Diya - One Page Personal Template" />
+	<meta name="description" />
 	<meta name="keywords"
 		content="blog, business card, creative, creative portfolio, cv theme, online resume, personal, portfolio, professional cv, responsive portfolio, resume, resume theme, vcard" />
 	<meta name="author" content="beingeorge" />
@@ -22,7 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/default-skin.min.css" />
 
 	<!-- Template style Css -->
-	<link href="assets/css/diya.css" rel="stylesheet">
+	<link href="assets/css/portfolio.css" rel="stylesheet">
 
 	<!-- Custom style Css -->
 	<link href="assets/css/custom.css" rel="stylesheet">
@@ -38,12 +38,12 @@
 	</div>
 	<!-- END: Preloader -->
 
-	<div class="page-wrapper">
-
+	<div id="app" class="page-wrapper">
+		
 		<nav class="navbar navbar-expand-lg navbar-custom navbar-light fixed-top">
 			<div class="container">
 
-				<a class="navbar-brand  mr-auto " href="index.html">Kshitija
+				<a class="navbar-brand  mr-auto " href="index.html">{{name}}
 				</a>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
@@ -66,7 +66,6 @@
 						<li><a class="nav-link" href="#work">Works</a></li>
 						<li><a class="nav-link" href="#resume">Resume</a></li>
 						<li><a class="nav-link" href="#blog">Blog</a></li>
-						<!-- <li><a class="nav-link" href="#contact">Contact</a></li> -->
 					</ul>
 				</div>
 			</div>
@@ -78,9 +77,9 @@
 				<div class="overlay-wrap container text-left">
 					<span class="hello mb-4">Hello,</span>
 					<h1 class="mb-5">I'm, <span class="typed"
-							data-elements="Kshitija Patel.,A Web Developer.,A Web Designer.,Computer Engineer."></span>
+							:data-elements="titles"></span>
 					</h1>
-					<a target="_blank" href="assets/resume/Resume-Kshitija_Patel.pdf" class="btn" download>Download
+					<a target="_blank" :href="resume_link" class="btn" download>Download
 						CV</a>
 				</div>
 			</div>
@@ -94,8 +93,7 @@
 
 					<div class="col-md-6">
 						<div class="section-about--img wow fadeInUp">
-							<img class="img-fluid mx-auto d-block" src="assets/images/profile_image.jpg"
-								alt="About Picture">
+							<img class="img-fluid mx-auto d-block" :src="about_img" alt="About Picture">
 						</div>
 					</div>
 
@@ -103,21 +101,15 @@
 						<div class="about-desc">
 							<div class="about-desc-content text-left">
 								<h2>About Me</h2>
-								<p class="mt-4 font-weight-light">Kshitija Patel is a Computer Engineer with a
-									specialization in Web Development. She is a full-stack developer with more
-									proficiency in front end development techniques. She handles every work with
-									creativity and a multi-tasking approach towards them. She is versed in working with
-									different people as she has worked in many team projects. She handles every
-									challenge with great enthusiasm.
-									.</p>
+								<p class="mt-4 font-weight-light">{{about_para}}</p>
 							</div>
 
 							<ul class="about-desc-social text-left my-4 list-unstyled list-inline">
 								<li class="list-inline-item"><a class="hover-state"
-										href="https://github.com/Kshitija-patel" target="_BLANK"><i
+										:href="github_link" target="_BLANK"><i
 											class="fab fa-github"></i></a></li>
 								<li class="list-inline-item"><a class="hover-state"
-										href="https://www.linkedin.com/in/kshitija-patel-6b08471a6/" target="_BLANK"><i
+										:href="linkedin_link" target="_BLANK"><i
 											class="fab fa-linkedin-in"></i></a></li>
 							</ul>
 
@@ -126,31 +118,31 @@
 									<div class="col-lg-6">
 										<div class="about-desc-info">
 											<b>Age : </b>
-											<span>23</span>
+											<span>{{age}}</span>
 										</div>
 									</div>
 									<div class="col-lg-6">
 										<div class="about-desc-info">
 											<b>Location : </b>
-											<span>Toronto, Canada</span>
+											<span>{{location}}</span>
 										</div>
 									</div>
 									<div class="col-lg-6">
 										<div class="about-desc-info">
 											<b>Degree : </b>
-											<span>Bachelor in Computer Engineering</span>
+											<span>{{degree}}</span>
 										</div>
 									</div>
 									<div class="col-lg-6">
 										<div class="about-desc-info">
 											<b>Phone : </b>
-											<a href="tel:0987654321">+1-(647)-891-5168</a>
+											<a :href="phone">{{phone}}</a>
 										</div>
 									</div>
 									<div class="col-lg-6">
 										<div class="about-desc-info">
-											<b>Mail : </b>
-											<a href="mailto:hello@beingeorge.com">kshitija.patel.kp@gmail.com</a>
+											<b>E-Mail : </b>
+											<a :href="email">{{email}}</a>
 										</div>
 									</div>
 
@@ -162,42 +154,6 @@
 			</div>
 		</section>
 		<!-- END: ABOUT -->
-
-		<!-- START: SERVICES -->
-		<!-- <section class="section section-dark section-services" id="services">
-			<div class="container">
-				<div class="section-head">
-					<span>WHAT I DO</span>
-					<h2>My Services</h2>
-				</div>
-
-				<div class="row mt-4">
-					<div class="col-sm-6 col-md-4">
-						<div class="services-flip wow fadeInUp" data-wow-duration="1.5s">
-							<div class="services-list">
-								<div class="services-list-front services-list-1">
-									<div class="flip-content">
-										<h5 class="mb-0">Graphic Design</h5>
-									</div>
-								</div>
-								<div class="services-list-back">
-									<div class="flip-content">
-										<div class="services-list-icon">
-											<i class="fas fa-paint-brush  "></i>
-										</div>
-										<div class="mt-4">
-											<h5 class="mb-0">Graphic Design</h5>
-											<p class=" mt-3">Modern and mobile-ready website that will help of your marketing.</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section> -->
-		<!-- END: SERVICES -->
 
 		<!--START: WORK -->
 		<section class="section section-light section-work" id="work">
@@ -218,64 +174,51 @@
 			<div class="container">
 				<div class="list-items-container row my-gallery">
 
-					<figure class="col-sm-6 col-md-6 list-item mb-6 mb-md-6" itemprop="associatedMedia"
-						data-groups="all slideshow">
-						<a href="assets/images/muse1.png" itemprop="contentUrl" data-size="1024x1024">
-							<img src="assets/images/muse1.png" itemprop="thumbnail" alt="Image description" />
+					<figure class="col-sm-6 col-md-4 list-item mb-4 mb-md-5" itemprop="associatedMedia" data-groups="all slideshow" >
+						<a :href="projects[0].project_image" itemprop="contentUrl" data-size="1024x1024">
+							<img :src="projects[0].project_image" itemprop="thumbnail" alt="Image description" />
 						</a>
 						<figcaption itemprop="caption description">
 							<div class="caption-inner">
-								<h4 class="portfolio-item-title mt-3 mb-2">Muse Restaurant</h4>
-								<div class="portfolio-item-desc">JavaScript <a
-										href="https://kshitija-patel.github.io/muse-restaurant/" target="_BLANK">View
-										live demo</a><br></div>
+								<h4 class="portfolio-item-title mt-3 mb-2">{{projects[0].project_title}}</h4>
+								<div class="portfolio-item-desc">{{projects[0].project_description}} <a :href="projects[0].project_href" target="_BLANK">View live demo</a></div>
 							</div>
 						</figcaption>
 					</figure>
 
-					<figure class="col-sm-6 col-md-6 list-item mb-6 mb-md-6" itemprop="associatedMedia"
-						data-groups="all video">
-						<a href="assets/images/iTutor-1.png" itemprop="contentUrl" data-size="1024x1024">
-							<img src="assets/images/iTutor-1.png" itemprop="thumbnail" alt="Image description" />
+					<figure class="col-sm-6 col-md-4 list-item mb-4 mb-md-5" itemprop="associatedMedia" data-groups="all video" >
+						<a :href="projects[1].project_image" itemprop="contentUrl" data-size="1024x1024">
+							<img :src="projects[1].project_image" itemprop="thumbnail" alt="Image description" />
 						</a>
 						<figcaption itemprop="caption description">
 							<div class="caption-inner">
-								<h4 class="portfolio-item-title mt-3 mb-2">iTutor</h4>
-								<div class="portfolio-item-desc">PHP <a
-										href="http://priyankakhadilkar.com/onlinetutor/" target="_BLANK">View live
-										demo</a></div>
+								<h4 class="portfolio-item-title mt-3 mb-2">{{projects[1].project_title}}</h4>
+								<div class="portfolio-item-desc">{{projects[1].project_description}} <a :href="projects[1].project_href" target="_BLANK">View live demo</a></div>
 							</div>
 						</figcaption>
 					</figure>
 
-					<figure class="col-sm-6 col-md-6 list-item mb-6 mb-md-6" itemprop="associatedMedia"
-						data-groups="all video">
-						<a href="assets/images/IP-Tracker.jpg" itemprop="contentUrl" data-size="1024x1024">
-							<img src="assets/images/IP-Tracker.jpg" itemprop="thumbnail" alt="Image description" />
+					<figure class="col-sm-6 col-md-4 list-item mb-4 mb-md-5" itemprop="associatedMedia" data-groups="all slideshow" >
+						<a :href="projects[2].project_image" itemprop="contentUrl" data-size="1024x1024">
+							<img :src="projects[2].project_image" itemprop="thumbnail" alt="Image description" />
 						</a>
 						<figcaption itemprop="caption description">
 							<div class="caption-inner">
-								<h4 class="portfolio-item-title mt-3 mb-2">IP Tracker</h4>
-								<div class="portfolio-item-desc">XML <a
-										href="http://kshitijapatel.000webhostapp.com/ip-tracker/" target="_BLANK">View live
-										demo</a>
-									<br><br><br>
-								</div>
+								<h4 class="portfolio-item-title mt-3 mb-2">{{projects[2].project_title}}</h4>
+								<div class="portfolio-item-desc">{{projects[2].project_description}} <a :href="projects[2].project_href" target="_BLANK">View live demo</a></div>
 							</div>
 						</figcaption>
 					</figure>
-
-					<figure class="col-sm-6 col-md-6 list-item mb-6 mb-md-6" itemprop="associatedMedia"
-						data-groups="all video">
-						<a href="assets/images/Css-Animation.png" itemprop="contentUrl" data-size="1024x1024">
-							<img src="assets/images/Css-Animation.png" itemprop="thumbnail" alt="Image description" />
+				</div>
+				<div class="list-items-container row my-gallery">
+					<figure class="col-sm-6 col-md-4 list-item mb-4 mb-md-5" itemprop="associatedMedia" data-groups="all slideshow" >
+						<a :href="projects[3].project_image" itemprop="contentUrl" data-size="1024x1024">
+							<img :src="projects[3].project_image" itemprop="thumbnail" alt="Image description" />
 						</a>
 						<figcaption itemprop="caption description">
 							<div class="caption-inner">
-								<h4 class="portfolio-item-title mt-3 mb-2">CSS-Animation</h4>
-								<div class="portfolio-item-desc">CSS <a
-										href="https://kshitija-patel.github.io/CSS-Animation/" target="_BLANK">View live
-										demo</a></div>
+								<h4 class="portfolio-item-title mt-3 mb-2">{{projects[3].project_title}}</h4>
+								<div class="portfolio-item-desc">{{projects[3].project_description}} <a :href="projects[3].project_href" target="_BLANK">View live demo</a></div>
 							</div>
 						</figcaption>
 					</figure>
@@ -306,27 +249,13 @@
 								<div class="col-lg-9">
 									<div class="EducationList">
 										<div class="row">
-											<div class="col-md-6">
+											<div v-for="degree in education" class="col-md-6">
 												<div class="resume-list b-box p-4 mb-4 ">
-													<div>
-														<h5>Bachelors in Computer Engineering</h5>
-														<h6 class="badge badge-danger d-inline-block my-3">2014-2018
+													<div> 
+														<h5>{{degree.education_title}}</h5>
+														<h6 class="badge badge-danger d-inline-block my-3">{{degree.education_duration}}
 														</h6>
-														<p>I did my bachelors from Gujarat Technological University. My
-															journey and thoughtful growth in the field of computers
-															started from here</p>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="resume-list b-box p-4 mb-4 ">
-													<div>
-														<h5>Web Deevelopment- Graduate Certificate</h5>
-														<h6 class="badge badge-success d-inline-block my-3">2019-present
-														</h6>
-														<p>Currently I am pursuing Web Development course from Humber
-															College. My practical knowledge and technical skills
-															blossomed when I started my journey at Humber</p>
+														<p>degree.education_description</p>
 													</div>
 												</div>
 											</div>
@@ -348,62 +277,8 @@
 
 											<div class="resume-panel">
 												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													style="visibility: visible; animation-duration: 1.5s; animation-name: fadeInUp;">
-													<h6>HTML </h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													data-wow-delay=".2s"
-													style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.2s; animation-name: fadeInUp;">
-													<h6>CSS3</h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													data-wow-delay=".3s"
-													style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.3s; animation-name: fadeInUp;">
-													<h6>Javascript</h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													data-wow-delay=".4s"
-													style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.4s; animation-name: fadeInUp;">
-													<h6>PHP</h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													data-wow-delay=".4s"
-													style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.4s; animation-name: fadeInUp;">
-													<h6>ASP.net</h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													data-wow-delay=".4s"
-													style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.4s; animation-name: fadeInUp;">
-													<h6>XML</h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													data-wow-delay=".4s"
-													style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.4s; animation-name: fadeInUp;">
-													<h6>Angular</h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													data-wow-delay=".4s"
-													style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.4s; animation-name: fadeInUp;">
-													<h6>MySQL</h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													data-wow-delay=".4s"
-													style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.4s; animation-name: fadeInUp;">
-													<h6>MongoDB</h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													data-wow-delay=".4s"
-													style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.4s; animation-name: fadeInUp;">
-													<h6>Photoshop</h6>
+													style="visibility: visible; animation-duration: 1.5s; animation-name: fadeInUp;" v-for="c_skill in coding_skills">
+													<h6>{{c_skill}}</h6>
 												</div>
 											</div>
 										</div>
@@ -412,38 +287,8 @@
 											<div class="resume-panel mt-5 mt-md-0">
 												<h5 class="mb-4 pb-2 text-uppercase">Hard Skills</h5>
 												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													style="visibility: visible; animation-duration: 1.5s; animation-name: fadeInUp;">
-													<h6>Team Player </h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													style="visibility: visible; animation-duration: 1.5s; animation-name: fadeInUp;">
-													<h6>Time Management </h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													style="visibility: visible; animation-duration: 1.5s; animation-name: fadeInUp;">
-													<h6>Analytical </h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													style="visibility: visible; animation-duration: 1.5s; animation-name: fadeInUp;">
-													<h6>Adaptive </h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													style="visibility: visible; animation-duration: 1.5s; animation-name: fadeInUp;">
-													<h6>Quick learner </h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													style="visibility: visible; animation-duration: 1.5s; animation-name: fadeInUp;">
-													<h6>Creative </h6>
-												</div>
-
-												<div class="mb-4 wow fadeInUp" data-wow-duration="1.5s"
-													style="visibility: visible; animation-duration: 1.5s; animation-name: fadeInUp;">
-													<h6>Multi-tasking </h6>
+													style="visibility: visible; animation-duration: 1.5s; animation-name: fadeInUp;" v-for="h_skill in hard_skills">
+													<h6>{{h_skill}} </h6>
 												</div>
 											</div>
 										</div>
@@ -484,42 +329,23 @@
 				</div>
 				<div class="mt-5">
 					<div class="row">
-						<div class="col-md-4 col-lg-4">
-							<a href="http://kshitijapatel.000webhostapp.com/2020/04/17/frontend-technologies/"
+						<div class="col-md-4 col-lg-4" v-for="blog in blogs">
+							<a :href="blog.blog_link"
 								target="_BLANK" class="blog-list b-box d-block wow fadeInUp" data-wow-duration="1.5s"
 								data-wow-delay=".2s">
 								<div class="blog-list--img">
-									<img src="assets/images/Front-end_technologies.jpg" alt="Blog Image"
+									<img :src="blog.blog_img" alt="Blog Image"
 										class="img-fluid">
 									<div class="blog-list--details d-flex justify-content-center align-items-center">
 										<div class="blog-list--details-in">
-											<p class="blog-by mb-2">Front-end Technologies</p>
+											<p class="blog-by mb-2">{{blog.blog_title}}</p>
 											<span class="blog-duration text-white">2 Mins Read</span>
 										</div>
 									</div>
 								</div>
 								<div class="blog-list--desc p-3">
-									<p>Details about Front-end technologies.</p>
-									<span class="d-block mt-3 font-weight-bold blog-cat">Design</span>
-								</div>
-							</a>
-						</div>
-						<div class="col-md-4 col-lg-4">
-							<a href="http://kshitijapatel.000webhostapp.com/2020/04/20/asp-net-mvc/" target="_BLANK"
-								class="blog-list b-box d-block wow fadeInUp" data-wow-duration="1.5s"
-								data-wow-delay=".3s">
-								<div class="blog-list--img">
-									<img src="assets/images/MVC.jpg" alt="Blog Image" class="img-fluid">
-									<div class="blog-list--details d-flex justify-content-center align-items-center">
-										<div class="blog-list--details-in">
-											<p class="blog-by mb-2">ASP.NET MVC</p>
-											<span class="blog-duration text-white">2 Mins Read</span>
-										</div>
-									</div>
-								</div>
-								<div class="blog-list--desc p-3">
-									<p>Details about ASP.Net MVC frame work.</p>
-									<span class="d-block mt-3 font-weight-bold blog-cat">Development</span>
+									<p>{{blog.blog_description}}</p>
+									<span class="d-block mt-3 font-weight-bold blog-cat">{{blog.blog_type}}</span>
 								</div>
 							</a>
 						</div>
@@ -530,97 +356,6 @@
 		</section>
 		<!-- END: BLOG -->
 
-		<!-- START: CONTACT -->
-		<!--<section class="section section-dark section-contact" id="contact">
-			<div class="container">
-				<div class="section-head">
-					<span>say Hello</span>
-					<h2>Contact </h2>
-				</div>
-
-			</div>
-
-			<div class="contact-Otherdetails">
-				<div class="container">
-					<div class="contact-details">
-						<h5 class="section-subHead mb-4"> Get in Touch</h5>
-						<div class="row">
-							<div class="col-md-4 col-lg-4">
-								<div class="contact-details--panel b-box p-4 text-center wow fadeInUp" data-wow-duration="1.5s">
-									<div class="mb-4 contact-details--icon ">
-										<i class="fas fa-map-marked-alt"></i>
-									</div>
-									<div class="mt-2">
-										<a href="#" class="">35 Topbank Drive, Toronto, Canada</a>
-										<p class="mt-3 font-weight-bold ">Address</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-lg-4">
-								<div class="contact-details--panel b-box p-4 text-center wow fadeInUp" data-wow-duration="1.5s">
-									<div class="mb-4 contact-details--icon ">
-										<i class="fas fa-mobile-alt  "></i>
-									</div>
-									<div class="mt-2">
-										<a href="tel:9876543210" class="">+1-647-891-5168</a>
-										<p class="mt-3 font-weight-bold ">Call Us</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-lg-4">
-								<div class="contact-details--panel b-box p-4 text-center wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".2s">
-									<div class="mb-4 contact-details--icon ">
-										<i class="fas fa-envelope  "></i>
-									</div>
-									<div class="mt-2">
-										<a href="mailto:hello@beingeorge.com">kshitija.patel.kp@gmail.com</a>
-										<p class="mt-3 font-weight-bold ">Email Us</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="contact-form mt-5">
-						<form>
-							<h5 class="section-subHead mb-2"> Contact Form</h5>
-							<div class="row">
-								<div class="col-lg-6">
-									<div class="form-group mt-3 wow fadeInUp" data-wow-duration="1.5s">
-										<input name="name" id="name" type="text" class="form-control b-box" placeholder="Your Name*" required>
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="form-group mt-3 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".2s">
-										<input name="email" id="email" type="email" class="form-control b-box" placeholder="Your Email*" required>
-									</div>
-								</div>                                
-							</div>
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="form-group mt-3 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-										<input type="text" class="form-control b-box" id="subject" placeholder="Your Subject.." required/>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="form-group mt-3 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".4s">
-										<textarea name="comments" id="comments" rows="4" class="form-control b-box" placeholder="Your message..."></textarea>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-12 text-center mt-4 mb-5  wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".5s">
-									<a href="#" class="btn hover-state">Submit</a>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</section> -->
-		<!-- END: CONTACT -->
-
 		<!--START: FOOTER-->
 		<footer class="footer section section-light">
 			<div class="container">
@@ -629,6 +364,7 @@
 		</footer>
 		<!--END: FOOTER-->
 	</div>
+
 
 	<!--START: Scroll to top-->
 	<div class="scroll-up hover-state">
@@ -692,9 +428,12 @@
 		</div>
 	</div>
 
+
 	<!-- Javascript files -->
 
 	<script src="assets/js/jquery.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	
 
 	<!-- Popper JS -->
 	<script src="assets/bootstrap/js/popper.js"></script>
@@ -720,6 +459,27 @@
 
 	<!-- Custom Js -->
 	<script src="assets/js/custom.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+	<script>
+
+		$.getJSON('assets/portfolio_data.json').then((jsonData)=>{
+			new Vue({
+				el: '#app',
+				data:jsonData
+			});
+			if($('.typed').length) {
+				var $this = $(".typed");
+				$this.typed({
+					strings: $this.attr('data-elements').split(','),
+					typeSpeed: 100,
+					backDelay: 3000
+				});
+			}
+		})
+		
+		</script>
 </body>
 
 </html>
