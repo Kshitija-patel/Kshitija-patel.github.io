@@ -88,9 +88,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_components_jobApplication_add_job_application_add_job_application_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/components/jobApplication/add-job-application/add-job-application.component */ "./src/app/components/jobApplication/add-job-application/add-job-application.component.ts");
 /* harmony import */ var app_components_jobApplication_my_applications_my_applications_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/components/jobApplication/my-applications/my-applications.component */ "./src/app/components/jobApplication/my-applications/my-applications.component.ts");
 /* harmony import */ var app_components_job_post_job_post_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/components/job-post/job-post.component */ "./src/app/components/job-post/job-post.component.ts");
-/* harmony import */ var app_components_assessment_submitassessment_submitassessment_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/components/assessment/submitassessment/submitassessment.component */ "./src/app/components/assessment/submitassessment/submitassessment.component.ts");
-/* harmony import */ var app_components_Resume_resume_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/components/Resume/resume.component */ "./src/app/components/Resume/resume.component.ts");
-/* harmony import */ var app_components_candidate_candidate_profile_candidate_profile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/components/candidate/candidate-profile/candidate-profile.component */ "./src/app/components/candidate/candidate-profile/candidate-profile.component.ts");
+/* harmony import */ var app_components_job_post_view_job_post_view_job_post_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/components/job-post/view-job-post/view-job-post.component */ "./src/app/components/job-post/view-job-post/view-job-post.component.ts");
+/* harmony import */ var app_components_assessment_submitassessment_submitassessment_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/components/assessment/submitassessment/submitassessment.component */ "./src/app/components/assessment/submitassessment/submitassessment.component.ts");
+/* harmony import */ var app_components_Resume_resume_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/components/Resume/resume.component */ "./src/app/components/Resume/resume.component.ts");
+/* harmony import */ var app_components_candidate_candidate_profile_candidate_profile_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! app/components/candidate/candidate-profile/candidate-profile.component */ "./src/app/components/candidate/candidate-profile/candidate-profile.component.ts");
+
 
 
 
@@ -107,21 +109,30 @@ var CandidateLayoutRoutes = [
     // { path: 'dashboard',    component: DashboardComponent },
     // { path: 'assessment',      component: AssessmentComponent },
     { path: 'jobApplication', component: app_components_jobApplication_jobApplication_component__WEBPACK_IMPORTED_MODULE_0__["JobApplicationComponent"] },
-    { path: 'resume', component: app_components_Resume_resume_component__WEBPACK_IMPORTED_MODULE_5__["ResumeComponent"] },
+    { path: 'resume', component: app_components_Resume_resume_component__WEBPACK_IMPORTED_MODULE_6__["ResumeComponent"] },
     { path: 'my-applications', component: app_components_jobApplication_my_applications_my_applications_component__WEBPACK_IMPORTED_MODULE_2__["MyApplicationsComponent"] },
     // { path: 'allApplications',  component: AllApplicationsComponent},
     { path: 'jobApplication', component: app_components_jobApplication_jobApplication_component__WEBPACK_IMPORTED_MODULE_0__["JobApplicationComponent"] },
-    { path: 'resume', component: app_components_Resume_resume_component__WEBPACK_IMPORTED_MODULE_5__["ResumeComponent"] },
+    { path: 'resume', component: app_components_Resume_resume_component__WEBPACK_IMPORTED_MODULE_6__["ResumeComponent"] },
     { path: 'my-applications', component: app_components_jobApplication_my_applications_my_applications_component__WEBPACK_IMPORTED_MODULE_2__["MyApplicationsComponent"] },
     { path: 'addjobApplication/:id', component: app_components_jobApplication_add_job_application_add_job_application_component__WEBPACK_IMPORTED_MODULE_1__["AddJobApplicationComponent"] },
-    { path: 'submitassessment/:id', component: app_components_assessment_submitassessment_submitassessment_component__WEBPACK_IMPORTED_MODULE_4__["SubmitassessmentComponent"] },
-    { path: 'candidate-profile/:id', component: app_components_candidate_candidate_profile_candidate_profile_component__WEBPACK_IMPORTED_MODULE_6__["CandidateProfileComponent"] },
+    { path: 'submitassessment/:id', component: app_components_assessment_submitassessment_submitassessment_component__WEBPACK_IMPORTED_MODULE_5__["SubmitassessmentComponent"] },
+    { path: 'candidate-profile/:id', component: app_components_candidate_candidate_profile_candidate_profile_component__WEBPACK_IMPORTED_MODULE_7__["CandidateProfileComponent"] },
     // { path: 'updateJobApplication/:id',  component: UpdateJobApplicationComponent},
     // { path: 'addassessment',      component: AddassessmentComponent },
     // { path: 'addemployer', component: AddemployerComponent },
     // { path: 'users',      component: UsersComponent },
     // { path: 'employers',      component: EmployerComponent },
     { path: 'job-posts', component: app_components_job_post_job_post_component__WEBPACK_IMPORTED_MODULE_3__["JobPostComponent"] },
+    { path: 'view-job-post/:id', component: app_components_job_post_view_job_post_view_job_post_component__WEBPACK_IMPORTED_MODULE_4__["ViewJobPostComponent"] }
+    // { path: 'add-job-post',     component: AddJobPostComponent},
+    // { path: 'user-profile',   component: UserProfileComponent },
+    // { path: 'table-list',     component: TableListComponent },
+    // { path: 'typography',     component: TypographyComponent },
+    // { path: 'icons',          component: IconsComponent },
+    // { path: 'maps',           component: MapsComponent },
+    // { path: 'notifications',  component: NotificationsComponent },
+    // { path: 'upgrade',        component: UpgradeComponent }
 ];
 
 

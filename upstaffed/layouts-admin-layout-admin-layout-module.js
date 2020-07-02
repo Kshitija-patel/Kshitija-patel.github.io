@@ -1,18 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["layouts-admin-layout-admin-layout-module"],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/job-post/update-job-post/update-job-post.component.html":
-/*!**************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/job-post/update-job-post/update-job-post.component.html ***!
-  \**************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-8\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-danger\">\r\n                        <h4 class=\"card-title\">Edit Job Post</h4>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                    <form [formGroup]=\"updateJobPost\" (ngSubmit)=\"updateForm()\">\r\n                        <div>\r\n                                <label>Job Post Title:</label>\r\n                                <input matNativeControl formControlName=\"title\" placeholder=\"Enter job post title\" type=\"text\">\r\n                        </div>\r\n                        <div>\r\n                                <label>Additional Information: </label>\r\n                                <input matNativeControl formControlName=\"additional_info\" placeholder=\"Enter additional information\" type=\"text\">\r\n                        </div>\r\n                        <div>\r\n                                <label>Position: </label>\r\n                                <select formControlName=\"position\">\r\n                                    <option value=\"Intern\">Intern</option>\r\n                                    <option value=\"Intermediate\">Intermediate</option>\r\n                                    <option value=\"Senior\">Senior</option>\r\n                                    <option value=\"Associate\">Associate</option>\r\n                                </select>\r\n                        </div>\r\n                        <div>\r\n                                <label>Post Date: </label>\r\n                                <input matNativeControl formControlName=\"post_date\" type=\"date\">\r\n                        </div>\r\n                        <div>\r\n                                <label>Post Expiry: </label>\r\n                                <input matNativeControl formControlName=\"post_expiry\" type=\"date\">\r\n                        </div>\r\n                        <div>\r\n                                <label>Requirement: </label>\r\n                                <input matNativeControl formControlName=\"requirement\" type=\"text\">\r\n                        </div>\r\n                        <div>\r\n                                <label>Job id: </label>\r\n                                <input matNativeControl formControlName=\"job_id\" type=\"text\">\r\n                        </div>\r\n                        <div>\r\n                                <label>Assessment: </label>\r\n                                <select formControlName=\"assessment_id\">\r\n                                    <option [ngValue]=\"null\" disabled>Choose Assessment</option>\r\n                                    <option class=\"dropdown-item\" *ngFor=\"let assessment of assessmentData\" [value]=\"assessment._id\"> {{assessment.title}} </option>\r\n                                </select>\r\n                        </div>\r\n                        <div>\r\n                                <label>Employer:</label>\r\n                                <select formControlName=\"employer_id\">\r\n                                    <option [ngValue]=\"null\" disabled>Choose Employer</option>\r\n                                    <option class=\"dropdown-item\" *ngFor=\"let employer of employerData\" [value]=\"employer._id\">{{employer.company_name}}</option>\r\n                                </select>\r\n                        </div>\r\n                        <button mat-raised-button type=\"submit\" class=\"btn btn-danger pull-right\">Update Job Post</button>\r\n                        <div class=\"clearfix\"></div>\r\n                    </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/jobApplication/update-job-application/update-job-application.component.html":
 /*!**********************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/jobApplication/update-job-application/update-job-application.component.html ***!
@@ -23,155 +10,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-8\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-danger\">\r\n                        <h4 class=\"card-title\">Edit Application</h4>\r\n                    </div>\r\n                    <!-- {{status.length}} -->\r\n                        <!-- <div *ngFor=\"let sta of status\">\r\n                          {{ sta }}\r\n                        </div> -->\r\n                    <div class=\"card-body\">\r\n                    <form [formGroup]=\"updateJobApplicationForm\" (submit)=\"updateForm()\">\r\n                    \r\n                    <!-- <form [([formGroup])]=\"updateJobApplicationForm\" (submit)=\"updateForm(updateJobApplicationForm.value)\"> -->\r\n                        <!-- <select formControlName=\"dropdownStatus\" >\r\n                            <option value=\"\" selected disabled>--Select Status--</option>\r\n                            <option class=\"dropdown-item\" *ngFor=\"let state of status\">{{state}}</option>\r\n                        </select> -->\r\n                        \r\n                        <div class=\"row\">\r\n                            <div class=\"col-md-12\">\r\n                                Job Post : <input type=\"text\" value={{appdata?.jobPost_id.title}} disabled>\r\n                                <br><br>\r\n                                <div>Candidate : <input type=\"text\" value={{username}} disabled>\r\n                                </div><br>\r\n                                <div>Application Date : <input type=\"text\" value={{appdata?.application_date}} disabled>\r\n                                </div><br>\r\n                                <div>Application Status : \r\n                                    <!-- {{appdata?.application_status}} -->\r\n                            <input formControlName=\"updated_status\" id=\"newStatus\"  placeholder=\"{{appdata?.application_status}}\" type=\"text\">\r\n                                <br>\r\n                                <!-- {{status}} -->\r\n                              \r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                            <button mat-raised-button type=\"submit\" class=\"btn btn-danger pull-right\">Update Application</button>\r\n                            <div class=\"clearfix\"></div>\r\n                    </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
-
-/***/ }),
-
-/***/ "./src/app/components/job-post/update-job-post/update-job-post.component.css":
-/*!***********************************************************************************!*\
-  !*** ./src/app/components/job-post/update-job-post/update-job-post.component.css ***!
-  \***********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvam9iLXBvc3QvdXBkYXRlLWpvYi1wb3N0L3VwZGF0ZS1qb2ItcG9zdC5jb21wb25lbnQuY3NzIn0= */");
-
-/***/ }),
-
-/***/ "./src/app/components/job-post/update-job-post/update-job-post.component.ts":
-/*!**********************************************************************************!*\
-  !*** ./src/app/components/job-post/update-job-post/update-job-post.component.ts ***!
-  \**********************************************************************************/
-/*! exports provided: UpdateJobPostComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateJobPostComponent", function() { return UpdateJobPostComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
-/* harmony import */ var app_providers_storage_storage_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/providers/storage/storage.service */ "./src/app/providers/storage/storage.service.ts");
-/* harmony import */ var app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/data/job-post/job-post.service */ "./src/app/data/job-post/job-post.service.ts");
-/* harmony import */ var app_data_assessment_assessment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/data/assessment/assessment.service */ "./src/app/data/assessment/assessment.service.ts");
-/* harmony import */ var app_data_employer_employer_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/data/employer/employer.service */ "./src/app/data/employer/employer.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
-  return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-
-
-
-
-
-
-
-var UpdateJobPostComponent = /** @class */ (function () {
-    function UpdateJobPostComponent(fb, jobPostService, assessmentService, employerService, router, route, storageService) {
-        var _this = this;
-        this.fb = fb;
-        this.jobPostService = jobPostService;
-        this.assessmentService = assessmentService;
-        this.employerService = employerService;
-        this.router = router;
-        this.route = route;
-        this.storageService = storageService;
-        this.jobPostId = undefined;
-        this.assessmentSubscriber = this.assessmentService.assessmentSubscriber().subscribe(function (data) {
-            _this.assessmentData = data ? data.data : undefined;
-            console.log(_this.jobPostData);
-        });
-        this.assessmentService.fetchAssessments();
-        this.employerSubscriber = this.employerService.employerSubscriber().subscribe(function (data) {
-            _this.employerData = data ? data.data : undefined;
-        });
-        this.employerService.fetchEmployers();
-        this.userInfo = this.storageService.get('userInfo');
-        this.sub = this.route.params.subscribe(function (params) {
-            _this.jobPostId = params['id'];
-            if (_this.jobPostId) {
-                _this.jobPostService.fetchJobPost(_this.jobPostId).subscribe(function (response) {
-                    _this.jobPostData = response.data;
-                    _this.updateJobPostForm = _this.fb.group({
-                        title: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.title, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-                        additional_info: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.additional_info, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-                        position: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.position, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-                        post_date: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.post_date, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-                        post_expiry: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.post_expiry, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-                        requirement: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.requirement, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-                        job_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.job_id, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-                        assessment_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.assessment_id, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-                        employer_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.employer_id, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] })
-                    });
-                });
-            }
-        });
-        this.updateJobPostForm = this.fb.group({
-            title: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            additional_info: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            position: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            post_date: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            post_expiry: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            requirement: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            job_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            assessment_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            employer_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
-            role: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] })
-        });
-    }
-    UpdateJobPostComponent.prototype.ngOnInit = function () {
-    };
-    UpdateJobPostComponent.prototype.ngOnDestroy = function () {
-        this.sub.unsubscribe();
-    };
-    UpdateJobPostComponent.prototype.updateForm = function () {
-        var _this = this;
-        this.jobPostService.updateJobPost(this.updateJobPostForm.value, this.jobPostData.jobPostDetails._id).subscribe(function (response) {
-            console.log(response);
-            if (response.status == "success") {
-                _this.router.navigate(['/' + _this.userInfo.user.role.toLowerCase() + '/job-posts']);
-            }
-            else {
-                alert("Something went wrong");
-            }
-        });
-    };
-    UpdateJobPostComponent.ctorParameters = function () { return [
-        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] },
-        { type: app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_4__["JobPostService"] },
-        { type: app_data_assessment_assessment_service__WEBPACK_IMPORTED_MODULE_5__["AssessmentService"] },
-        { type: app_data_employer_employer_service__WEBPACK_IMPORTED_MODULE_6__["EmployerService"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-        { type: app_providers_storage_storage_service__WEBPACK_IMPORTED_MODULE_3__["StorageService"] }
-    ]; };
-    UpdateJobPostComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-update-job-post',
-            template: __importDefault(__webpack_require__(/*! raw-loader!./update-job-post.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/job-post/update-job-post/update-job-post.component.html")).default,
-            styles: [__importDefault(__webpack_require__(/*! ./update-job-post.component.css */ "./src/app/components/job-post/update-job-post/update-job-post.component.css")).default]
-        }),
-        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
-            app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_4__["JobPostService"],
-            app_data_assessment_assessment_service__WEBPACK_IMPORTED_MODULE_5__["AssessmentService"],
-            app_data_employer_employer_service__WEBPACK_IMPORTED_MODULE_6__["EmployerService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            app_providers_storage_storage_service__WEBPACK_IMPORTED_MODULE_3__["StorageService"]])
-    ], UpdateJobPostComponent);
-    return UpdateJobPostComponent;
-}());
-
-
 
 /***/ }),
 
@@ -369,20 +207,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_components_employer_employer_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! app/components/employer/employer.component */ "./src/app/components/employer/employer.component.ts");
 /* harmony import */ var app_components_job_post_job_post_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! app/components/job-post/job-post.component */ "./src/app/components/job-post/job-post.component.ts");
 /* harmony import */ var app_components_job_post_add_job_post_add_job_post_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! app/components/job-post/add-job-post/add-job-post.component */ "./src/app/components/job-post/add-job-post/add-job-post.component.ts");
-/* harmony import */ var app_components_assessment_addassessment_addassessment_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! app/components/assessment/addassessment/addassessment.component */ "./src/app/components/assessment/addassessment/addassessment.component.ts");
-/* harmony import */ var app_components_assessment_viewassessment_viewassessment_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! app/components/assessment/viewassessment/viewassessment.component */ "./src/app/components/assessment/viewassessment/viewassessment.component.ts");
-/* harmony import */ var app_components_assessment_updateassessment_updateassessment_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! app/components/assessment/updateassessment/updateassessment.component */ "./src/app/components/assessment/updateassessment/updateassessment.component.ts");
-/* harmony import */ var app_components_employer_employer_profile_employer_profile_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! app/components/employer/employer-profile/employer-profile.component */ "./src/app/components/employer/employer-profile/employer-profile.component.ts");
-/* harmony import */ var app_components_job_post_update_job_post_update_job_post_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! app/components/job-post/update-job-post/update-job-post.component */ "./src/app/components/job-post/update-job-post/update-job-post.component.ts");
-/* harmony import */ var app_components_candidate_candidate_profile_candidate_profile_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! app/components/candidate/candidate-profile/candidate-profile.component */ "./src/app/components/candidate/candidate-profile/candidate-profile.component.ts");
-/* harmony import */ var app_components_candidate_candidate_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! app/components/candidate/candidate.component */ "./src/app/components/candidate/candidate.component.ts");
-/* harmony import */ var app_components_assessment_reviewassessment_reviewassessment_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! app/components/assessment/reviewassessment/reviewassessment.component */ "./src/app/components/assessment/reviewassessment/reviewassessment.component.ts");
+/* harmony import */ var app_components_job_post_view_job_post_view_job_post_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! app/components/job-post/view-job-post/view-job-post.component */ "./src/app/components/job-post/view-job-post/view-job-post.component.ts");
+/* harmony import */ var app_components_assessment_addassessment_addassessment_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! app/components/assessment/addassessment/addassessment.component */ "./src/app/components/assessment/addassessment/addassessment.component.ts");
+/* harmony import */ var app_components_assessment_viewassessment_viewassessment_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! app/components/assessment/viewassessment/viewassessment.component */ "./src/app/components/assessment/viewassessment/viewassessment.component.ts");
+/* harmony import */ var app_components_assessment_updateassessment_updateassessment_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! app/components/assessment/updateassessment/updateassessment.component */ "./src/app/components/assessment/updateassessment/updateassessment.component.ts");
+/* harmony import */ var app_components_employer_employer_profile_employer_profile_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! app/components/employer/employer-profile/employer-profile.component */ "./src/app/components/employer/employer-profile/employer-profile.component.ts");
+/* harmony import */ var app_components_job_post_update_job_post_update_job_post_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! app/components/job-post/update-job-post/update-job-post.component */ "./src/app/components/job-post/update-job-post/update-job-post.component.ts");
+/* harmony import */ var app_components_candidate_candidate_profile_candidate_profile_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! app/components/candidate/candidate-profile/candidate-profile.component */ "./src/app/components/candidate/candidate-profile/candidate-profile.component.ts");
+/* harmony import */ var app_components_candidate_candidate_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! app/components/candidate/candidate.component */ "./src/app/components/candidate/candidate.component.ts");
+/* harmony import */ var app_components_assessment_reviewassessment_reviewassessment_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! app/components/assessment/reviewassessment/reviewassessment.component */ "./src/app/components/assessment/reviewassessment/reviewassessment.component.ts");
 
 
 
 
 
 9;
+
 
 
 
@@ -458,18 +298,19 @@ var AdminLayoutRoutes = [
     { path: 'updateJobApplication/:id', component: app_components_jobApplication_update_job_application_update_job_application_component__WEBPACK_IMPORTED_MODULE_11__["UpdateJobApplicationComponent"] },
     { path: 'my-applications', component: app_components_jobApplication_my_applications_my_applications_component__WEBPACK_IMPORTED_MODULE_12__["MyApplicationsComponent"] },
     { path: 'allApplications', component: app_components_jobApplication_all_applications_all_applications_component__WEBPACK_IMPORTED_MODULE_13__["AllApplicationsComponent"] },
-    { path: 'addassessment', component: app_components_assessment_addassessment_addassessment_component__WEBPACK_IMPORTED_MODULE_17__["AddassessmentComponent"], pathMatch: 'full' },
-    { path: 'updateassessment', component: app_components_assessment_updateassessment_updateassessment_component__WEBPACK_IMPORTED_MODULE_19__["UpdateassessmentComponent"] },
-    { path: 'reviewassessment/:id', component: app_components_assessment_reviewassessment_reviewassessment_component__WEBPACK_IMPORTED_MODULE_24__["ReviewassessmentComponent"] },
-    { path: 'viewassessment/:id', component: app_components_assessment_viewassessment_viewassessment_component__WEBPACK_IMPORTED_MODULE_18__["ViewassessmentComponent"] },
-    { path: 'updateassessment/:id', component: app_components_assessment_updateassessment_updateassessment_component__WEBPACK_IMPORTED_MODULE_19__["UpdateassessmentComponent"] },
-    { path: 'employer-profile/:id', component: app_components_employer_employer_profile_employer_profile_component__WEBPACK_IMPORTED_MODULE_20__["EmployerProfileComponent"] },
-    { path: 'candidate-profile/:id', component: app_components_candidate_candidate_profile_candidate_profile_component__WEBPACK_IMPORTED_MODULE_22__["CandidateProfileComponent"] },
+    { path: 'addassessment', component: app_components_assessment_addassessment_addassessment_component__WEBPACK_IMPORTED_MODULE_18__["AddassessmentComponent"], pathMatch: 'full' },
+    { path: 'updateassessment', component: app_components_assessment_updateassessment_updateassessment_component__WEBPACK_IMPORTED_MODULE_20__["UpdateassessmentComponent"] },
+    { path: 'reviewassessment/:id', component: app_components_assessment_reviewassessment_reviewassessment_component__WEBPACK_IMPORTED_MODULE_25__["ReviewassessmentComponent"] },
+    { path: 'viewassessment/:id', component: app_components_assessment_viewassessment_viewassessment_component__WEBPACK_IMPORTED_MODULE_19__["ViewassessmentComponent"] },
+    { path: 'updateassessment/:id', component: app_components_assessment_updateassessment_updateassessment_component__WEBPACK_IMPORTED_MODULE_20__["UpdateassessmentComponent"] },
+    { path: 'employer-profile/:id', component: app_components_employer_employer_profile_employer_profile_component__WEBPACK_IMPORTED_MODULE_21__["EmployerProfileComponent"] },
+    { path: 'candidate-profile/:id', component: app_components_candidate_candidate_profile_candidate_profile_component__WEBPACK_IMPORTED_MODULE_23__["CandidateProfileComponent"] },
     { path: 'users', component: app_components_users_users_component__WEBPACK_IMPORTED_MODULE_8__["UsersComponent"] },
     { path: 'employers', component: app_components_employer_employer_component__WEBPACK_IMPORTED_MODULE_14__["EmployerComponent"] },
-    { path: 'candidates', component: app_components_candidate_candidate_component__WEBPACK_IMPORTED_MODULE_23__["CandidateComponent"] },
+    { path: 'candidates', component: app_components_candidate_candidate_component__WEBPACK_IMPORTED_MODULE_24__["CandidateComponent"] },
     { path: 'job-posts', component: app_components_job_post_job_post_component__WEBPACK_IMPORTED_MODULE_15__["JobPostComponent"] },
     { path: 'add-job-post', component: app_components_job_post_add_job_post_add_job_post_component__WEBPACK_IMPORTED_MODULE_16__["AddJobPostComponent"] },
+    { path: 'view-job-post/:id', component: app_components_job_post_view_job_post_view_job_post_component__WEBPACK_IMPORTED_MODULE_17__["ViewJobPostComponent"] },
     { path: 'user-profile', component: _components_user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_0__["UserProfileComponent"] },
     { path: 'table-list', component: _components_table_list_table_list_component__WEBPACK_IMPORTED_MODULE_1__["TableListComponent"] },
     { path: 'typography', component: _components_typography_typography_component__WEBPACK_IMPORTED_MODULE_2__["TypographyComponent"] },
@@ -477,7 +318,7 @@ var AdminLayoutRoutes = [
     { path: 'maps', component: _components_maps_maps_component__WEBPACK_IMPORTED_MODULE_4__["MapsComponent"] },
     { path: 'notifications', component: _components_notifications_notifications_component__WEBPACK_IMPORTED_MODULE_5__["NotificationsComponent"] },
     { path: 'upgrade', component: _components_upgrade_upgrade_component__WEBPACK_IMPORTED_MODULE_6__["UpgradeComponent"] },
-    { path: 'update-job-post/:id', component: app_components_job_post_update_job_post_update_job_post_component__WEBPACK_IMPORTED_MODULE_21__["UpdateJobPostComponent"] }
+    { path: 'update-job-post/:id', component: app_components_job_post_update_job_post_update_job_post_component__WEBPACK_IMPORTED_MODULE_22__["UpdateJobPostComponent"] }
 ];
 
 

@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12 col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-warning\">\r\n                        <h4 class=\"card-title\">Review Submitted assessment - {{assessmentData[0].title}}\r\n                        </h4>\r\n                    </div>\r\n                    <div class=\"card-body table-responsive\">\r\n            \r\n                        <table class=\"table table-hover\">\r\n                            <thead class=\"text-warning\">\r\n                                <th>Candidate Name</th>\r\n                                <th>Submission date</th>\r\n                                <th>Submitted file</th>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let assessment of assessmentData\">\r\n                                    <td>{{assessment.candidate_id.first_name}} {{assessment.candidate_id.last_name}}\r\n                                    </td>\r\n                                    <td>{{assessment.submission_date}}</td>\r\n                                    <td><span *ngFor=\"let submittedassessment of assessment.assessement_file\"><a\r\n                                                target=\"_blank\"\r\n                                                href=\"{{submittedassessment.file_url}}\">{{submittedassessment.original_filename}}</a></span>\r\n                                    </td>\r\n                                    <!-- <td> <a [routerLink]=\"['../viewassessment', assessment._id]\">{{assessment.title}}</a>\r\n                                    </td>\r\n                                    <td>{{assessment.employer_id.company_name}}</td>\r\n                                    <td>{{assessment.description}}</td>\r\n                                    <td class=\"td-actions\">\r\n                                        <button mat-raised-button type=\"button\"\r\n                                            (click)=\"onClickMeToUpdate(assessment._id)\" matTooltip=\"Edit assessment\"\r\n                                            [matTooltipPosition]=\"'above'\"\r\n                                            class=\"btn btn-primary btn-link btn-sm btn-just-icon\">\r\n                                            <i class=\"material-icons\">edit</i>\r\n                                        </button>\r\n                                        <button mat-raised-button type=\"button\" (click)=\"onClickMe(assessment._id)\"\r\n                                            matTooltip=\"Remove\" [matTooltipPosition]=\"'above'\"\r\n                                            class=\"btn btn-danger btn-link btn-sm btn-just-icon\">\r\n                                            <i class=\"material-icons\">close</i>\r\n                                        </button>\r\n                                    </td> -->\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12 col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-warning\">\r\n                        <h4 class=\"card-title\">Review Submitted assessment - {{assessmentData[0].assessment_id?.title}}\r\n                        </h4>\r\n                    </div>\r\n                    <div class=\"card-body table-responsive\">\r\n            \r\n                        <table class=\"table table-hover\">\r\n                            <thead class=\"text-warning\">\r\n                                <th>Candidate Name</th>\r\n                                <th>Submission date</th>\r\n                                <th>Submitted file</th>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let assessment of assessmentData\">\r\n                                    <td>{{assessment.candidate_id.first_name}} {{assessment.candidate_id.last_name}}\r\n                                    </td>\r\n                                    <td>{{assessment.submission_date}}</td>\r\n                                    <td><span *ngFor=\"let submittedassessment of assessment.assessement_file\"><a\r\n                                                target=\"_blank\"\r\n                                                href=\"{{submittedassessment.file_url}}\">{{submittedassessment.original_filename}}</a></span>\r\n                                    </td>\r\n                                    <!-- <td> <a [routerLink]=\"['../viewassessment', assessment._id]\">{{assessment.title}}</a>\r\n                                    </td>\r\n                                    <td>{{assessment.employer_id.company_name}}</td>\r\n                                    <td>{{assessment.description}}</td>\r\n                                    <td class=\"td-actions\">\r\n                                        <button mat-raised-button type=\"button\"\r\n                                            (click)=\"onClickMeToUpdate(assessment._id)\" matTooltip=\"Edit assessment\"\r\n                                            [matTooltipPosition]=\"'above'\"\r\n                                            class=\"btn btn-primary btn-link btn-sm btn-just-icon\">\r\n                                            <i class=\"material-icons\">edit</i>\r\n                                        </button>\r\n                                        <button mat-raised-button type=\"button\" (click)=\"onClickMe(assessment._id)\"\r\n                                            matTooltip=\"Remove\" [matTooltipPosition]=\"'above'\"\r\n                                            class=\"btn btn-danger btn-link btn-sm btn-just-icon\">\r\n                                            <i class=\"material-icons\">close</i>\r\n                                        </button>\r\n                                    </td> -->\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-danger\">\r\n                        <h4 class=\"card-title\">{{ candidateid ? 'Edit' : 'Add' }} Candidate</h4>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                        <form [(formGroup)]=\"candidateForm\" (ngSubmit)=\"submitForm()\">\r\n                            <div>\r\n\r\n                                <label>Firstname:</label>\r\n                                <input formControlName=\"first_name\" placeholder=\"Enter your firstname\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label>Lastname: </label>\r\n                                <input formControlName=\"last_name\" placeholder=\"Enter your lastname\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label>Email: </label>\r\n                                <input formControlName=\"email\" placeholder=\"Enter your email\" type=\"email\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label>Phone Number: </label>\r\n                                <input formControlName=\"phone_number\" placeholder=\"Enter your phone number\" type=\"text\">\r\n\r\n                            </div>\r\n\r\n                            <div>\r\n\r\n                                <label>Date of Birth: </label>\r\n                                <input formControlName=\"date_of_birth\" type=\"date\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label> Resume Link :</label>\r\n                                <input formControlName=\"resume_link\" placeholder=\"Ex. resume\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label> Bio :</label>\r\n                                <textarea formControlName=\"bio\"\r\n                                    placeholder=\"Ex. It a toronto based company..\"></textarea>\r\n\r\n                            </div>\r\n\r\n\r\n                            <button mat-raised-button type=\"submit\"\r\n                                class=\"btn btn-danger pull-right\">{{ candidateid ? 'Edit' : 'Add' }} Candidate</button>\r\n                            <div class=\"clearfix\"></div>\r\n                        </form>\r\n\r\n                        <div>\r\n\r\n                            <label> Skills :</label>\r\n                            <input [(ngModel)]=\"newSkill\" placeholder=\"Ex. html\">\r\n\r\n                            <button mat-raised-button type=\"button\" (click)=\"addSkill()\">Add</button>\r\n                        </div>\r\n                        <div>\r\n                            <ul>\r\n                                <li *ngFor=\"let skill of candidateData?.candidateDetails?.skills\">\r\n                                    {{skill}}\r\n                                    <button (click)=\"removeSkill(skill)\">Delete</button>\r\n                                </li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-danger\">\r\n                        <h4 class=\"card-title\">Education</h4>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                        <table class=\"table table-hover\" *ngIf=\"educationData && educationData.length\">\r\n                            <thead class=\"text-warning\">\r\n                                <th>Degree</th>\r\n                                <th>Institute</th>\r\n                                <th>Passing Year</th>\r\n                                <th>Delete</th>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let education of educationData\">\r\n                                    <td>{{education.certificate_name}}</td>\r\n                                    <td>{{education.institute}}</td>\r\n                                    <td>{{education.passing_year}}</td>\r\n                                    <td><button mat-raised-button class=\"btn btn-danger\"\r\n                                            (click)=\"deleteEducation(education._id)\">Delete</button></td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                        <form [(formGroup)]=\"educationForm\" (ngSubmit)=\"submitEducationForm()\">\r\n                            <div>\r\n\r\n                                <label>Degree Name:</label>\r\n                                <input formControlName=\"certificate_name\" placeholder=\"Enter degree name\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label>Institute: </label>\r\n                                <input formControlName=\"institute\" placeholder=\"Enter institute name\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label>passing_year: </label>\r\n                                <input formControlName=\"passing_year\" placeholder=\"Enter passing year\" type=\"text\">\r\n\r\n                            </div>\r\n                            <button mat-raised-button type=\"submit\" class=\"btn btn-danger pull-right\">Add\r\n                                Education</button>\r\n                            <div class=\"clearfix\"></div>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-danger\">\r\n                        <h4 class=\"card-title\">Work Experiemce</h4>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                        <table class=\"table table-hover\" *ngIf=\"workexperienceData && workexperienceData.length\">\r\n                            <thead class=\"text-warning\">\r\n                                <th>Job Title</th>\r\n                                <th>Company</th>\r\n                                <th>Description</th>\r\n                                <th>Start Date</th>\r\n                                <th>End Date</th>\r\n                                <th>Delete</th>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let workexperience of workexperienceData\">\r\n                                    <td>{{workexperience.job_title}}</td>\r\n                                    <td>{{workexperience.company_name}}</td>\r\n                                    <td>{{workexperience.description}}</td>\r\n                                    <td>{{workexperience.start_date}}</td>\r\n                                    <td>{{workexperience.end_date}}</td>\r\n                                    <td><button mat-raised-button class=\"btn btn-danger\"\r\n                                            (click)=\"deleteWorkExperience(workexperience._id)\">Delete</button></td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                        <form [(formGroup)]=\"workexperienceForm\" (ngSubmit)=\"submitWorkExperienceForm()\">\r\n                            <div>\r\n\r\n                                <label>Job Title:</label>\r\n                                <input formControlName=\"job_title\" placeholder=\"Enter job title\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label>Company Name: </label>\r\n                                <input formControlName=\"company_name\" placeholder=\"Enter company name\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label>Description: </label>\r\n                                <input formControlName=\"description\" placeholder=\"Enter job description\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label>Start Date: </label>\r\n                                <input formControlName=\"start_date\" placeholder=\"Enter start date\" type=\"date\"\r\n                                    max=\"today\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label>End Date: </label>\r\n                                <input formControlName=\"end_date\" placeholder=\"Enter end date\" type=\"date\">\r\n\r\n                            </div>\r\n                            <button mat-raised-button type=\"submit\" class=\"btn btn-danger pull-right\">Add\r\n                                Work Experince</button>\r\n                            <div class=\"clearfix\"></div>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-danger\">\r\n                        <h4 class=\"card-title\">Candidate {{ candidateid ? 'Profile' : 'Edit' }}</h4>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                        <form [(formGroup)]=\"candidateForm\" (ngSubmit)=\"submitForm()\">\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">Firstname:</label>\r\n                                <input formControlName=\"first_name\" placeholder=\"Enter your firstname\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">Lastname: </label>\r\n                                <input formControlName=\"last_name\" placeholder=\"Enter your lastname\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">Email: </label>\r\n                                <input formControlName=\"email\" placeholder=\"Enter your email\" type=\"email\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">Phone Number: </label>\r\n                                <input formControlName=\"phone_number\" placeholder=\"Enter your phone number\" type=\"text\">\r\n\r\n                            </div>\r\n\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">Date of Birth: </label>\r\n                                <input formControlName=\"date_of_birth\" type=\"date\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\"> Resume Link :</label>\r\n                                <input formControlName=\"resume_link\" placeholder=\"Ex. resume\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\"> Bio :</label>\r\n                                <textarea formControlName=\"bio\"\r\n                                    placeholder=\"Ex. It a toronto based company..\"></textarea>\r\n\r\n                            </div>\r\n\r\n\r\n                            <button mat-raised-button type=\"submit\"\r\n                                class=\"btn btn-danger pull-right\">{{ candidateid ? 'Edit' : 'Add' }} Candidate</button>\r\n                            <div class=\"clearfix\"></div>\r\n                        </form>\r\n\r\n                        <div>\r\n\r\n                            <label class=\"col-md-2\"> Skills :</label>\r\n                            <input [(ngModel)]=\"newSkill\" placeholder=\"Ex. html\">\r\n\r\n                            <button mat-raised-button type=\"button\" (click)=\"addSkill()\">Add</button>\r\n                        </div>\r\n                        <div class=\"col-md-2\">\r\n                            <ul>\r\n                                <li *ngFor=\"let skill of candidateData?.candidateDetails?.skills\">\r\n                                    {{skill}}\r\n                                    <button (click)=\"removeSkill(skill)\">Delete</button>\r\n                                </li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-danger\">\r\n                        <h4 class=\"card-title\">Education</h4>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                        <table class=\"table table-hover\" *ngIf=\"educationData && educationData.length\">\r\n                            <thead class=\"text-warning\">\r\n                                <th>Degree</th>\r\n                                <th>Institute</th>\r\n                                <th>Passing Year</th>\r\n                                <th>Delete</th>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let education of educationData\">\r\n                                    <td>{{education.certificate_name}}</td>\r\n                                    <td>{{education.institute}}</td>\r\n                                    <td>{{education.passing_year}}</td>\r\n                                    <td><button mat-raised-button\r\n                                            (click)=\"deleteEducation(education._id)\">Delete</button></td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                        <form [(formGroup)]=\"educationForm\" (ngSubmit)=\"submitEducationForm()\">\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">Degree Name:</label>\r\n                                <input formControlName=\"certificate_name\" placeholder=\"Enter degree name\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">Institute: </label>\r\n                                <input formControlName=\"institute\" placeholder=\"Enter institute name\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">passing_year: </label>\r\n                                <input formControlName=\"passing_year\" placeholder=\"Enter passing year\" type=\"text\">\r\n\r\n                            </div>\r\n                            <button mat-raised-button type=\"submit\" class=\"btn btn-danger pull-right\">Add\r\n                                Education</button>\r\n                            <div class=\"clearfix\"></div>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-danger\">\r\n                        <h4 class=\"card-title\">Work Experiemce</h4>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                        <table class=\"table table-hover\" *ngIf=\"workexperienceData && workexperienceData.length\">\r\n                            <thead class=\"text-warning\">\r\n                                <th>Job Title</th>\r\n                                <th>Company</th>\r\n                                <th>Description</th>\r\n                                <th>Start Date</th>\r\n                                <th>End Date</th>\r\n                                <th>Delete</th>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let workexperience of workexperienceData\">\r\n                                    <td>{{workexperience.job_title}}</td>\r\n                                    <td>{{workexperience.company_name}}</td>\r\n                                    <td>{{workexperience.description}}</td>\r\n                                    <td>{{workexperience.start_date}}</td>\r\n                                    <td>{{workexperience.end_date}}</td>\r\n                                    <td><button mat-raised-button\r\n                                            (click)=\"deleteWorkExperience(workexperience._id)\">Delete</button></td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                        <form [(formGroup)]=\"workexperienceForm\" (ngSubmit)=\"submitWorkExperienceForm()\">\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">Job Title:</label>\r\n                                <input formControlName=\"job_title\" placeholder=\"Enter job title\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">Company Name: </label>\r\n                                <input formControlName=\"company_name\" placeholder=\"Enter company name\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">Description: </label>\r\n                                <input formControlName=\"description\" placeholder=\"Enter job description\" type=\"text\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">Start Date: </label>\r\n                                <input formControlName=\"start_date\" placeholder=\"Enter start date\" type=\"date\"\r\n                                    max=\"today\">\r\n\r\n                            </div>\r\n                            <div>\r\n\r\n                                <label class=\"col-md-2\">End Date: </label>\r\n                                <input formControlName=\"end_date\" placeholder=\"Enter end date\" type=\"date\">\r\n\r\n                            </div>\r\n                            <button mat-raised-button type=\"submit\" class=\"btn btn-danger pull-right\">Add\r\n                                Work Experince</button>\r\n                            <div class=\"clearfix\"></div>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-lg-12 col-md-12\">\n                <div class=\"card\">\n                    <div class=\"card-header card-header-warning\">\n                        <h4 class=\"card-title\">Candidates</h4>\n                    </div>\n                    <div class=\"card-header card-header-warning\">\n                                <!-- <a [routerLink]=\"'../addemployer'\"><span class=\"material-icons\">add</span>Add Employer</a> -->\n                             \n                    </div>\n                    <div class=\"card-body table-responsive\">\n                        <table class=\"table table-hover\">\n                            <thead class=\"text-warning\">\n                                <th>Candidate Name</th>\n                                <th>E-mail</th>\n                                <th>Bio</th>\n                                <th>Actions</th>\n                            </thead>\n                            <tbody>\n                                <tr *ngFor=\"let candidate of candidateData\">\n                                    <td>{{candidate.userDetails?.first_name}} {{candidate.userDetails?.last_name}}</td>\n                                    <td>{{candidate.userDetails?.email}}</td>\n                                    <td>{{candidate.bio}}</td>\n                                    <td class=\"td-actions\">\n                                        <button mat-raised-button type=\"button\"  matTooltip=\"Edit assessment\" [matTooltipPosition]=\"'above'\" class=\"btn btn-primary btn-link btn-sm btn-just-icon\" (click)=\"editCandidate(candidate._id)\">\n                                            <i class=\"material-icons\">edit</i>\n                                        </button>\n                                        <button mat-raised-button type=\"button\" (click)=\"onClickMe(candidate._id)\" matTooltip=\"Remove\" [matTooltipPosition]=\"'above'\" class=\"btn btn-danger btn-link btn-sm btn-just-icon\">\n                                            <i class=\"material-icons\">close</i>\n                                        </button>\n                                    </td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-lg-12 col-md-12\">\n                <div class=\"card\">\n                    <div class=\"card-header card-header-warning\">\n                        <h4 class=\"card-title\">Candidates</h4>\n                    </div>\n                    <div class=\"card-body table-responsive\">\n                        <table class=\"table table-hover\">\n                            <thead class=\"text-warning\">\n                                <th>Candidate Name</th>\n                                <th>E-mail</th>\n                                <th>Bio</th>\n                                <th>Actions</th>\n                            </thead>\n                            <tbody>\n                                <tr *ngFor=\"let candidate of candidateData\">\n                                    <td>{{candidate.userDetails?.first_name}} {{candidate.userDetails?.last_name}}</td>\n                                    <td>{{candidate.userDetails?.email}}</td>\n                                    <td>{{candidate.bio}}</td>\n                                    <td class=\"td-actions\">\n                                        <button mat-raised-button type=\"button\"  matTooltip=\"Edit assessment\" [matTooltipPosition]=\"'above'\" class=\"btn btn-primary btn-link btn-sm btn-just-icon\" (click)=\"editCandidate(candidate._id)\">\n                                            <i class=\"material-icons\">edit</i>\n                                        </button>\n                                        <button mat-raised-button type=\"button\" (click)=\"onClickMe(candidate._id)\" matTooltip=\"Remove\" [matTooltipPosition]=\"'above'\" class=\"btn btn-danger btn-link btn-sm btn-just-icon\">\n                                            <i class=\"material-icons\">close</i>\n                                        </button>\n                                    </td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n");
 
 /***/ }),
 
@@ -152,7 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-8\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-danger\">\r\n                        <h4 class=\"card-title\">{{ employerid ? 'Edit' : 'Add' }} Employer</h4>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                        <form [(formGroup)]=\"employerForm\" (ngSubmit)=\"submitForm()\">\r\n                            <div>\r\n                                <label>First name: </label>\r\n                                <input formControlName=\"first_name\" placeholder=\"Enter your firstname\" type=\"text\">\r\n                            </div>\r\n                            <div>\r\n                                \r\n                                <label>Last name: </label>\r\n                                    <input formControlName=\"last_name\" placeholder=\"Enter your lastname\" type=\"text\">\r\n                                \r\n                            </div>\r\n                            <div>\r\n                                \r\n                                <label>Email: </label>\r\n                                    <input formControlName=\"email\" placeholder=\"Enter your email\" type=\"email\">\r\n                                \r\n                            </div>\r\n                            <div>\r\n                                <label>Phone number: </label>\r\n                                    <input formControlName=\"phone_number\" placeholder=\"Enter your phone number\" type=\"text\">\r\n                                \r\n                            </div>\r\n\r\n                            <div>\r\n                                \r\n                                <label>Date of Birth: </label>\r\n                                    <input formControlName=\"date_of_birth\" type=\"date\">\r\n                                \r\n                            </div>\r\n                            <div>\r\n                                \r\n                                <label>Company Name: </label>    \r\n                                    <input formControlName=\"company_name\" placeholder=\"Ex. xyz\">\r\n                                \r\n                            </div>\r\n                            <div>\r\n                                <label>Company Location: </label> \r\n                                    \r\n                                    <input formControlName=\"company_location\" placeholder=\"Ex. toronto\">\r\n                                \r\n                            </div>\r\n                            <div>\r\n                                \r\n                                <label>Company Website: </label> \r\n                                    <input formControlName=\"company_website\" placeholder=\"Ex. www.xyz.com\">\r\n                                \r\n                            </div>\r\n                            <div>\r\n\r\n                                <label>Company Description: </label> \r\n                                    \r\n                                    <textarea formControlName=\"company_description\"\r\n                                        placeholder=\"Ex. It a toronto based company..\"></textarea>\r\n                                \r\n                            </div>\r\n                            \r\n                            <button mat-raised-button type=\"submit\"\r\n                                class=\"btn btn-danger pull-right\">{{ employerid ? 'Edit' : 'Add' }} Employer</button>\r\n                            <div class=\"clearfix\"></div>\r\n                            <div>\r\n                                <p [class]=\"messageClass\">{{message}}</p>\r\n                            </div>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-8\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-danger\">\r\n                        <h4 class=\"card-title\">Employer {{ employerid ? 'Profile' : 'Edit' }}</h4>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                        <form [(formGroup)]=\"employerForm\" (ngSubmit)=\"submitForm()\">\r\n                            <div>\r\n                                <label class=\"col-md-4\">First name: </label>\r\n                                <input  formControlName=\"first_name\" placeholder=\"Enter your firstname\" type=\"text\">\r\n                            </div>\r\n                            <div>\r\n                                \r\n                                <label class=\"col-md-4\">Last name: </label>\r\n                                    <input  formControlName=\"last_name\" placeholder=\"Enter your lastname\" type=\"text\">\r\n                                \r\n                            </div>\r\n                            <div>\r\n                                \r\n                                <label class=\"col-md-4\">Email: </label>\r\n                                    <input  formControlName=\"email\" placeholder=\"Enter your email\" type=\"email\">\r\n                                \r\n                            </div>\r\n                            <div>\r\n                                <label class=\"col-md-4\">Phone number: </label>\r\n                                    <input  formControlName=\"phone_number\" placeholder=\"Enter your phone number\" type=\"text\">\r\n                                \r\n                            </div>\r\n\r\n                            <div>\r\n                                \r\n                                <label class=\"col-md-4\">Date of Birth: </label>\r\n                                    <input  formControlName=\"date_of_birth\" type=\"date\">\r\n                                \r\n                            </div>\r\n                            <div>\r\n                                \r\n                                <label class=\"col-md-4\">Company Name: </label>    \r\n                                    <input  formControlName=\"company_name\" placeholder=\"Ex. xyz\">\r\n                                \r\n                            </div>\r\n                            <div>\r\n                                <label class=\"col-md-4\">Company Location: </label> \r\n                                    \r\n                                    <input  formControlName=\"company_location\" placeholder=\"Ex. toronto\">\r\n                                \r\n                            </div>\r\n                            <div>\r\n                                \r\n                                <label class=\"col-md-4\">Company Website: </label> \r\n                                    <input  formControlName=\"company_website\" placeholder=\"Ex. www.xyz.com\">\r\n                                \r\n                            </div>\r\n                            <div>\r\n\r\n                                <label class=\"col-md-4\">Company Description: </label> \r\n                                    \r\n                                    <textarea formControlName=\"company_description\"\r\n                                        placeholder=\"Ex. It a toronto based company..\"></textarea>\r\n                                \r\n                            </div>\r\n                            \r\n                            <button mat-raised-button type=\"submit\"\r\n                                class=\"btn btn-danger pull-right\">{{ employerid ? 'Edit' : 'Add' }} Employer</button>\r\n                            <div class=\"clearfix\"></div>\r\n                            <div>\r\n                                <p [class]=\"messageClass\">{{message}}</p>\r\n                            </div>\r\n                        </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -165,7 +165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div *ngFor=\"let employer of employerData\">\r\n    <p>Company Name: {{employer.company_name}}</p>\r\n    <p>Company Location: {{employer.company_location}}</p>\r\n</div> -->\r\n\r\n<!-- <p id=\"abc\">employer works!</p> -->\r\n\r\n<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12 col-md-12\">\r\n                <div class=\"card\">\r\n                    <!-- <div class=\"card-header card-header-warning\">\r\n                        <h4 class=\"card-title\">Employers</h4>\r\n                    </div> -->\r\n                    <div class=\"card-header card-header-warning\">\r\n                                <!-- <a [routerLink]=\"'../addemployer'\"><span class=\"material-icons\">add</span>Add Employer</a> -->\r\n                             \r\n                    </div>\r\n                    <div class=\"card-body table-responsive\">\r\n                        <table class=\"table table-hover\">\r\n                            <thead class=\"text-warning\">\r\n                                <th>Employer Name</th>\r\n                                <th>Company Name</th>\r\n                                <th>Location</th>\r\n                                <th>Description</th>\r\n                                <th>Actions</th>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let employer of employerData\">\r\n                                    <td>{{employer.userDetails?.first_name}} {{employer.userDetails?.last_name}}</td>\r\n                                    <td>{{employer.company_name}}</td>\r\n                                    <td>{{employer.company_location}}</td>\r\n                                    <td>{{employer.company_description}}</td>\r\n                                    <td class=\"td-actions\">\r\n                                        <button mat-raised-button type=\"button\"  matTooltip=\"Edit assessment\" [matTooltipPosition]=\"'above'\" class=\"btn btn-primary btn-link btn-sm btn-just-icon\" (click)=\"editEmployer(employer._id)\">\r\n                                            <i class=\"material-icons\">edit</i>\r\n                                        </button>\r\n                                        <button mat-raised-button type=\"button\" (click)=\"onClickMe(employer._id)\" matTooltip=\"Remove\" [matTooltipPosition]=\"'above'\" class=\"btn btn-danger btn-link btn-sm btn-just-icon\">\r\n                                            <i class=\"material-icons\">close</i>\r\n                                        </button>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12 col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-warning\">\r\n                        <h4 class=\"card-title\">Employers</h4>\r\n                    </div>\r\n                    <div class=\"card-body table-responsive\">\r\n                        <table class=\"table table-hover\">\r\n                            <thead class=\"text-warning\">\r\n                                <th>Employer Name</th>\r\n                                <th>Company Name</th>\r\n                                <th>Location</th>\r\n                                <th>Description</th>\r\n                                <th>Actions</th>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let employer of employerData\">\r\n                                    <td>{{employer.userDetails?.first_name}} {{employer.userDetails?.last_name}}</td>\r\n                                    <td>{{employer.company_name}}</td>\r\n                                    <td>{{employer.company_location}}</td>\r\n                                    <td>{{employer.company_description}}</td>\r\n                                    <td class=\"td-actions\">\r\n                                        <button mat-raised-button type=\"button\"  matTooltip=\"Edit assessment\" [matTooltipPosition]=\"'above'\" class=\"btn btn-primary btn-link btn-sm btn-just-icon\" (click)=\"editEmployer(employer._id)\">\r\n                                            <i class=\"material-icons\">edit</i>\r\n                                        </button>\r\n                                        <button mat-raised-button type=\"button\" (click)=\"onClickMe(employer._id)\" matTooltip=\"Remove\" [matTooltipPosition]=\"'above'\" class=\"btn btn-danger btn-link btn-sm btn-just-icon\">\r\n                                            <i class=\"material-icons\">close</i>\r\n                                        </button>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -230,7 +230,33 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div *ngFor=\"let jobpost of jobPostData\">\r\n    <p>Title: {{jobpost.title}}</p>\r\n    <p>Position: {{jobpost.position}}</p>\r\n</div> -->\r\n<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12 col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-warning\">\r\n                        <h4 class=\"card-title\">Job Post\r\n                            <a [routerLink]=\"'../add-job-post'\"><span class=\"material-icons\">add</span></a>\r\n                        </h4>\r\n                    </div>\r\n                    <div class=\"card-body table-responsive\">\r\n                        <table class=\"table table-hover\">\r\n                            <thead class=\"text-warning\">\r\n                                <th>Title</th>\r\n                                <th>Position</th>\r\n                                <th>Posting Date</th>\r\n                                <th>Assessment</th>\r\n                                <th>Action</th>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let jobPost of jobPostData\">\r\n                                    <td>{{jobPost.title}}</td>\r\n                                    <td>{{jobPost.position}}</td>\r\n                                    <td>{{jobPost.post_date}}</td>\r\n                                    <td><a\r\n                                            [routerLink]=\"'../submitassessment/'+jobPost.assessment_id?._id\">{{jobPost.assessment_id?.title}}</a>\r\n                                    </td>\r\n                                    <td class=\"td-actions\">\r\n                                        <button mat-raised-button type=\"button\" matTooltip=\"Edit jobPost\"\r\n                                            [matTooltipPosition]=\"'above'\"\r\n                                            class=\"btn btn-primary btn-link btn-sm btn-just-icon\"\r\n                                            (click)=\"editJobPost(jobPost._id)\">\r\n                                            <i class=\"material-icons\">edit</i>\r\n                                        </button>\r\n                                        <button mat-raised-button type=\"button\" (click)=\"onClickMe(jobPost._id)\"\r\n                                            matTooltip=\"Remove\" [matTooltipPosition]=\"'above'\"\r\n                                            class=\"btn btn-danger btn-link btn-sm btn-just-icon\">\r\n                                            <i class=\"material-icons\">close</i>\r\n                                        </button>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div *ngFor=\"let jobpost of jobPostData\">\r\n    <p>Title: {{jobpost.title}}</p>\r\n    <p>Position: {{jobpost.position}}</p>\r\n</div> -->\r\n<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-lg-12 col-md-12\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-warning\">\r\n                        <h4 class=\"card-title\">Job Post\r\n                            <a *ngIf=\"userInfo?.user?.role == 'Admin'\" [routerLink]=\"'../add-job-post'\"><span class=\"material-icons\">add</span></a>\r\n                        </h4>\r\n                    </div>\r\n                    <div class=\"card-body table-responsive\">\r\n                        <table class=\"table table-hover\">\r\n                            <thead class=\"text-warning\">\r\n                                <th>Title</th>\r\n                                <th>Position</th>\r\n                                <th>Posting Date</th>\r\n                                <th>Assessment</th>\r\n                                <th *ngIf=\"userInfo?.user?.role == 'Admin' || 'Employer'\">Action</th>\r\n                            </thead>\r\n                            <tbody>\r\n                                <tr *ngFor=\"let jobPost of jobPostData\">\r\n                                    <td><a [routerLink]=\"['../view-job-post', jobPost._id]\"> {{jobPost.title}}</a></td>\r\n                                    <td>{{jobPost.position}}</td>\r\n                                    <td>{{jobPost.post_date}}</td>\r\n                                    <td><a\r\n                                            [routerLink]=\"'../submitassessment/'+jobPost.assessment_id?._id\">{{jobPost.assessment_id?.title}}</a>\r\n                                    </td>\r\n                                    <td class=\"td-actions\">\r\n                                        <button *ngIf=\"userInfo?.user?.role == 'Admin' || 'Employer'\" mat-raised-button type=\"button\" matTooltip=\"Edit jobPost\"\r\n                                            [matTooltipPosition]=\"'above'\"\r\n                                            class=\"btn btn-primary btn-link btn-sm btn-just-icon\"\r\n                                            (click)=\"editJobPost(jobPost._id)\">\r\n                                            <i class=\"material-icons\">edit</i>\r\n                                        </button>\r\n                                        <button *ngIf=\"userInfo?.user?.role == 'Admin' || 'Employer'\" mat-raised-button type=\"button\" (click)=\"onClickMe(jobPost._id)\"\r\n                                            matTooltip=\"Remove\" [matTooltipPosition]=\"'above'\"\r\n                                            class=\"btn btn-danger btn-link btn-sm btn-just-icon\">\r\n                                            <i class=\"material-icons\">close</i>\r\n                                        </button>\r\n                                    </td>\r\n                                </tr>\r\n                            </tbody>\r\n                        </table>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/job-post/update-job-post/update-job-post.component.html":
+/*!**************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/job-post/update-job-post/update-job-post.component.html ***!
+  \**************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-8\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-danger\">\r\n                        <h4 class=\"card-title\">Edit Job Post</h4>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                    <form [(formGroup)]=\"updateJobPostForm\" (ngSubmit)=\"updateForm()\">\r\n                        <div>\r\n                                <label>Job Post Title:</label>\r\n                                <input matNativeControl formControlName=\"title\" placeholder=\"Enter job post title\" type=\"text\">\r\n                        </div>\r\n                        <div>\r\n                                <label>Additional Information: </label>\r\n                                <input matNativeControl formControlName=\"additional_info\" placeholder=\"Enter additional information\" type=\"text\">\r\n                        </div>\r\n                        <div>\r\n                                <label>Position: </label>\r\n                                <select formControlName=\"position\">\r\n                                    <option value=\"Intern\">Intern</option>\r\n                                    <option value=\"Intermediate\">Intermediate</option>\r\n                                    <option value=\"Senior\">Senior</option>\r\n                                    <option value=\"Associate\">Associate</option>\r\n                                </select>\r\n                        </div>\r\n                        <div>\r\n                                <label>Post Date: </label>\r\n                                <input matNativeControl formControlName=\"post_date\" type=\"date\">\r\n                        </div>\r\n                        <div>\r\n                                <label>Post Expiry: </label>\r\n                                <input matNativeControl formControlName=\"post_expiry\" type=\"date\">\r\n                        </div>\r\n                        <div>\r\n                                <label>Requirement: </label>\r\n                                <input matNativeControl formControlName=\"requirement\" type=\"text\">\r\n                        </div>\r\n                        <div>\r\n                                <label>Job id: </label>\r\n                                <input matNativeControl formControlName=\"job_id\" type=\"text\">\r\n                        </div>\r\n                        <div>\r\n                                <label>Assessment: </label>\r\n                                <select formControlName=\"assessment_id\">\r\n                                    <option [ngValue]=\"null\" disabled>Choose Assessment</option>\r\n                                    <option class=\"dropdown-item\" *ngFor=\"let assessment of assessmentData\" [value]=\"assessment._id\"> {{assessment.title}} </option>\r\n                                </select>\r\n                        </div>\r\n                        <div>\r\n                                <label>Employer:</label>\r\n                                <select formControlName=\"employer_id\">\r\n                                    <option [ngValue]=\"null\" disabled>Choose Employer</option>\r\n                                    <option class=\"dropdown-item\" *ngFor=\"let employer of employerData\" [value]=\"employer._id\">{{employer.company_name}}</option>\r\n                                </select>\r\n                        </div>\r\n                        <button mat-raised-button type=\"submit\" class=\"btn btn-danger pull-right\">Update Job Post</button>\r\n                        <div class=\"clearfix\"></div>\r\n                    </form>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/job-post/view-job-post/view-job-post.component.html":
+/*!**********************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/job-post/view-job-post/view-job-post.component.html ***!
+  \**********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-8\">\r\n                <div class=\"card\">\r\n                    <div class=\"card-header card-header-danger\">\r\n                        <h4 class=\"card-title\">View Job Post</h4>\r\n                    </div>\r\n                    <div class=\"card-body\">\r\n                        <div><label>Job Post Title : </label>\r\n                            {{jobPostData.title}}\r\n                        </div>\r\n                        <div><label>Additional Information : </label>\r\n                            {{jobPostData.additional_info}}\r\n                        </div>\r\n                        <div><label>Position: </label>\r\n                            {{jobPostData.position}}\r\n                        </div>\r\n                        <div><label>Post Date: </label>\r\n                            {{jobPostData.post_date}}\r\n                        </div>\r\n                        <div><label>Post Expiry: </label>\r\n                            {{jobPostData.post_expiry}}\r\n                        </div>\r\n                        <div><label>Requirement: </label>\r\n                            {{jobPostData.requirement}}\r\n\r\n                        <div><label>Job id: </label>\r\n                            {{jobPostData.job_id}}\r\n                        </div>\r\n                        <div><label>Assessment: </label>\r\n                            {{jobPostData.assessment.title}}\r\n                        </div>\r\n                        <div><label>Employer: </label>\r\n                            {{jobPostData.employer.company_name}}\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -1269,7 +1295,7 @@ var SubmitassessmentComponent = /** @class */ (function () {
     };
     SubmitassessmentComponent.prototype.submitForm = function () {
         var _this = this;
-        var candidateId = this.userInfo.candidate._id;
+        var candidateId = this.userInfo.user._id;
         console.log(this.file);
         this.assessmentService
             .submitAssessment(this.id, candidateId, this.file, this.form.value.shortnote)
@@ -1289,7 +1315,7 @@ var SubmitassessmentComponent = /** @class */ (function () {
                 case _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpEventType"].Response:
                     console.log("Assessment successfully created!", event.body);
                     _this.percentDone = false;
-                    _this.router.navigate(['/' + _this.userInfo.user.role.toLowerCase() + '/assessment']);
+                    _this.router.navigate(['/' + _this.userInfo.user.role.toLowerCase() + '/job-posts']);
             }
         });
     };
@@ -1942,6 +1968,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _candidate_candidate_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./candidate/candidate.component */ "./src/app/components/candidate/candidate.component.ts");
 /* harmony import */ var _assessment_reviewassessment_reviewassessment_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./assessment/reviewassessment/reviewassessment.component */ "./src/app/components/assessment/reviewassessment/reviewassessment.component.ts");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm5/platform-browser.js");
+/* harmony import */ var _job_post_view_job_post_view_job_post_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./job-post/view-job-post/view-job-post.component */ "./src/app/components/job-post/view-job-post/view-job-post.component.ts");
+/* harmony import */ var _job_post_update_job_post_update_job_post_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./job-post/update-job-post/update-job-post.component */ "./src/app/components/job-post/update-job-post/update-job-post.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1970,6 +1998,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 // import { AddJobPostComponent } from './job-post/add-job-post/add-job-post.component';
 // import { UpdateJobPostComponent } from './job-post/update-job-post/update-job-post.component';
 //import { AddemployerComponent } from './employer/addemployer/addemployer.component';
+
+
 
 
 
@@ -2030,7 +2060,7 @@ var ComponentsModule = /** @class */ (function () {
                 // UpdateJobPostComponent,
                 // //AddemployerComponent,
                 // AddJobPostComponent,
-                // UpdateJobPostComponent,
+                _job_post_update_job_post_update_job_post_component__WEBPACK_IMPORTED_MODULE_45__["UpdateJobPostComponent"],
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"],
                 _user_profile_user_profile_component__WEBPACK_IMPORTED_MODULE_18__["UserProfileComponent"],
                 _table_list_table_list_component__WEBPACK_IMPORTED_MODULE_17__["TableListComponent"],
@@ -2056,7 +2086,8 @@ var ComponentsModule = /** @class */ (function () {
                 _assessment_submitassessment_submitassessment_component__WEBPACK_IMPORTED_MODULE_39__["SubmitassessmentComponent"],
                 _candidate_candidate_profile_candidate_profile_component__WEBPACK_IMPORTED_MODULE_40__["CandidateProfileComponent"],
                 _candidate_candidate_component__WEBPACK_IMPORTED_MODULE_41__["CandidateComponent"],
-                _assessment_reviewassessment_reviewassessment_component__WEBPACK_IMPORTED_MODULE_42__["ReviewassessmentComponent"]
+                _assessment_reviewassessment_reviewassessment_component__WEBPACK_IMPORTED_MODULE_42__["ReviewassessmentComponent"],
+                _job_post_view_job_post_view_job_post_component__WEBPACK_IMPORTED_MODULE_44__["ViewJobPostComponent"]
             ],
             exports: [
                 _footer_footer_component__WEBPACK_IMPORTED_MODULE_3__["FooterComponent"],
@@ -2837,6 +2868,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
 /* harmony import */ var app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/data/job-post/job-post.service */ "./src/app/data/job-post/job-post.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
+/* harmony import */ var app_providers_storage_storage_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/providers/storage/storage.service */ "./src/app/providers/storage/storage.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2852,15 +2884,14 @@ var __importDefault = (undefined && undefined.__importDefault) || function (mod)
 
 
 
+
 var JobPostComponent = /** @class */ (function () {
-    // private assessmentData: any;
-    // private assessmentSubscriber: any;
-    // private employerData: any;
-    // private employerSubsciber: any;
-    function JobPostComponent(jobPostService, router) {
+    function JobPostComponent(jobPostService, router, storage) {
         var _this = this;
         this.jobPostService = jobPostService;
         this.router = router;
+        this.storage = storage;
+        this.userInfo = this.storage.get('userInfo');
         this.jobPostSubscriber = this.jobPostService.jobPostSubsciber().subscribe(function (data) {
             console.log(data);
             _this.jobPostData = data ? data.data : undefined;
@@ -2880,14 +2911,15 @@ var JobPostComponent = /** @class */ (function () {
     };
     JobPostComponent.prototype.editJobPost = function (jobPostID) {
         console.log(jobPostID);
-        this.router.navigate(['admin/update-job-post', jobPostID]);
+        this.router.navigate(['/' + this.userInfo.user.role.toLowerCase() + '/update-job-post', jobPostID]);
     };
     JobPostComponent.prototype.ngOnDestroy = function () {
         this.jobPostSubscriber.unsubscribe();
     };
     JobPostComponent.ctorParameters = function () { return [
         { type: app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_1__["JobPostService"] },
-        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+        { type: app_providers_storage_storage_service__WEBPACK_IMPORTED_MODULE_3__["StorageService"] }
     ]; };
     JobPostComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2895,9 +2927,248 @@ var JobPostComponent = /** @class */ (function () {
             template: __importDefault(__webpack_require__(/*! raw-loader!./job-post.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/job-post/job-post.component.html")).default,
             styles: [__importDefault(__webpack_require__(/*! ./job-post.component.css */ "./src/app/components/job-post/job-post.component.css")).default]
         }),
-        __metadata("design:paramtypes", [app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_1__["JobPostService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        __metadata("design:paramtypes", [app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_1__["JobPostService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], app_providers_storage_storage_service__WEBPACK_IMPORTED_MODULE_3__["StorageService"]])
     ], JobPostComponent);
     return JobPostComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/job-post/update-job-post/update-job-post.component.css":
+/*!***********************************************************************************!*\
+  !*** ./src/app/components/job-post/update-job-post/update-job-post.component.css ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvam9iLXBvc3QvdXBkYXRlLWpvYi1wb3N0L3VwZGF0ZS1qb2ItcG9zdC5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/components/job-post/update-job-post/update-job-post.component.ts":
+/*!**********************************************************************************!*\
+  !*** ./src/app/components/job-post/update-job-post/update-job-post.component.ts ***!
+  \**********************************************************************************/
+/*! exports provided: UpdateJobPostComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateJobPostComponent", function() { return UpdateJobPostComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
+/* harmony import */ var app_providers_storage_storage_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/providers/storage/storage.service */ "./src/app/providers/storage/storage.service.ts");
+/* harmony import */ var app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/data/job-post/job-post.service */ "./src/app/data/job-post/job-post.service.ts");
+/* harmony import */ var app_data_assessment_assessment_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/data/assessment/assessment.service */ "./src/app/data/assessment/assessment.service.ts");
+/* harmony import */ var app_data_employer_employer_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/data/employer/employer.service */ "./src/app/data/employer/employer.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+
+
+
+var UpdateJobPostComponent = /** @class */ (function () {
+    function UpdateJobPostComponent(fb, jobPostService, assessmentService, employerService, router, route, storageService) {
+        var _this = this;
+        this.fb = fb;
+        this.jobPostService = jobPostService;
+        this.assessmentService = assessmentService;
+        this.employerService = employerService;
+        this.router = router;
+        this.route = route;
+        this.storageService = storageService;
+        this.jobPostId = undefined;
+        this.assessmentSubscriber = this.assessmentService.assessmentSubscriber().subscribe(function (data) {
+            _this.assessmentData = data ? data.data : undefined;
+            console.log(_this.jobPostData);
+        });
+        this.assessmentService.fetchAssessments();
+        this.employerSubscriber = this.employerService.employerSubscriber().subscribe(function (data) {
+            _this.employerData = data ? data.data : undefined;
+        });
+        this.employerService.fetchEmployers();
+        this.userInfo = this.storageService.get('userInfo');
+        this.sub = this.route.params.subscribe(function (params) {
+            _this.jobPostId = params['id'];
+            if (_this.jobPostId) {
+                _this.jobPostService.fetchJobPost(_this.jobPostId).subscribe(function (response) {
+                    _this.jobPostData = response.data;
+                    _this.updateJobPostForm = _this.fb.group({
+                        title: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.title, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+                        additional_info: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.additional_info, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+                        position: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.position, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+                        post_date: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.post_date, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+                        post_expiry: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.post_expiry, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+                        requirement: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.requirement, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+                        job_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.job_id, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+                        assessment_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.assessment_id, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+                        employer_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](_this.jobPostData.jobPostDetails.employer_id, { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] })
+                    });
+                });
+            }
+        });
+        this.updateJobPostForm = this.fb.group({
+            title: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+            additional_info: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+            position: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+            post_date: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+            post_expiry: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+            requirement: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+            job_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+            assessment_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+            employer_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', { validators: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required] }),
+        });
+    }
+    UpdateJobPostComponent.prototype.ngOnInit = function () {
+    };
+    UpdateJobPostComponent.prototype.ngOnDestroy = function () {
+        this.sub.unsubscribe();
+    };
+    UpdateJobPostComponent.prototype.updateForm = function () {
+        var _this = this;
+        this.jobPostService.updateJobPost(this.updateJobPostForm.value, this.jobPostData.jobPostDetails._id).subscribe(function (response) {
+            console.log(response);
+            if (response.status == "success") {
+                _this.router.navigate(['/' + _this.userInfo.user.role.toLowerCase() + '/job-posts']);
+            }
+            else {
+                alert("Something went wrong");
+            }
+        });
+    };
+    UpdateJobPostComponent.ctorParameters = function () { return [
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] },
+        { type: app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_4__["JobPostService"] },
+        { type: app_data_assessment_assessment_service__WEBPACK_IMPORTED_MODULE_5__["AssessmentService"] },
+        { type: app_data_employer_employer_service__WEBPACK_IMPORTED_MODULE_6__["EmployerService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+        { type: app_providers_storage_storage_service__WEBPACK_IMPORTED_MODULE_3__["StorageService"] }
+    ]; };
+    UpdateJobPostComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-update-job-post',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./update-job-post.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/job-post/update-job-post/update-job-post.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./update-job-post.component.css */ "./src/app/components/job-post/update-job-post/update-job-post.component.css")).default]
+        }),
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+            app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_4__["JobPostService"],
+            app_data_assessment_assessment_service__WEBPACK_IMPORTED_MODULE_5__["AssessmentService"],
+            app_data_employer_employer_service__WEBPACK_IMPORTED_MODULE_6__["EmployerService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            app_providers_storage_storage_service__WEBPACK_IMPORTED_MODULE_3__["StorageService"]])
+    ], UpdateJobPostComponent);
+    return UpdateJobPostComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/job-post/view-job-post/view-job-post.component.css":
+/*!*******************************************************************************!*\
+  !*** ./src/app/components/job-post/view-job-post/view-job-post.component.css ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvam9iLXBvc3Qvdmlldy1qb2ItcG9zdC92aWV3LWpvYi1wb3N0LmNvbXBvbmVudC5jc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/components/job-post/view-job-post/view-job-post.component.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/components/job-post/view-job-post/view-job-post.component.ts ***!
+  \******************************************************************************/
+/*! exports provided: ViewJobPostComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewJobPostComponent", function() { return ViewJobPostComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm5/core.js");
+/* harmony import */ var app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/data/job-post/job-post.service */ "./src/app/data/job-post/job-post.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm5/router.js");
+/* harmony import */ var app_providers_storage_storage_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/providers/storage/storage.service */ "./src/app/providers/storage/storage.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (undefined && undefined.__importDefault) || function (mod) {
+  return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+
+
+
+
+var ViewJobPostComponent = /** @class */ (function () {
+    function ViewJobPostComponent(jobPostService, router, activeRoute, storageService) {
+        // this.jobPostSubscriber = this.jobPostService.jobPostSubsciber().subscribe((data: any) => {
+        //   console.log(data)
+        //   this.jobPostData = data ? data.data : undefined;
+        // })
+        this.jobPostService = jobPostService;
+        this.router = router;
+        this.activeRoute = activeRoute;
+        this.storageService = storageService;
+        this.userInfo = this.storageService.get("userInfo");
+    }
+    ViewJobPostComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        //fetching data from job post
+        this.activeRoute.paramMap.subscribe(function (params) {
+            _this.id = params.get('id');
+            _this.jobPostService.fetchJobPost(_this.id).subscribe(function (jobPostData) {
+                if (jobPostData && jobPostData.status == 'success' && jobPostData.data) {
+                    _this.jobPostData = jobPostData.data.jobPostDetails;
+                }
+            });
+        });
+    };
+    ViewJobPostComponent.prototype.ngOnDestory = function () {
+        this.jobPostSubscriber.unsubscribe();
+    };
+    ViewJobPostComponent.ctorParameters = function () { return [
+        { type: app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_1__["JobPostService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+        { type: app_providers_storage_storage_service__WEBPACK_IMPORTED_MODULE_3__["StorageService"] }
+    ]; };
+    ViewJobPostComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-view-job-post',
+            template: __importDefault(__webpack_require__(/*! raw-loader!./view-job-post.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/job-post/view-job-post/view-job-post.component.html")).default,
+            styles: [__importDefault(__webpack_require__(/*! ./view-job-post.component.css */ "./src/app/components/job-post/view-job-post/view-job-post.component.css")).default]
+        }),
+        __metadata("design:paramtypes", [app_data_job_post_job_post_service__WEBPACK_IMPORTED_MODULE_1__["JobPostService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], app_providers_storage_storage_service__WEBPACK_IMPORTED_MODULE_3__["StorageService"]])
+    ], ViewJobPostComponent);
+    return ViewJobPostComponent;
 }());
 
 
@@ -4017,7 +4288,7 @@ var SidebarEmployerComponent = /** @class */ (function () {
             // { path: './employers', title: 'Employers',  icon:'question_answer', class: '' },
             // { path: './jobApplication', title: 'Job Application',  icon:'library_books', class: '' },
             { path: './job-posts', title: 'Job Posts', icon: 'question_answer', class: '' },
-            { path: './resume', title: 'Resume', icon: 'assignment', class: '' },
+            // { path: './resume', title: 'Resume',  icon:'assignment', class: '' },
             { path: './employer-profile/' + userInfo.employer._id, title: 'Profile', icon: 'assignment', class: '' }
         ];
     }
@@ -5811,8 +6082,9 @@ var HttpService = /** @class */ (function () {
     function HttpService(http, storage) {
         this.http = http;
         this.storage = storage;
-        //private host:string = "http://localhost:3000/";
-        this.host = "https://upstaffed-kp.herokuapp.com/";
+        this.host = "http://localhost:3000/";
+        //private host:string = "https://upstaffed-humber.herokuapp.com/"; Priyanka
+        // private host:string = "https://upstaffed.herokuapp.com/";
         // private httpOptions: HttpParams;
         this.httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
@@ -6001,7 +6273,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\kshit\Documents\Web_Project\UpStaffed\frontend\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\kshit\Documents\Web_Project\UpStaffed\project-and-learning-documentations-team-terminal\frontend-design\src\main.ts */"./src/main.ts");
 
 
 /***/ })
