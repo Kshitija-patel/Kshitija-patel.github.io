@@ -6082,7 +6082,8 @@ var HttpService = /** @class */ (function () {
     function HttpService(http, storage) {
         this.http = http;
         this.storage = storage;
-        this.host = "http://localhost:3000/";
+        //private host:string = "http://localhost:3000/";
+        this.host = "https://upstaffed-kp.herokuapp.com/";
         //private host:string = "https://upstaffed-humber.herokuapp.com/"; Priyanka
         // private host:string = "https://upstaffed.herokuapp.com/";
         // private httpOptions: HttpParams;
