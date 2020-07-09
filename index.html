@@ -212,6 +212,17 @@
 				</div>
 				<div class="list-items-container row my-gallery">
 					<figure class="col-sm-6 col-md-4 list-item mb-4 mb-md-5" itemprop="associatedMedia" data-groups="all slideshow" >
+						<a :href="projects[4].project_image" itemprop="contentUrl" data-size="1024x1024">
+							<img :src="projects[4].project_image" itemprop="thumbnail" alt="Image description" />
+						</a>
+						<figcaption itemprop="caption description">
+							<div class="caption-inner">
+								<h4 class="portfolio-item-title mt-3 mb-2">{{projects[4].project_title}}</h4>
+								<div class="portfolio-item-desc">{{projects[4].project_description}} <a :href="projects[4].project_href" target="_BLANK">View live demo</a></div>
+							</div>
+						</figcaption>
+					</figure>
+					<figure class="col-sm-6 col-md-4 list-item mb-4 mb-md-5" itemprop="associatedMedia" data-groups="all slideshow" >
 						<a :href="projects[3].project_image" itemprop="contentUrl" data-size="1024x1024">
 							<img :src="projects[3].project_image" itemprop="thumbnail" alt="Image description" />
 						</a>

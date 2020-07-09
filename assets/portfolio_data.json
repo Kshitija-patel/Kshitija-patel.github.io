@@ -35,6 +35,12 @@
             "project_title" : "CSS Animation",
             "project_description" : "CSS",
             "project_href" : "https://kshitija-patel.github.io/CSS-Animation/"            
+        },
+        {
+            "project_image" : "assets/images/PuzzleGame.PNG",
+            "project_title" : "Puzzle Game",
+            "project_description" : "Vuejs",
+            "project_href" : "https://kshitija-patel.github.io/Vuejs-PuzzleGame/"            
         }
     ],
     "education" : [
